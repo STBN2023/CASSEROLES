@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:poligraph.fr)",
+      "WebFetch(domain:www.data.gouv.fr)",
+      "WebFetch(domain:github.com)",
+      "Bash(npx create-next-app@latest . --typescript --eslint --tailwind --src-dir --app --import-alias \"@/*\" --no-git --yes)",
+      "Bash(npx shadcn@latest init --defaults -y)"
+    ]
+  }
+}
