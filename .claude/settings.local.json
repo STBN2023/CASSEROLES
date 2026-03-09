@@ -5,7 +5,26 @@
       "WebFetch(domain:www.data.gouv.fr)",
       "WebFetch(domain:github.com)",
       "Bash(npx create-next-app@latest . --typescript --eslint --tailwind --src-dir --app --import-alias \"@/*\" --no-git --yes)",
-      "Bash(npx shadcn@latest init --defaults -y)"
+      "Bash(npx shadcn@latest init --defaults -y)",
+      "Bash(npx shadcn@latest add badge card input select table tabs separator)",
+      "Bash(python3 etl/run.py)",
+      "Bash(curl -s \"https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/\")",
+      "Bash(python3 -c \":*)",
+      "Bash(curl -s \"https://www.data.gouv.fr/api/1/datasets/affaires-de-corruption-en-france-par-transparency-international-france-1/\")",
+      "Bash(curl -s \"https://www.data.gouv.fr/api/1/datasets/r/f80d8e9c-989e-4c47-8b9e-48e2a7cf8ae3\")",
+      "Bash(curl -s \"https://www.nosdeputes.fr/deputes/enmandat/json\")",
+      "Bash(curl -s \"https://www.nosdeputes.fr/deputes/json\")",
+      "mcp__Claude_Preview__preview_start",
+      "WebFetch(domain:www.systeme-de-design.gouv.fr)",
+      "Bash(python3 -c \"import json; s=json.load\\(open\\(''public/data/stats.json''\\)\\); print\\(json.dumps\\({k:v for k,v in s.items\\(\\) if k.startswith\\(''nb_''\\)}, indent=2\\)\\)\")",
+      "Bash(npx next build)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(python3:*)",
+      "Bash(python etl/run.py)",
+      "WebFetch(domain:www.dila.gouv.fr)",
+      "Bash(curl -sL \"https://www.info.gouv.fr/composition-du-gouvernement\")",
+      "Bash(wc -l /Users/stephane/Documents/Dev/Casseroles/public/data/*.json)",
+      "Bash(grep -r \"parti\" /Users/stephane/Documents/Dev/Casseroles/src/app/*.tsx)"
     ]
   }
 }
