@@ -44,18 +44,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Bandeau service – inspiré DSFR */}
         <header role="banner" className="bg-white sticky top-0 z-50" style={{ borderBottom: "2px solid #000091" }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between h-14">
-              <Link href="/" className="flex items-center gap-3 no-underline" style={{ color: "#161616" }} aria-label="Casseroles – Accueil">
-                <span
-                  className="flex items-center justify-center w-9 h-9 text-white font-bold text-lg"
-                  style={{ background: "#000091", borderRadius: "4px" }}
-                  aria-hidden="true"
-                >
-                  C
-                </span>
-                <div className="leading-tight">
-                  <div className="font-bold text-sm" style={{ color: "#000091" }}>Casseroles</div>
-                  <div className="hidden sm:block text-xs" style={{ color: "#666666" }}>Observatoire de la probité des élus</div>
+            <div className="flex items-center justify-between py-3">
+              <Link href="/" className="flex items-center gap-4 no-underline" style={{ color: "#161616" }} aria-label="Casseroles – Accueil">
+                <img
+                  src="/logo-casseroles.png?v=2"
+                  alt="Casseroles – Observatoire de la probité des élus"
+                  className="h-32 w-auto"
+                  style={{ objectFit: "contain" }}
+                />
+                <div className="hidden lg:block leading-tight">
+                  <div className="text-sm font-semibold" style={{ color: "#666666" }}>Observatoire de la probité des élus</div>
                 </div>
               </Link>
               <nav aria-label="Navigation principale" className="flex items-center gap-0.5">
