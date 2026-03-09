@@ -24,7 +24,9 @@
       "WebFetch(domain:www.dila.gouv.fr)",
       "Bash(curl -sL \"https://www.info.gouv.fr/composition-du-gouvernement\")",
       "Bash(wc -l /Users/stephane/Documents/Dev/Casseroles/public/data/*.json)",
-      "Bash(grep -r \"parti\" /Users/stephane/Documents/Dev/Casseroles/src/app/*.tsx)"
+      "Bash(grep -r \"parti\" /Users/stephane/Documents/Dev/Casseroles/src/app/*.tsx)",
+      "Bash(git add src/app/layout.tsx src/app/partis/page.tsx src/components/partis/PartisGrid.tsx etl/fetch_logos.py public/data/logos/ public/logo-casseroles.png)",
+      "Bash(git commit:*)"
     ]
   }
 }
