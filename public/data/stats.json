@@ -18,36 +18,48 @@
   "repartition_partis": [
     {
       "nom": "Les Républicains",
-      "nb_elus": 18,
-      "nb_affaires": 19,
-      "nb_condamnations": 18
+      "nb_elus": 13,
+      "nb_affaires": 14,
+      "nb_condamnations": 13
     },
     {
       "nom": "Rassemblement National",
-      "nb_elus": 8,
-      "nb_affaires": 9,
-      "nb_condamnations": 8
+      "nb_elus": 11,
+      "nb_affaires": 12,
+      "nb_condamnations": 11
     },
     {
-      "nom": "Autre / Non renseigné",
+      "nom": "La France Insoumise",
       "nb_elus": 5,
       "nb_affaires": 5,
       "nb_condamnations": 5
     },
     {
-      "nom": "Parti Socialiste",
+      "nom": "Autre / Non renseigné",
       "nb_elus": 4,
       "nb_affaires": 4,
       "nb_condamnations": 4
     },
     {
-      "nom": "Parti Communiste Français",
+      "nom": "Renaissance",
+      "nb_elus": 3,
+      "nb_affaires": 3,
+      "nb_condamnations": 2
+    },
+    {
+      "nom": "Parti Socialiste",
       "nb_elus": 3,
       "nb_affaires": 3,
       "nb_condamnations": 3
     },
     {
-      "nom": "Debout la France",
+      "nom": "Horizons",
+      "nb_elus": 2,
+      "nb_affaires": 2,
+      "nb_condamnations": 2
+    },
+    {
+      "nom": "Non inscrit",
       "nb_elus": 2,
       "nb_affaires": 2,
       "nb_condamnations": 2
@@ -59,19 +71,7 @@
       "nb_condamnations": 2
     },
     {
-      "nom": "Parti de gauche",
-      "nb_elus": 1,
-      "nb_affaires": 1,
-      "nb_condamnations": 1
-    },
-    {
-      "nom": "Alliance centriste",
-      "nb_elus": 1,
-      "nb_affaires": 1,
-      "nb_condamnations": 1
-    },
-    {
-      "nom": "Nouveau Parti anticapitaliste",
+      "nom": "Parti Communiste Français",
       "nb_elus": 1,
       "nb_affaires": 1,
       "nb_condamnations": 1

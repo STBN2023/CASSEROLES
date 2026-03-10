@@ -36,14 +36,13 @@ def main():
     affaires = fetch_ti()
     print(f"      → {len(affaires)} affaires chargées")
 
-    print("\n[3/5] Enrichissement élus (Wikidata + Wikipedia)...")
-    # Source principale : Wikidata (photos + partis des députés actuels)
-    photos_dir = OUTPUT_DIR / "photos"
-    photos_dir.mkdir(parents=True, exist_ok=True)
-    deputes_wd = fetch_deputes_wikipedia(photos_dir)
-    wd_deputes_index = build_deputes_index(deputes_wd)
+    print("\n[3/5] Enrichissement élus (AN + Wikidata)...")
+    # Priorité sources :
+    #   1. assemblee-nationale.fr → groupes parlementaires (partis) + places hémicycle
+    #   2. Wikidata SPARQL        → photos + parti en fallback
+    #   3. NosDéputés.fr          → dernier recours (photo/parti)
 
-    # Source secondaire : assemblee-nationale.fr (places + groupes parlementaires)
+    # Source 1 : assemblee-nationale.fr (groupes parlementaires + places hémicycle)
     hemicycle_data = fetch_hemicycle_an()
     hemicycle_index = build_hemicycle_index(hemicycle_data)
     groupe_index = build_groupe_index(hemicycle_data)
@@ -67,7 +66,13 @@ def main():
             groupe_index[rne_key] = groupe_index[an_norm]
             groupe_index[normalise_an(rne_key)] = groupe_index[an_norm]
 
-    # Source tertiaire : NosDéputés.fr (fallback photo uniquement)
+    # Source 2 : Wikidata (photos députés actuels + parti en fallback)
+    photos_dir = OUTPUT_DIR / "photos"
+    photos_dir.mkdir(parents=True, exist_ok=True)
+    deputes_wd = fetch_deputes_wikipedia(photos_dir)
+    wd_deputes_index = build_deputes_index(deputes_wd)
+
+    # Source 3 : NosDéputés.fr (dernier recours : photo/parti)
     deputes_nd = fetch_nosdeputes()
     nd_index = build_enrichment_index(deputes_nd)
 
@@ -80,7 +85,7 @@ def main():
         nom_an = normalise_an(f"{elu['prenom']} {elu['nom']}")
         nom_an_seul = normalise_an(elu["nom"])
 
-        # 1. Assemblée nationale (source officielle : place + groupe parlementaire)
+        # 1. AN : groupe parlementaire (source prioritaire partis) + place hémicycle
         place = hemicycle_index.get(nom_norm) or hemicycle_index.get(nom_seul) or hemicycle_index.get(nom_an) or hemicycle_index.get(nom_an_seul)
         if place:
             elu["place_en_hemicycle"] = place
@@ -92,7 +97,7 @@ def main():
             elu["parti_brut"] = f"AN: {groupe_an}"
             groupe_an_count += 1
 
-        # 2. Wikidata (photos, fiche, parti en fallback si pas de groupe AN)
+        # 2. Wikidata : photos (source principale) + parti en fallback si pas de groupe AN
         match_wd = wd_deputes_index.get(nom_norm) or wd_deputes_index.get(nom_seul)
         if match_wd:
             if match_wd.get("url_photo"):
@@ -106,7 +111,7 @@ def main():
                     elu["parti_brut"] = f"Wikidata: {groupe_wd}"
             enriched_count += 1
 
-        # 3. NosDéputés (fallback photo/parti uniquement)
+        # 3. NosDéputés : dernier recours (photo/parti si rien au-dessus)
         match_nd = nd_index.get(nom_norm) or nd_index.get(nom_seul)
         if match_nd:
             if not elu.get("url_photo") and match_nd.get("url_photo"):
@@ -121,7 +126,7 @@ def main():
             if not match_wd:
                 enriched_count += 1
 
-    print(f"      → {enriched_count} élus enrichis (Wikidata + NosDéputés)")
+    print(f"      → {enriched_count} élus enrichis (photos/fiches)")
     print(f"      → {hemicycle_count} députés avec place hémicycle")
     print(f"      → {groupe_an_count} députés avec groupe AN (source officielle)")
 

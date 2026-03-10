@@ -32,9 +32,10 @@ const PARTI_ORDER: Record<string, number> = {
   "MoDem": 7,                             // Dem (Les Démocrates)
   "Horizons": 8,                          // HOR
   "Les Républicains": 9,                  // DR (Droite républicaine)
-  "Rassemblement National": 10,           // RN
-  "Non inscrit": 11,                      // NI
-  "Autre / Non renseigné": 12,            // Non renseigné (rangs du haut)
+  "Union des Droites pour la République": 10,  // UDR (Ciotti)
+  "Rassemblement National": 11,           // RN
+  "Non inscrit": 12,                      // NI
+  "Autre / Non renseigné": 13,            // Non renseigné (rangs du haut)
 }
 
 // Couleurs officielles / conventionnelles des partis
@@ -49,6 +50,7 @@ const PARTI_COLORS: Record<string, string> = {
   "MoDem": "#ff9900",                              // orange MoDem
   "Horizons": "#00b7eb",                           // bleu ciel Horizons
   "Les Républicains": "#0066cc",                   // bleu LR
+  "Union des Droites pour la République": "#3367a7", // bleu UDR (Ciotti)
   "Rassemblement National": "#0d2c6c",             // bleu marine RN
   "Non inscrit": "#999999",
   "Autre / Non renseigné": "#cccccc",

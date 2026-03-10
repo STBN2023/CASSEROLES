@@ -3,8 +3,13 @@ Récupération des places et groupes parlementaires depuis assemblee-nationale.f
 
 Source : https://www.assemblee-nationale.fr/dyn/vos-deputes/hemicycle
 - Le <select id="depute"> contient les 577 députés (value = numéro de place)
-- Le SVG contient les <path class="place" id="pN"> avec style="fill: rgb(...);"
-  dont la couleur identifie le groupe parlementaire officiel.
+- Les couleurs des sièges sont appliquées via JavaScript (non scrapable en statique).
+  On utilise une carte pré-extraite (SEAT_GROUP_MAP) obtenue depuis le rendu navigateur.
+
+Stratégie :
+  1. Scraper les noms + places depuis le <select> (fonctionne en statique)
+  2. Appliquer le groupe parlementaire via SEAT_GROUP_MAP (carte siège→groupe)
+  3. Fallback : si les couleurs inline sont disponibles, les utiliser aussi
 
 Cache local : etl/.cache/hemicycle_an.json
 """
@@ -20,7 +25,38 @@ HEMICYCLE_URL = "https://www.assemblee-nationale.fr/dyn/vos-deputes/hemicycle"
 _CACHE_DIR = Path(__file__).parent.parent / ".cache"
 _CACHE_FILE = _CACHE_DIR / "hemicycle_an.json"
 
-# Mapping couleur SVG → groupe parlementaire officiel (XVIIe législature)
+# ── Carte siège → groupe (extraite du rendu navigateur, mars 2025) ───────────
+# Chaque caractère correspond au siège n° = index dans la chaîne.
+# Codes : G=GDR, L=LFI, S=SOC, E=ECO, I=LIOT, R=REN, D=DEM, H=HOR,
+#          K=LR, U=UDR, N=RN, X=NI, _=vacant/inconnu
+_SEAT_GROUP_MAP = (
+    "_NNN_NNNNNNNNNNNNNNNNNNXNNNNN_NNNN_NN_NNNN_NNN_NNNNNNNN_NNNNN_NNN_NNN"
+    "_NNNN_NNNNNNNNNKNNUUNNUUUNNUUUUNNUUUUU_NNNNUUU_NNNNN_NNNNNNNNN_NNNNNNNNNN"
+    "_NNNNNNNNNNNNNNNX___KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK_KKKKKKK_KKKKK_KKKK"
+    "HHHHH_HHHHHHHHHH_HHHHHHHHHHHHHHHH__RR_R_RRRRRRRRRRRRRRRRRRRRRR_RRRRRRR"
+    "_RRRRR_RRRRRRRRR_RRRRRRRRRR_RRRRR_HHHXRRRRRRR_DDDDDDDDDDDDDDDDDDDDDDDDDD"
+    "_DDDDDDD_RRRRR_RDDDRRRRR__RIIRRRRRR_XXIII_RRRRXXXXXII_SSSSSSSSSSSSSSSSSSSS"
+    "SSSSSS_SSSSSSS_SSSSS_SSSSIIISS_SSSSIIIIII_SSSSS__IIIIIISSSSS__E__EEEEEEEEE"
+    "EEEEEEEEEEEEEEEELLL_EEEELLL_EEEEE_LLLLEEEEL_LLLLSSSSSL_LLLLL__SSSSSSLLLLL"
+    "_GGG_GGGGGGGGGGGGGGLLLL_LLLLLL_LL_LLLL_LLL_LLLL_LLLLLLLL_LLL_LLLL__LLLL__LLL"
+)
+
+_CODE_TO_GROUPE: dict[str, str] = {
+    "G": "Gauche démocrate et républicaine",
+    "L": "La France Insoumise",
+    "S": "Parti Socialiste",
+    "E": "Les Écologistes",
+    "I": "Libertés, Indépendants, Outre-mer et Territoires",
+    "R": "Renaissance",
+    "D": "MoDem",
+    "H": "Horizons",
+    "K": "Les Républicains",
+    "U": "Union des Droites pour la République",
+    "N": "Rassemblement National",
+    "X": "Non inscrit",
+}
+
+# Mapping couleur SVG inline → groupe (fallback si les couleurs reviennent)
 _COLOR_TO_GROUPE: dict[str, str] = {
     "rgb(131, 14, 33)":   "Gauche démocrate et républicaine",
     "rgb(192, 13, 13)":   "La France Insoumise",
@@ -35,6 +71,14 @@ _COLOR_TO_GROUPE: dict[str, str] = {
     "rgb(49, 53, 103)":   "Rassemblement National",
     "rgb(141, 148, 154)": "Non inscrit",
 }
+
+
+def _seat_groupe(place: int) -> str:
+    """Retourne le groupe parlementaire pour un numéro de siège via la carte."""
+    if 0 <= place < len(_SEAT_GROUP_MAP):
+        code = _SEAT_GROUP_MAP[place]
+        return _CODE_TO_GROUPE.get(code, "")
+    return ""
 
 
 class _HemicycleParser(HTMLParser):
@@ -67,7 +111,7 @@ class _HemicycleParser(HTMLParser):
             if "place" in cls and pid.startswith("p"):
                 try:
                     num = int(pid[1:])
-                    # Extraire fill: rgb(...) du style
+                    # Extraire fill: rgb(...) du style (si disponible)
                     m = re.search(r"fill:\s*(rgb\([^)]+\))", style)
                     if m:
                         self.seat_colors[num] = m.group(1)
@@ -137,11 +181,16 @@ def fetch_hemicycle_an() -> list[dict]:
                 return cached
             return deputies
 
-        # Enrichir avec le groupe parlementaire via la couleur du siège
+        # Enrichir avec le groupe parlementaire
         nb_grouped = 0
         for dep in deputies:
-            color = parser.seat_colors.get(dep["place"], "")
+            place = dep["place"]
+            # 1. Essayer les couleurs inline SVG (ancien format, si disponible)
+            color = parser.seat_colors.get(place, "")
             groupe = _COLOR_TO_GROUPE.get(color, "")
+            # 2. Sinon, utiliser la carte siège→groupe pré-extraite
+            if not groupe:
+                groupe = _seat_groupe(place)
             dep["groupe"] = groupe
             if groupe:
                 nb_grouped += 1
@@ -213,7 +262,6 @@ def build_hemicycle_index(deputies: list[dict]) -> dict[str, int]:
             index[parts[-1]] = place
             # Si nom composé avec tiret, indexer aussi le premier segment
             # Ex: "abadie-amiel" → indexer "abadie"
-            last = parts[-1]
             if "-" in name.lower():
                 # Reconstruire prénom + premier segment du nom composé
                 nom_parts = key_norm.split()

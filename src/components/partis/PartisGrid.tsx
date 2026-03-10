@@ -19,6 +19,9 @@ const PARTI_LOGOS: Record<string, string> = {
   "Nouveau Parti anticapitaliste": "/data/logos/nouveau_parti_anticapitaliste.png",
   "UDF": "/data/logos/udf.png",
   "Parti radical de gauche": "/data/logos/parti_radical_de_gauche.png",
+  "Gauche démocrate et républicaine": "/data/logos/gauche_democrate_republicaine.png",
+  "Union des Droites pour la République": "/data/logos/union_des_droites_pour_la_republique.png",
+  "Libertés, Indépendants, Outre-mer et Territoires": "/data/logos/liot.png",
 }
 
 /* Couleurs et abréviations fallback (quand pas de logo) */
@@ -37,6 +40,7 @@ const PARTI_STYLE: Record<string, { abbr: string; bg: string; text: string }> = 
   "Parti Communiste Français":  { abbr: "PCF", bg: "#dd0000", text: "#fff" },
   "Gauche démocrate et républicaine": { abbr: "GDR", bg: "#c41e3a", text: "#fff" },
   "Parti de gauche":            { abbr: "PG",  bg: "#bb0000", text: "#fff" },
+  "Union des Droites pour la République": { abbr: "UDR", bg: "#3367a7", text: "#fff" },
   "Reconquête":                 { abbr: "R!",  bg: "#1a1a2e", text: "#fff" },
   "Non inscrit":                { abbr: "NI",  bg: "#999", text: "#fff" },
   "Libertés, Indépendants, Outre-mer et Territoires": { abbr: "LIOT", bg: "#5b7c99", text: "#fff" },

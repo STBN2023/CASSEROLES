@@ -1,10 +1,10 @@
 [
   {
     "nom": "Les Républicains",
-    "nb_elus_total": 364,
-    "nb_elus_concernes": 13,
-    "nb_affaires": 14,
-    "nb_condamnations": 14,
+    "nb_elus_total": 328,
+    "nb_elus_concernes": 10,
+    "nb_affaires": 11,
+    "nb_condamnations": 11,
     "nb_mises_en_examen": 0,
     "nb_enquetes": 0,
     "total_amendes_euros": 0,
@@ -12,30 +12,9 @@
     "nb_avec_ineligibilite": 0,
     "elus_concernes": [
       {
-        "id": "deputes_marcangeli_laurent_10/12/1980",
-        "prenom": "Laurent",
-        "nom": "MARCANGELI",
-        "score": 3,
-        "nb_affaires": 1
-      },
-      {
         "id": "deputes_wauquiez_laurent_12/04/1975",
         "prenom": "Laurent",
         "nom": "WAUQUIEZ",
-        "score": 3,
-        "nb_affaires": 1
-      },
-      {
-        "id": "deputes_pradié_aurélien_14/03/1986",
-        "prenom": "Aurélien",
-        "nom": "PRADIÉ",
-        "score": 3,
-        "nb_affaires": 1
-      },
-      {
-        "id": "deputes_olive_karl_29/03/1969",
-        "prenom": "Karl",
-        "nom": "OLIVE",
         "score": 3,
         "nb_affaires": 1
       },
@@ -106,10 +85,10 @@
   },
   {
     "nom": "Rassemblement National",
-    "nb_elus_total": 311,
-    "nb_elus_concernes": 6,
-    "nb_affaires": 7,
-    "nb_condamnations": 7,
+    "nb_elus_total": 789,
+    "nb_elus_concernes": 8,
+    "nb_affaires": 9,
+    "nb_condamnations": 9,
     "nb_mises_en_examen": 0,
     "nb_enquetes": 0,
     "total_amendes_euros": 0,
@@ -120,6 +99,13 @@
         "id": "deputes_gillet_yoann_29/08/1986",
         "prenom": "Yoann",
         "nom": "GILLET",
+        "score": 3,
+        "nb_affaires": 1
+      },
+      {
+        "id": "deputes_jacobelli_laurent_13/10/1969",
+        "prenom": "Laurent",
+        "nom": "JACOBELLI",
         "score": 3,
         "nb_affaires": 1
       },
@@ -157,15 +143,22 @@
         "nom": "SANCHEZ",
         "score": 3,
         "nb_affaires": 1
+      },
+      {
+        "id": "maires_martin_robert_02/03/1952",
+        "prenom": "Robert",
+        "nom": "MARTIN",
+        "score": 3,
+        "nb_affaires": 1
       }
     ]
   },
   {
     "nom": "Autre / Non renseigné",
-    "nb_elus_total": 39799,
-    "nb_elus_concernes": 5,
-    "nb_affaires": 5,
-    "nb_condamnations": 5,
+    "nb_elus_total": 38690,
+    "nb_elus_concernes": 4,
+    "nb_affaires": 4,
+    "nb_condamnations": 4,
     "nb_mises_en_examen": 0,
     "nb_enquetes": 0,
     "total_amendes_euros": 0,
@@ -176,13 +169,6 @@
         "id": "maires_mathieu_philippe_22/05/1959",
         "prenom": "Philippe",
         "nom": "MATHIEU",
-        "score": 3,
-        "nb_affaires": 1
-      },
-      {
-        "id": "maires_martin_robert_02/03/1952",
-        "prenom": "Robert",
-        "nom": "MARTIN",
         "score": 3,
         "nb_affaires": 1
       },
@@ -210,8 +196,8 @@
     ]
   },
   {
-    "nom": "Parti Socialiste",
-    "nb_elus_total": 252,
+    "nom": "La France Insoumise",
+    "nb_elus_total": 235,
     "nb_elus_concernes": 4,
     "nb_affaires": 4,
     "nb_condamnations": 4,
@@ -222,9 +208,16 @@
     "nb_avec_ineligibilite": 0,
     "elus_concernes": [
       {
-        "id": "deputes_lachaud_bastien_05/08/1980",
-        "prenom": "Bastien",
-        "nom": "LACHAUD",
+        "id": "deputes_bompard_manuel_30/03/1986",
+        "prenom": "Manuel",
+        "nom": "BOMPARD",
+        "score": 3,
+        "nb_affaires": 1
+      },
+      {
+        "id": "deputes_arnault_raphaël_08/01/1995",
+        "prenom": "Raphaël",
+        "nom": "ARNAULT",
         "score": 3,
         "nb_affaires": 1
       },
@@ -232,6 +225,34 @@
         "id": "deputes_taché_aurélien_26/05/1984",
         "prenom": "Aurélien",
         "nom": "TACHÉ",
+        "score": 3,
+        "nb_affaires": 1
+      },
+      {
+        "id": "deputes_ratenon_jean-hugues_25/06/1967",
+        "prenom": "Jean-Hugues",
+        "nom": "RATENON",
+        "score": 3,
+        "nb_affaires": 1
+      }
+    ]
+  },
+  {
+    "nom": "Parti Socialiste",
+    "nb_elus_total": 416,
+    "nb_elus_concernes": 3,
+    "nb_affaires": 3,
+    "nb_condamnations": 3,
+    "nb_mises_en_examen": 0,
+    "nb_enquetes": 0,
+    "total_amendes_euros": 0,
+    "nb_avec_prison": 0,
+    "nb_avec_ineligibilite": 0,
+    "elus_concernes": [
+      {
+        "id": "deputes_lachaud_bastien_05/08/1980",
+        "prenom": "Bastien",
+        "nom": "LACHAUD",
         "score": 3,
         "nb_affaires": 1
       },
@@ -252,45 +273,24 @@
     ]
   },
   {
-    "nom": "Parti Communiste Français",
-    "nb_elus_total": 17,
+    "nom": "Renaissance",
+    "nb_elus_total": 327,
     "nb_elus_concernes": 2,
     "nb_affaires": 2,
-    "nb_condamnations": 2,
-    "nb_mises_en_examen": 0,
-    "nb_enquetes": 0,
-    "total_amendes_euros": 0,
-    "nb_avec_prison": 0,
-    "nb_avec_ineligibilite": 0,
-    "elus_concernes": [
-      {
-        "id": "deputes_delogu_sébastien_08/06/1987",
-        "prenom": "Sébastien",
-        "nom": "DELOGU",
-        "score": 3,
-        "nb_affaires": 1
-      },
-      {
-        "id": "deputes_ratenon_jean-hugues_25/06/1967",
-        "prenom": "Jean-Hugues",
-        "nom": "RATENON",
-        "score": 3,
-        "nb_affaires": 1
-      }
-    ]
-  },
-  {
-    "nom": "Renaissance",
-    "nb_elus_total": 268,
-    "nb_elus_concernes": 1,
-    "nb_affaires": 1,
-    "nb_condamnations": 0,
+    "nb_condamnations": 1,
     "nb_mises_en_examen": 0,
     "nb_enquetes": 1,
     "total_amendes_euros": 0,
     "nb_avec_prison": 0,
     "nb_avec_ineligibilite": 0,
     "elus_concernes": [
+      {
+        "id": "deputes_olive_karl_29/03/1969",
+        "prenom": "Karl",
+        "nom": "OLIVE",
+        "score": 3,
+        "nb_affaires": 1
+      },
       {
         "id": "conseillers_regionaux_bergé_aurore_13/11/1986",
         "prenom": "Aurore",
@@ -301,11 +301,11 @@
     ]
   },
   {
-    "nom": "UDF",
-    "nb_elus_total": 47,
-    "nb_elus_concernes": 1,
-    "nb_affaires": 1,
-    "nb_condamnations": 1,
+    "nom": "Horizons",
+    "nb_elus_total": 203,
+    "nb_elus_concernes": 2,
+    "nb_affaires": 2,
+    "nb_condamnations": 2,
     "nb_mises_en_examen": 0,
     "nb_enquetes": 0,
     "total_amendes_euros": 0,
@@ -313,26 +313,12 @@
     "nb_avec_ineligibilite": 0,
     "elus_concernes": [
       {
-        "id": "conseillers_regionaux_fanget_michel_03/05/1950",
-        "prenom": "Michel",
-        "nom": "FANGET",
+        "id": "deputes_marcangeli_laurent_10/12/1980",
+        "prenom": "Laurent",
+        "nom": "MARCANGELI",
         "score": 3,
         "nb_affaires": 1
-      }
-    ]
-  },
-  {
-    "nom": "Horizons",
-    "nb_elus_total": 26,
-    "nb_elus_concernes": 1,
-    "nb_affaires": 1,
-    "nb_condamnations": 1,
-    "nb_mises_en_examen": 0,
-    "nb_enquetes": 0,
-    "total_amendes_euros": 0,
-    "nb_avec_prison": 0,
-    "nb_avec_ineligibilite": 0,
-    "elus_concernes": [
+      },
       {
         "id": "maires_vincendet_alexandre_06/10/1983",
         "prenom": "Alexandre",
@@ -343,92 +329,8 @@
     ]
   },
   {
-    "nom": "Parti de gauche",
-    "nb_elus_total": 21,
-    "nb_elus_concernes": 1,
-    "nb_affaires": 1,
-    "nb_condamnations": 1,
-    "nb_mises_en_examen": 0,
-    "nb_enquetes": 0,
-    "total_amendes_euros": 0,
-    "nb_avec_prison": 0,
-    "nb_avec_ineligibilite": 0,
-    "elus_concernes": [
-      {
-        "id": "deputes_bompard_manuel_30/03/1986",
-        "prenom": "Manuel",
-        "nom": "BOMPARD",
-        "score": 3,
-        "nb_affaires": 1
-      }
-    ]
-  },
-  {
-    "nom": "Parti radical de gauche",
-    "nb_elus_total": 11,
-    "nb_elus_concernes": 1,
-    "nb_affaires": 1,
-    "nb_condamnations": 1,
-    "nb_mises_en_examen": 0,
-    "nb_enquetes": 0,
-    "total_amendes_euros": 0,
-    "nb_avec_prison": 0,
-    "nb_avec_ineligibilite": 0,
-    "elus_concernes": [
-      {
-        "id": "conseillers_departementaux_baylet_jean-michel_17/11/1946",
-        "prenom": "Jean-Michel",
-        "nom": "BAYLET",
-        "score": 3,
-        "nb_affaires": 1
-      }
-    ]
-  },
-  {
-    "nom": "Debout la France",
-    "nb_elus_total": 4,
-    "nb_elus_concernes": 1,
-    "nb_affaires": 1,
-    "nb_condamnations": 1,
-    "nb_mises_en_examen": 0,
-    "nb_enquetes": 0,
-    "total_amendes_euros": 0,
-    "nb_avec_prison": 0,
-    "nb_avec_ineligibilite": 0,
-    "elus_concernes": [
-      {
-        "id": "deputes_jacobelli_laurent_13/10/1969",
-        "prenom": "Laurent",
-        "nom": "JACOBELLI",
-        "score": 3,
-        "nb_affaires": 1
-      }
-    ]
-  },
-  {
-    "nom": "Nouveau Parti anticapitaliste",
-    "nb_elus_total": 4,
-    "nb_elus_concernes": 1,
-    "nb_affaires": 1,
-    "nb_condamnations": 1,
-    "nb_mises_en_examen": 0,
-    "nb_enquetes": 0,
-    "total_amendes_euros": 0,
-    "nb_avec_prison": 0,
-    "nb_avec_ineligibilite": 0,
-    "elus_concernes": [
-      {
-        "id": "deputes_arnault_raphaël_08/01/1995",
-        "prenom": "Raphaël",
-        "nom": "ARNAULT",
-        "score": 3,
-        "nb_affaires": 1
-      }
-    ]
-  },
-  {
-    "nom": "Alliance centriste",
-    "nb_elus_total": 1,
+    "nom": "MoDem",
+    "nb_elus_total": 237,
     "nb_elus_concernes": 1,
     "nb_affaires": 1,
     "nb_condamnations": 1,
@@ -448,60 +350,92 @@
     ]
   },
   {
-    "nom": "Les Écologistes",
-    "nb_elus_total": 136,
-    "nb_elus_concernes": 0,
-    "nb_affaires": 0,
-    "nb_condamnations": 0,
-    "nb_mises_en_examen": 0,
-    "nb_enquetes": 0,
-    "total_amendes_euros": 0,
-    "nb_avec_prison": 0,
-    "nb_avec_ineligibilite": 0,
-    "elus_concernes": []
-  },
-  {
-    "nom": "MoDem",
-    "nb_elus_total": 130,
-    "nb_elus_concernes": 0,
-    "nb_affaires": 0,
-    "nb_condamnations": 0,
-    "nb_mises_en_examen": 0,
-    "nb_enquetes": 0,
-    "total_amendes_euros": 0,
-    "nb_avec_prison": 0,
-    "nb_avec_ineligibilite": 0,
-    "elus_concernes": []
-  },
-  {
-    "nom": "La France Insoumise",
-    "nb_elus_total": 97,
-    "nb_elus_concernes": 0,
-    "nb_affaires": 0,
-    "nb_condamnations": 0,
-    "nb_mises_en_examen": 0,
-    "nb_enquetes": 0,
-    "total_amendes_euros": 0,
-    "nb_avec_prison": 0,
-    "nb_avec_ineligibilite": 0,
-    "elus_concernes": []
-  },
-  {
-    "nom": "Libres",
-    "nb_elus_total": 23,
-    "nb_elus_concernes": 0,
-    "nb_affaires": 0,
-    "nb_condamnations": 0,
-    "nb_mises_en_examen": 0,
-    "nb_enquetes": 0,
-    "total_amendes_euros": 0,
-    "nb_avec_prison": 0,
-    "nb_avec_ineligibilite": 0,
-    "elus_concernes": []
-  },
-  {
     "nom": "Non inscrit",
-    "nb_elus_total": 21,
+    "nb_elus_total": 134,
+    "nb_elus_concernes": 1,
+    "nb_affaires": 1,
+    "nb_condamnations": 1,
+    "nb_mises_en_examen": 0,
+    "nb_enquetes": 0,
+    "total_amendes_euros": 0,
+    "nb_avec_prison": 0,
+    "nb_avec_ineligibilite": 0,
+    "elus_concernes": [
+      {
+        "id": "deputes_pradié_aurélien_14/03/1986",
+        "prenom": "Aurélien",
+        "nom": "PRADIÉ",
+        "score": 3,
+        "nb_affaires": 1
+      }
+    ]
+  },
+  {
+    "nom": "Parti radical de gauche",
+    "nb_elus_total": 2,
+    "nb_elus_concernes": 1,
+    "nb_affaires": 1,
+    "nb_condamnations": 1,
+    "nb_mises_en_examen": 0,
+    "nb_enquetes": 0,
+    "total_amendes_euros": 0,
+    "nb_avec_prison": 0,
+    "nb_avec_ineligibilite": 0,
+    "elus_concernes": [
+      {
+        "id": "conseillers_departementaux_baylet_jean-michel_17/11/1946",
+        "prenom": "Jean-Michel",
+        "nom": "BAYLET",
+        "score": 3,
+        "nb_affaires": 1
+      }
+    ]
+  },
+  {
+    "nom": "Parti Communiste Français",
+    "nb_elus_total": 1,
+    "nb_elus_concernes": 1,
+    "nb_affaires": 1,
+    "nb_condamnations": 1,
+    "nb_mises_en_examen": 0,
+    "nb_enquetes": 0,
+    "total_amendes_euros": 0,
+    "nb_avec_prison": 0,
+    "nb_avec_ineligibilite": 0,
+    "elus_concernes": [
+      {
+        "id": "deputes_delogu_sébastien_08/06/1987",
+        "prenom": "Sébastien",
+        "nom": "DELOGU",
+        "score": 3,
+        "nb_affaires": 1
+      }
+    ]
+  },
+  {
+    "nom": "UDF",
+    "nb_elus_total": 1,
+    "nb_elus_concernes": 1,
+    "nb_affaires": 1,
+    "nb_condamnations": 1,
+    "nb_mises_en_examen": 0,
+    "nb_enquetes": 0,
+    "total_amendes_euros": 0,
+    "nb_avec_prison": 0,
+    "nb_avec_ineligibilite": 0,
+    "elus_concernes": [
+      {
+        "id": "conseillers_regionaux_fanget_michel_03/05/1950",
+        "prenom": "Michel",
+        "nom": "FANGET",
+        "score": 3,
+        "nb_affaires": 1
+      }
+    ]
+  },
+  {
+    "nom": "Les Écologistes",
+    "nb_elus_total": 172,
     "nb_elus_concernes": 0,
     "nb_affaires": 0,
     "nb_condamnations": 0,
@@ -513,60 +447,8 @@
     "elus_concernes": []
   },
   {
-    "nom": "Révolution écologique pour le vivant",
-    "nb_elus_total": 18,
-    "nb_elus_concernes": 0,
-    "nb_affaires": 0,
-    "nb_condamnations": 0,
-    "nb_mises_en_examen": 0,
-    "nb_enquetes": 0,
-    "total_amendes_euros": 0,
-    "nb_avec_prison": 0,
-    "nb_avec_ineligibilite": 0,
-    "elus_concernes": []
-  },
-  {
-    "nom": "Union des droites pour la République",
-    "nb_elus_total": 16,
-    "nb_elus_concernes": 0,
-    "nb_affaires": 0,
-    "nb_condamnations": 0,
-    "nb_mises_en_examen": 0,
-    "nb_enquetes": 0,
-    "total_amendes_euros": 0,
-    "nb_avec_prison": 0,
-    "nb_avec_ineligibilite": 0,
-    "elus_concernes": []
-  },
-  {
-    "nom": "Reconquête",
-    "nb_elus_total": 15,
-    "nb_elus_concernes": 0,
-    "nb_affaires": 0,
-    "nb_condamnations": 0,
-    "nb_mises_en_examen": 0,
-    "nb_enquetes": 0,
-    "total_amendes_euros": 0,
-    "nb_avec_prison": 0,
-    "nb_avec_ineligibilite": 0,
-    "elus_concernes": []
-  },
-  {
-    "nom": "RPR",
-    "nb_elus_total": 12,
-    "nb_elus_concernes": 0,
-    "nb_affaires": 0,
-    "nb_condamnations": 0,
-    "nb_mises_en_examen": 0,
-    "nb_enquetes": 0,
-    "total_amendes_euros": 0,
-    "nb_avec_prison": 0,
-    "nb_avec_ineligibilite": 0,
-    "elus_concernes": []
-  },
-  {
-    "nom": "Pour La Réunion",
-    "nb_elus_total": 11,
+    "nom": "Union des Droites pour la République",
+    "nb_elus_total": 55,
     "nb_elus_concernes": 0,
     "nb_affaires": 0,
     "nb_condamnations": 0,
@@ -579,7 +461,7 @@
   },
   {
     "nom": "Gauche démocrate et républicaine",
-    "nb_elus_total": 8,
+    "nb_elus_total": 52,
     "nb_elus_concernes": 0,
     "nb_affaires": 0,
     "nb_condamnations": 0,
@@ -591,8 +473,8 @@
     "elus_concernes": []
   },
   {
-    "nom": "Pè a Corsica",
-    "nb_elus_total": 7,
+    "nom": "Pour La Réunion",
+    "nb_elus_total": 6,
     "nb_elus_concernes": 0,
     "nb_affaires": 0,
     "nb_condamnations": 0,
@@ -605,110 +487,6 @@
   },
   {
     "nom": "Libertés, Indépendants, Outre-mer et Territoires",
-    "nb_elus_total": 5,
-    "nb_elus_concernes": 0,
-    "nb_affaires": 0,
-    "nb_condamnations": 0,
-    "nb_mises_en_examen": 0,
-    "nb_enquetes": 0,
-    "total_amendes_euros": 0,
-    "nb_avec_prison": 0,
-    "nb_avec_ineligibilite": 0,
-    "elus_concernes": []
-  },
-  {
-    "nom": "Euskal Herria Bai",
-    "nb_elus_total": 5,
-    "nb_elus_concernes": 0,
-    "nb_affaires": 0,
-    "nb_condamnations": 0,
-    "nb_mises_en_examen": 0,
-    "nb_enquetes": 0,
-    "total_amendes_euros": 0,
-    "nb_avec_prison": 0,
-    "nb_avec_ineligibilite": 0,
-    "elus_concernes": []
-  },
-  {
-    "nom": "Génération.s",
-    "nb_elus_total": 4,
-    "nb_elus_concernes": 0,
-    "nb_affaires": 0,
-    "nb_condamnations": 0,
-    "nb_mises_en_examen": 0,
-    "nb_enquetes": 0,
-    "total_amendes_euros": 0,
-    "nb_avec_prison": 0,
-    "nb_avec_ineligibilite": 0,
-    "elus_concernes": []
-  },
-  {
-    "nom": "Allons enfants",
-    "nb_elus_total": 3,
-    "nb_elus_concernes": 0,
-    "nb_affaires": 0,
-    "nb_condamnations": 0,
-    "nb_mises_en_examen": 0,
-    "nb_enquetes": 0,
-    "total_amendes_euros": 0,
-    "nb_avec_prison": 0,
-    "nb_avec_ineligibilite": 0,
-    "elus_concernes": []
-  },
-  {
-    "nom": "Archipel demain",
-    "nb_elus_total": 3,
-    "nb_elus_concernes": 0,
-    "nb_affaires": 0,
-    "nb_condamnations": 0,
-    "nb_mises_en_examen": 0,
-    "nb_enquetes": 0,
-    "total_amendes_euros": 0,
-    "nb_avec_prison": 0,
-    "nb_avec_ineligibilite": 0,
-    "elus_concernes": []
-  },
-  {
-    "nom": "Ligue communiste révolutionnaire",
-    "nb_elus_total": 2,
-    "nb_elus_concernes": 0,
-    "nb_affaires": 0,
-    "nb_condamnations": 0,
-    "nb_mises_en_examen": 0,
-    "nb_enquetes": 0,
-    "total_amendes_euros": 0,
-    "nb_avec_prison": 0,
-    "nb_avec_ineligibilite": 0,
-    "elus_concernes": []
-  },
-  {
-    "nom": "Divers gauche",
-    "nb_elus_total": 2,
-    "nb_elus_concernes": 0,
-    "nb_affaires": 0,
-    "nb_condamnations": 0,
-    "nb_mises_en_examen": 0,
-    "nb_enquetes": 0,
-    "total_amendes_euros": 0,
-    "nb_avec_prison": 0,
-    "nb_avec_ineligibilite": 0,
-    "elus_concernes": []
-  },
-  {
-    "nom": "Agir, la droite constructive",
-    "nb_elus_total": 2,
-    "nb_elus_concernes": 0,
-    "nb_affaires": 0,
-    "nb_condamnations": 0,
-    "nb_mises_en_examen": 0,
-    "nb_enquetes": 0,
-    "total_amendes_euros": 0,
-    "nb_avec_prison": 0,
-    "nb_avec_ineligibilite": 0,
-    "elus_concernes": []
-  },
-  {
-    "nom": "Ligue du Sud",
     "nb_elus_total": 2,
     "nb_elus_concernes": 0,
     "nb_affaires": 0,
