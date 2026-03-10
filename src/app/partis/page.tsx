@@ -12,6 +12,7 @@ export default function PartisPage() {
   const partis = getPartisDetail()
 
   const nbPartis = partis.length
+  const nbPartisAvecAffaires = partis.filter((p) => p.nb_affaires > 0).length
   const nbElusConcernes = partis.reduce((s, p) => s + p.nb_elus_concernes, 0)
   const nbAffairesTotal = partis.reduce((s, p) => s + p.nb_affaires, 0)
   const totalAmendes = partis.reduce((s, p) => s + p.total_amendes_euros, 0)
@@ -24,8 +25,7 @@ export default function PartisPage() {
         </h1>
         <p className="mt-1 text-sm text-gray-500">
           Répartition des affaires judiciaires par formation politique.
-          Seuls les partis comptant au moins un élu avec une affaire
-          documentée sont affichés.
+          Tous les partis représentés à l&apos;Assemblée nationale sont affichés.
         </p>
       </div>
 
@@ -36,7 +36,7 @@ export default function PartisPage() {
             {nbPartis}
           </p>
           <p className="text-sm text-gray-500 mt-0.5">
-            Partis concernés
+            Partis ({nbPartisAvecAffaires} avec affaires)
           </p>
         </div>
         <div className="bg-white rounded-xl border border-gray-200 p-4 text-center">

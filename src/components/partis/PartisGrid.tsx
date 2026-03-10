@@ -34,6 +34,13 @@ const PARTI_STYLE: Record<string, { abbr: string; bg: string; text: string }> = 
   "Nouveau Parti anticapitaliste": { abbr: "NPA", bg: "#8b0000", text: "#fff" },
   "UDF":                        { abbr: "UDF", bg: "#2e86c1", text: "#fff" },
   "Parti radical de gauche":    { abbr: "PRG", bg: "#d4a017", text: "#fff" },
+  "Parti Communiste Français":  { abbr: "PCF", bg: "#dd0000", text: "#fff" },
+  "Gauche démocrate et républicaine": { abbr: "GDR", bg: "#c41e3a", text: "#fff" },
+  "Parti de gauche":            { abbr: "PG",  bg: "#bb0000", text: "#fff" },
+  "Reconquête":                 { abbr: "R!",  bg: "#1a1a2e", text: "#fff" },
+  "Non inscrit":                { abbr: "NI",  bg: "#999", text: "#fff" },
+  "Libertés, Indépendants, Outre-mer et Territoires": { abbr: "LIOT", bg: "#5b7c99", text: "#fff" },
+  "Autre / Non renseigné":      { abbr: "AU",  bg: "#888", text: "#fff" },
 }
 
 const DEFAULT_STYLE = { abbr: "?", bg: "#666", text: "#fff" }
@@ -81,11 +88,20 @@ export default function PartisGrid({ partis }: { partis: PartiDetail[] }) {
                 <p className="text-sm font-semibold text-gray-900 leading-tight">
                   {parti.nom}
                 </p>
-                <p className="text-2xl font-bold mt-1" style={{ color: "#ce0500" }}>
-                  {parti.nb_affaires}
-                  <span className="text-xs font-normal text-gray-400 ml-1">
-                    casserole{parti.nb_affaires > 1 ? "s" : ""}
-                  </span>
+                {parti.nb_affaires > 0 ? (
+                  <p className="text-2xl font-bold mt-1" style={{ color: "#ce0500" }}>
+                    {parti.nb_affaires}
+                    <span className="text-xs font-normal text-gray-400 ml-1">
+                      casserole{parti.nb_affaires > 1 ? "s" : ""}
+                    </span>
+                  </p>
+                ) : (
+                  <p className="text-sm mt-1 text-[#18753c] font-medium">
+                    ✓ Aucune affaire
+                  </p>
+                )}
+                <p className="text-[11px] text-gray-400 mt-0.5">
+                  {parti.nb_elus_total.toLocaleString("fr-FR")} élu{parti.nb_elus_total > 1 ? "s" : ""}
                 </p>
               </div>
             </button>

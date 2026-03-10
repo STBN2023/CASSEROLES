@@ -12,8 +12,11 @@ sys.path.insert(0, str(Path(__file__).parent))
 from sources.fetch_rne import fetch_all as fetch_rne, normalise_parti
 from sources.fetch_ti import fetch_ti
 from sources.fetch_nosdeputes import fetch_nosdeputes, build_enrichment_index
+from sources.fetch_deputes_wikipedia import fetch_deputes_wikipedia, build_deputes_index
+from sources.fetch_assemblee_nationale import fetch_hemicycle_an, build_hemicycle_index, build_groupe_index, _normalise as normalise_an
 from sources.fetch_wikidata import fetch_politiques_condamnes
 from sources.fetch_gouvernement import fetch_gouvernement, set_photos_dir
+from sources.fetch_wikipedia_affaires import fetch_affaires_wikipedia
 from transform import joindre_affaires, enrichir_affaires_wikidata, calculer_stats, calculer_partis, sauvegarder, enrichir_gouvernement
 
 OUTPUT_DIR = Path(__file__).parent.parent / "public" / "data"
@@ -33,34 +36,103 @@ def main():
     affaires = fetch_ti()
     print(f"      → {len(affaires)} affaires chargées")
 
-    print("\n[3/5] Enrichissement élus (NosDéputés.fr)...")
-    deputes_enrichis = fetch_nosdeputes()
-    enrichment_index = build_enrichment_index(deputes_enrichis)
+    print("\n[3/5] Enrichissement élus (Wikidata + Wikipedia)...")
+    # Source principale : Wikidata (photos + partis des députés actuels)
+    photos_dir = OUTPUT_DIR / "photos"
+    photos_dir.mkdir(parents=True, exist_ok=True)
+    deputes_wd = fetch_deputes_wikipedia(photos_dir)
+    wd_deputes_index = build_deputes_index(deputes_wd)
+
+    # Source secondaire : assemblee-nationale.fr (places + groupes parlementaires)
+    hemicycle_data = fetch_hemicycle_an()
+    hemicycle_index = build_hemicycle_index(hemicycle_data)
+    groupe_index = build_groupe_index(hemicycle_data)
+
+    # Corrections manuelles : noms RNE ≠ noms AN (tirets, particules, etc.)
+    _HEMICYCLE_MANUAL: dict[str, str] = {
+        "audrey abadie": "audrey abadie-amiel",
+        "emmanuel tache de la pagerie": "emmanuel tache",
+        "yannick favennec": "yannick favennec-becot",
+        "yaël braun-pivet": "yael braun-pivet",
+        "benjamin lucas": "benjamin lucas-lundy",
+        "emeline kbidi": "emeline k bidi",
+        "mereana reid aberlot": "mereana reid arbelot",
+    }
+    for rne_key, an_key in _HEMICYCLE_MANUAL.items():
+        an_norm = normalise_an(an_key)
+        if an_norm in hemicycle_index:
+            hemicycle_index[rne_key] = hemicycle_index[an_norm]
+            hemicycle_index[normalise_an(rne_key)] = hemicycle_index[an_norm]
+        if an_norm in groupe_index:
+            groupe_index[rne_key] = groupe_index[an_norm]
+            groupe_index[normalise_an(rne_key)] = groupe_index[an_norm]
+
+    # Source tertiaire : NosDéputés.fr (fallback photo uniquement)
+    deputes_nd = fetch_nosdeputes()
+    nd_index = build_enrichment_index(deputes_nd)
+
     enriched_count = 0
+    hemicycle_count = 0
+    groupe_an_count = 0
     for elu in elus:
-        key = f"{elu['prenom'].lower()} {elu['nom'].lower()}"
-        match = enrichment_index.get(key) or enrichment_index.get(elu["nom"].lower())
-        if match:
-            elu["url_photo"] = match.get("url_photo", "")
-            elu["url_source"] = match.get("url_fiche", "")
-            # Place dans l'hémicycle (numéro de siège officiel)
-            place = match.get("place_en_hemicycle", "")
-            if place:
-                try:
-                    elu["place_en_hemicycle"] = int(place)
-                except (ValueError, TypeError):
-                    pass
-            # Parti depuis le groupe parlementaire NosDéputés
-            groupe = match.get("groupe", "")
-            if groupe:
-                elu["parti"] = normalise_parti(groupe)
-                elu["parti_brut"] = groupe
+        nom_norm = f"{elu['prenom'].lower()} {elu['nom'].lower()}"
+        nom_seul = elu["nom"].lower()
+        nom_an = normalise_an(f"{elu['prenom']} {elu['nom']}")
+        nom_an_seul = normalise_an(elu["nom"])
+
+        # 1. Assemblée nationale (source officielle : place + groupe parlementaire)
+        place = hemicycle_index.get(nom_norm) or hemicycle_index.get(nom_seul) or hemicycle_index.get(nom_an) or hemicycle_index.get(nom_an_seul)
+        if place:
+            elu["place_en_hemicycle"] = place
+            hemicycle_count += 1
+
+        groupe_an = groupe_index.get(nom_norm) or groupe_index.get(nom_seul) or groupe_index.get(nom_an) or groupe_index.get(nom_an_seul)
+        if groupe_an:
+            elu["parti"] = normalise_parti(groupe_an)
+            elu["parti_brut"] = f"AN: {groupe_an}"
+            groupe_an_count += 1
+
+        # 2. Wikidata (photos, fiche, parti en fallback si pas de groupe AN)
+        match_wd = wd_deputes_index.get(nom_norm) or wd_deputes_index.get(nom_seul)
+        if match_wd:
+            if match_wd.get("url_photo"):
+                elu["url_photo"] = match_wd["url_photo"]
+            if match_wd.get("url_fiche"):
+                elu["url_source"] = match_wd["url_fiche"]
+            if not groupe_an:
+                groupe_wd = match_wd.get("groupe", "")
+                if groupe_wd:
+                    elu["parti"] = normalise_parti(groupe_wd)
+                    elu["parti_brut"] = f"Wikidata: {groupe_wd}"
             enriched_count += 1
-    print(f"      → {enriched_count} élus enrichis avec photo/fiche")
+
+        # 3. NosDéputés (fallback photo/parti uniquement)
+        match_nd = nd_index.get(nom_norm) or nd_index.get(nom_seul)
+        if match_nd:
+            if not elu.get("url_photo") and match_nd.get("url_photo"):
+                elu["url_photo"] = match_nd["url_photo"]
+            if not elu.get("url_source") and match_nd.get("url_fiche"):
+                elu["url_source"] = match_nd["url_fiche"]
+            if elu["parti"] == "Autre / Non renseigné":
+                groupe_nd = match_nd.get("groupe", "")
+                if groupe_nd:
+                    elu["parti"] = normalise_parti(groupe_nd)
+                    elu["parti_brut"] = f"NosDéputés: {groupe_nd}"
+            if not match_wd:
+                enriched_count += 1
+
+    print(f"      → {enriched_count} élus enrichis (Wikidata + NosDéputés)")
+    print(f"      → {hemicycle_count} députés avec place hémicycle")
+    print(f"      → {groupe_an_count} députés avec groupe AN (source officielle)")
 
     print("\n[4/5] Composition du gouvernement (API DILA)...")
     set_photos_dir(OUTPUT_DIR)   # Configure le répertoire de cache local des photos
     membres_gouv = fetch_gouvernement()
+
+    print("\n[4b] Affaires judiciaires (Wikipedia)...")
+    affaires_wiki = fetch_affaires_wikipedia(membres_gouv)
+    print(f"      → {len(affaires_wiki)} affaires Wikipedia trouvées")
+    affaires.extend(affaires_wiki)
 
     print("\n[5/5] Enrichissement affaires (Wikidata)...")
     politiques_wd = fetch_politiques_condamnes()

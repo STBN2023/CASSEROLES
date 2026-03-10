@@ -70,6 +70,11 @@ export function getGouvernement(): MembreGouvernement[] {
   }
 }
 
+export function getMembreGouvernement(wikidataId: string): MembreGouvernement | undefined {
+  const membres = getGouvernement()
+  return membres.find((m) => m.wikidata_id === wikidataId)
+}
+
 export function getPartisDetail(): PartiDetail[] {
   try {
     return readJSON<PartiDetail[]>("partis.json")

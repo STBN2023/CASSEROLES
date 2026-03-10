@@ -369,12 +369,12 @@ def enrichir_gouvernement(
     # Index Wikidata : wikidata_id → données
     wd_index: dict[str, dict] = {p["wikidata_id"]: p for p in politiques_wd if p.get("wikidata_id")}
 
-    # Index élus : nom normalisé → id
+    # Index élus : nom complet normalisé → id
+    # PAS de fallback par nom seul (risque d'homonymes : Jean-Luc Darmanin ≠ Gérald Darmanin)
     elu_index: dict[str, str] = {}
     for e in elus:
         key = f"{normalise_nom(e['prenom'])} {normalise_nom(e['nom'])}"
         elu_index[key] = e["id"]
-        elu_index[normalise_nom(e["nom"])] = e["id"]
 
     # Index affaires : id → affaire
     affaires_by_id = {a["id"]: a for a in affaires}
@@ -387,25 +387,30 @@ def enrichir_gouvernement(
         membre.setdefault("affaires", [])
         membre.setdefault("elu_id", None)
 
-        # Recherche des affaires Wikidata par wikidata_id
-        wd = wd_index.get(membre.get("wikidata_id", ""))
+        # Recherche des affaires par wikidata_id (Wikidata + Wikipedia)
+        wikidata_id = membre.get("wikidata_id", "")
+        for aff in affaires:
+            aff_wd_id = aff.get("_wikidata_id", "")
+            if aff_wd_id and aff_wd_id == wikidata_id:
+                if aff["id"] not in membre["affaires"]:
+                    membre["affaires"].append(aff["id"])
+
+        # Score depuis Wikidata (source d'autorité)
+        wd = wd_index.get(wikidata_id)
         if wd:
-            # Convertir les infractions Wikidata en affaires locales
-            for aff in affaires:
-                wd_id = aff.get("_wikidata_id", "")
-                if wd_id and wd_id == membre.get("wikidata_id"):
-                    if aff["id"] not in membre["affaires"]:
-                        membre["affaires"].append(aff["id"])
-            # Score depuis le type Wikidata
             if wd["type"] == "condamnation" and membre["score"] < 3:
                 membre["score"] = 3
             elif wd["type"] == "accusation" and membre["score"] < 2:
                 membre["score"] = 2
 
-        # Recherche également par nom normalisé
+        # Score complémentaire depuis les affaires Wikipedia
+        if membre["score"] == 0 and membre["affaires"]:
+            aff_liste = [affaires_by_id[aid] for aid in membre["affaires"] if aid in affaires_by_id]
+            membre["score"] = calculer_score(aff_liste)
+
+        # Lien vers la fiche élu RNE (match strict prénom + nom uniquement)
         key_full = f"{normalise_nom(membre.get('prenom',''))} {normalise_nom(membre.get('nom',''))}"
-        key_nom = normalise_nom(membre.get("nom", ""))
-        elu_id = elu_index.get(key_full) or elu_index.get(key_nom)
+        elu_id = elu_index.get(key_full)
         if elu_id:
             membre["elu_id"] = elu_id
 
@@ -481,15 +486,15 @@ def calculer_partis(elus: list[dict], affaires: list[dict]) -> list[dict]:
                     "nb_affaires": elu["nb_affaires"],
                 })
 
-    # Filtrer aux partis avec ≥1 affaire, trier par nb_affaires desc
-    # Nettoyer les champs internes
+    # Inclure tous les partis avec ≥ 2 élus (ou au moins 1 affaire)
+    # Trier par nb_affaires desc, puis nb_elus_total desc
     result = []
     for v in partis.values():
-        if v["nb_affaires"] > 0:
+        if v["nb_affaires"] > 0 or v["nb_elus_total"] >= 2:
             v.pop("_seen_persons", None)
             v.pop("_seen_affaires", None)
             result.append(v)
-    result.sort(key=lambda x: x["nb_affaires"], reverse=True)
+    result.sort(key=lambda x: (x["nb_affaires"], x["nb_elus_total"]), reverse=True)
     return result
 
 

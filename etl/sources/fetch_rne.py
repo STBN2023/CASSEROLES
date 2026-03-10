@@ -132,7 +132,7 @@ def parse_row(row: dict, source: str) -> dict | None:
 
 
 PARTIS_NORM = {
-    # ── Groupes parlementaires NosDéputés (sigles exacts) ──────────────────
+    # ── Groupes parlementaires (sigles exacts) ─────────────────────────────
     "REN":   "Renaissance",
     "LIOT":  "Libertés, Indépendants, Outre-mer et Territoires",
     "RN":    "Rassemblement National",
@@ -153,7 +153,7 @@ PARTIS_NORM = {
     "La France Insoumise":     "La France Insoumise",
     "Parti Socialiste":        "Parti Socialiste",
     "Les Républicains":        "Les Républicains",
-    "Europe Écologie":         "Europe Écologie Les Verts",
+    "Europe Écologie":         "Les Écologistes",
     "Parti Communiste":        "Parti Communiste Français",
     # ── Nuances (codes courts) ─────────────────────────────────────────────
     "DVD": "Divers droite",
@@ -166,12 +166,28 @@ PARTIS_NORM = {
     "PCF": "Parti Communiste Français",
     "FI":  "La France Insoumise",
     "PS":  "Parti Socialiste",
-    # ── Partis historiques / Wikidata ─────────────────────────────────────
+    # ── Wikidata (P102 – noms complets des partis) ────────────────────────
     "Rassemblement pour la République": "RPR",
     "Union pour un mouvement populaire": "Les Républicains",
+    "Union pour la démocratie française": "UDF",
+    "Mouvement démocrate": "MoDem",
+    "Les Écologistes – Europe Écologie Les Verts": "Les Écologistes",
+    "Europe Écologie Les Verts": "Les Écologistes",
+    "Rassemblement national": "Rassemblement National",
+    "Parti socialiste": "Parti Socialiste",
+    "La France insoumise": "La France Insoumise",
+    "Parti communiste français": "Parti Communiste Français",
+    "Rassemblement national de la jeunesse": "Rassemblement National",
+    "Front national": "Rassemblement National",
     "Parti radical de gauche": "Parti radical de gauche",
     "Debout la France": "Debout la France",
-    "Union pour la démocratie française": "UDF",
+    "Parti communiste réunionnais": "Parti Communiste Français",
+    "groupe écologiste": "Les Écologistes",
+    "Les Verts": "Les Écologistes",
+    "divers gauche": "Divers gauche",
+    "indépendant": "Non inscrit",
+    "Les Centristes": "UDI",
+    "Place publique": "Parti Socialiste",
 }
 
 

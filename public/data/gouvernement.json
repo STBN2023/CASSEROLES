@@ -5,6 +5,7 @@
     "poste": "Premier ministre",
     "rang": "premier_ministre",
     "wikidata_id": "Q20089181",
+    "frwiki_title": "Sébastien Lecornu",
     "parti": "Les Républicains",
     "url_photo": "/data/photos/Q20089181.jpg",
     "source": "dila",
@@ -19,13 +20,14 @@
     "poste": "Ministère de l'Action et des Comptes publics",
     "rang": "ministre",
     "wikidata_id": "Q47502155",
+    "frwiki_title": "David Amiel",
     "parti": "Indépendant",
     "url_photo": "/data/photos/Q47502155.jpg",
     "source": "dila",
     "score": 0,
     "nb_affaires": 0,
     "affaires": [],
-    "elu_id": "maires_amiel_gabriel_11/05/1939"
+    "elu_id": null
   },
   {
     "prenom": "Philippe",
@@ -33,6 +35,7 @@
     "poste": "Ministère de l’Enseignement supérieur, de la Recherche et de l'Espace",
     "rang": "ministre",
     "wikidata_id": "Q106287381",
+    "frwiki_title": "Philippe Baptiste",
     "parti": "Indépendant",
     "url_photo": "/data/photos/Q106287381.jpg",
     "source": "dila",
@@ -47,6 +50,7 @@
     "poste": "Ministère de la Transition écologique, de la Biodiversité et des Négociations internationales sur le Climat et la Nature",
     "rang": "ministre",
     "wikidata_id": "Q2403964",
+    "frwiki_title": "Monique Barbut",
     "parti": "Indépendant",
     "url_photo": "/data/photos/Q2403964.jpg",
     "source": "dila",
@@ -61,6 +65,7 @@
     "poste": "Ministère de l'Europe et des Affaires étrangères",
     "rang": "ministre",
     "wikidata_id": "Q30339198",
+    "frwiki_title": "Jean-Noël Barrot",
     "parti": "MoDem",
     "url_photo": "/data/photos/Q30339198.jpg",
     "source": "dila",
@@ -75,13 +80,19 @@
     "poste": "Garde des Sceaux, Ministre de la Justice",
     "rang": "ministre",
     "wikidata_id": "Q3123610",
+    "frwiki_title": "Gérald Darmanin",
     "parti": "Les Républicains",
     "url_photo": "/data/photos/Q3123610.jpg",
     "source": "dila",
-    "score": 0,
-    "nb_affaires": 0,
-    "affaires": [],
-    "elu_id": "maires_darmanin_jean-luc_15/06/1953"
+    "score": 1,
+    "nb_affaires": 4,
+    "affaires": [
+      "wiki_g_rald_darmanin_critiques_et_pol_miques",
+      "wiki_g_rald_darmanin_controverses",
+      "wiki_g_rald_darmanin_affaire_du_psg",
+      "wiki_g_rald_darmanin_affaires_judiciaires"
+    ],
+    "elu_id": null
   },
   {
     "prenom": "Jean-Pierre",
@@ -89,13 +100,14 @@
     "poste": "Ministère du Travail et des Solidarités",
     "rang": "ministre",
     "wikidata_id": "Q33106208",
+    "frwiki_title": "Jean-Pierre Farandou",
     "parti": "Indépendant",
     "url_photo": "/data/photos/Q33106208.jpg",
     "source": "dila",
     "score": 0,
     "nb_affaires": 0,
     "affaires": [],
-    "elu_id": "maires_farandou_bernard_31/03/1950"
+    "elu_id": null
   },
   {
     "prenom": "Marina",
@@ -103,13 +115,14 @@
     "poste": "Ministère des Sports, de la Jeunesse et de la Vie associative",
     "rang": "ministre",
     "wikidata_id": "Q63764396",
+    "frwiki_title": "Marina Ferrari",
     "parti": "Indépendant",
     "url_photo": "/data/photos/Q63764396.jpg",
     "source": "dila",
     "score": 0,
     "nb_affaires": 0,
     "affaires": [],
-    "elu_id": "maires_ferrari_marcel_05/10/1951"
+    "elu_id": null
   },
   {
     "prenom": "Françoise",
@@ -117,13 +130,14 @@
     "poste": "Ministère de l’Aménagement du Territoire et de la Décentralisation",
     "rang": "ministre",
     "wikidata_id": "Q18202579",
+    "frwiki_title": "Françoise Gatel",
     "parti": "UDI",
     "url_photo": "/data/photos/Q18202579.jpg",
     "source": "dila",
     "score": 0,
     "nb_affaires": 0,
     "affaires": [],
-    "elu_id": "maires_gatel_bruno_22/11/1967"
+    "elu_id": null
   },
   {
     "prenom": "Édouard",
@@ -131,6 +145,7 @@
     "poste": "Ministère de l'Éducation nationale",
     "rang": "ministre",
     "wikidata_id": "Q33138734",
+    "frwiki_title": "Édouard Geffray",
     "parti": "Indépendant",
     "url_photo": "/data/photos/Q33138734.jpg",
     "source": "dila",
@@ -145,12 +160,15 @@
     "poste": "Ministère de l’Agriculture, de l'Agro-alimentaire et de la Souveraineté alimentaire",
     "rang": "ministre",
     "wikidata_id": "Q2414678",
+    "frwiki_title": "Annie Genevard",
     "parti": "Les Républicains",
     "url_photo": "/data/photos/Q2414678.jpg",
     "source": "dila",
-    "score": 0,
-    "nb_affaires": 0,
-    "affaires": [],
+    "score": 1,
+    "nb_affaires": 1,
+    "affaires": [
+      "wiki_annie_genevard_pol_mique_sur_les_drapeaux__trangers_lors_des_mariages"
+    ],
     "elu_id": null
   },
   {
@@ -159,6 +177,7 @@
     "poste": "Ministère de la Ville et du Logement",
     "rang": "ministre",
     "wikidata_id": "Q62078135",
+    "frwiki_title": "Vincent Jeanbrun",
     "parti": "Libres",
     "url_photo": "/data/photos/Q62078135.jpg",
     "source": "dila",
@@ -173,13 +192,14 @@
     "poste": "Ministère de l’Économie, des Finances et de la Souveraineté industrielle, énergétique et numérique",
     "rang": "ministre",
     "wikidata_id": "Q30130489",
+    "frwiki_title": "Roland Lescure",
     "parti": "Renaissance",
     "url_photo": "/data/photos/Q30130489.jpg",
     "source": "dila",
     "score": 0,
     "nb_affaires": 0,
     "affaires": [],
-    "elu_id": "maires_lescure_bernard_30/10/1950"
+    "elu_id": null
   },
   {
     "prenom": "Naïma",
@@ -187,6 +207,7 @@
     "poste": "Ministère des Outre-mer",
     "rang": "ministre",
     "wikidata_id": "Q30379800",
+    "frwiki_title": "Naïma Moutchou",
     "parti": "Renaissance",
     "url_photo": "/data/photos/Q30379800.jpg",
     "source": "dila",
@@ -201,6 +222,7 @@
     "poste": "Ministère de l'Intérieur",
     "rang": "ministre",
     "wikidata_id": "Q30729111",
+    "frwiki_title": "Laurent Nuñez",
     "parti": "Renaissance",
     "url_photo": "/data/photos/Q30729111.jpg",
     "source": "dila",
@@ -215,13 +237,14 @@
     "poste": "Ministère des petites et moyennes Entreprises, du Commerce, de l'Artisanat, du Tourisme et du Pouvoir d'achat",
     "rang": "ministre",
     "wikidata_id": "Q3479475",
+    "frwiki_title": "Serge Papin",
     "parti": "Indépendant",
     "url_photo": "/data/photos/Q3479475.jpg",
     "source": "dila",
     "score": 0,
     "nb_affaires": 0,
     "affaires": [],
-    "elu_id": "maires_papin_michel_17/05/1954"
+    "elu_id": null
   },
   {
     "prenom": "Catherine",
@@ -229,6 +252,7 @@
     "poste": "Ministère de la Culture",
     "rang": "ministre",
     "wikidata_id": "Q2942038",
+    "frwiki_title": "Catherine Pégard",
     "parti": "Indépendant",
     "url_photo": "",
     "source": "dila",
@@ -243,6 +267,7 @@
     "poste": "Ministère de la Santé, des Familles, de l’Autonomie et des Personnes handicapées",
     "rang": "ministre",
     "wikidata_id": "Q30339281",
+    "frwiki_title": "Stéphanie Rist",
     "parti": "Renaissance",
     "url_photo": "/data/photos/Q30339281.jpg",
     "source": "dila",
@@ -257,13 +282,16 @@
     "poste": "Ministère des Transports",
     "rang": "ministre",
     "wikidata_id": "Q63371158",
+    "frwiki_title": "Philippe Tabarot",
     "parti": "Indépendant",
     "url_photo": "/data/photos/Q63371158.jpg",
     "source": "dila",
-    "score": 0,
-    "nb_affaires": 0,
-    "affaires": [],
-    "elu_id": "deputes_tabarot_michèle_13/10/1962"
+    "score": 1,
+    "nb_affaires": 1,
+    "affaires": [
+      "wiki_philippe_tabarot_controverses_sur_sa_r_mun_ration_et_perquisitions_en_mairie"
+    ],
+    "elu_id": null
   },
   {
     "prenom": "Catherine",
@@ -271,13 +299,17 @@
     "poste": "Ministère des Armées et des Anciens combattants",
     "rang": "ministre",
     "wikidata_id": "Q2942097",
+    "frwiki_title": "Catherine Vautrin",
     "parti": "Les Républicains",
     "url_photo": "/data/photos/Q2942097.jpg",
     "source": "dila",
-    "score": 0,
-    "nb_affaires": 0,
-    "affaires": [],
-    "elu_id": "maires_vautrin_claude_25/02/1980"
+    "score": 2,
+    "nb_affaires": 2,
+    "affaires": [
+      "wiki_catherine_vautrin_controverses",
+      "wiki_catherine_vautrin_affaire_judiciaire"
+    ],
+    "elu_id": null
   },
   {
     "prenom": "Jean-Didier",
@@ -285,6 +317,7 @@
     "poste": "Ministre délégué auprès du ministre de l'Intérieur",
     "rang": "ministre_delegue",
     "wikidata_id": "Q17496948",
+    "frwiki_title": "Jean-Didier Berger",
     "parti": "Libres",
     "url_photo": "",
     "source": "dila",
@@ -299,12 +332,15 @@
     "poste": "Ministre déléguée auprès du Premier Ministre, chargée de l'égalité entre les femmes et les hommes et de la lutte contre les discriminations",
     "rang": "ministre_delegue",
     "wikidata_id": "Q29570183",
+    "frwiki_title": "Aurore Bergé",
     "parti": "Renaissance",
     "url_photo": "/data/photos/Q29570183.jpg",
     "source": "dila",
-    "score": 0,
-    "nb_affaires": 0,
-    "affaires": [],
+    "score": 1,
+    "nb_affaires": 1,
+    "affaires": [
+      "wiki_aurore_berg__affaires_judiciaires"
+    ],
     "elu_id": "conseillers_regionaux_bergé_aurore_13/11/1986"
   },
   {
@@ -313,13 +349,14 @@
     "poste": "Ministre déléguée auprès du Premier ministre, porte-parole du Gouvernement",
     "rang": "ministre_delegue",
     "wikidata_id": "Q104032664",
+    "frwiki_title": "Maud Bregeon",
     "parti": "Renaissance",
     "url_photo": "/data/photos/Q104032664.jpg",
     "source": "dila",
     "score": 0,
     "nb_affaires": 0,
     "affaires": [],
-    "elu_id": "maires_bregeon_pascal_22/04/1968"
+    "elu_id": null
   },
   {
     "prenom": "Eléonore",
@@ -327,6 +364,7 @@
     "poste": "Ministre déléguée auprès du ministre de l'Europe et des Affaires étrangères, chargée de la francophonie, des partenariats internationaux et des Français de l'étranger",
     "rang": "ministre_delegue",
     "wikidata_id": "Q112654771",
+    "frwiki_title": "Éléonore Caroit",
     "parti": "Indépendant",
     "url_photo": "/data/photos/Q112654771.jpg",
     "source": "dila",
@@ -341,13 +379,14 @@
     "poste": "Ministre déléguée auprés de la Ministre de la transition écologique, de la biodiversité et des négociations internationales sur le climat et la nature, chargée de la Mer et de la Pêche",
     "rang": "ministre_delegue",
     "wikidata_id": "Q2941852",
+    "frwiki_title": "Catherine Chabaud",
     "parti": "MoDem",
     "url_photo": "/data/photos/Q2941852.jpg",
     "source": "dila",
     "score": 0,
     "nb_affaires": 0,
     "affaires": [],
-    "elu_id": "maires_chabaud_corinne_14/10/1964"
+    "elu_id": null
   },
   {
     "prenom": "Nicolas",
@@ -355,6 +394,7 @@
     "poste": "Ministre délégué auprès du ministre de l’Europe et des Affaires étrangères, chargé du commerce extérieur et de l'attractivité",
     "rang": "ministre_delegue",
     "wikidata_id": "Q3340330",
+    "frwiki_title": "Nicolas Forissier",
     "parti": "Les Républicains",
     "url_photo": "/data/photos/Q3340330.jpg",
     "source": "dila",
@@ -369,6 +409,7 @@
     "poste": "Ministre délégué auprès de la ministre de l’Aménagement du territoire et de la Décentralisation, chargé de la ruralité",
     "rang": "ministre_delegue",
     "wikidata_id": "Q367499",
+    "frwiki_title": "Michel Fournier",
     "parti": "Indépendant",
     "url_photo": "",
     "source": "dila",
@@ -383,6 +424,7 @@
     "poste": "Ministre déléguée auprès de la ministre de la Santé, des Familles, de l’Autonomie et des Personnes handicapées, chargée de l'autonomie et des personnes handicapées",
     "rang": "ministre_delegue",
     "wikidata_id": "Q85328250",
+    "frwiki_title": "Camille Galliard-Minier",
     "parti": "Indépendant",
     "url_photo": "/data/photos/Q85328250.jpg",
     "source": "dila",
@@ -397,13 +439,14 @@
     "poste": "Ministre délégué auprès du ministre de l’Europe et des Affaires étrangères, chargé de l'Europe",
     "rang": "ministre_delegue",
     "wikidata_id": "Q112572505",
+    "frwiki_title": "Benjamin Haddad",
     "parti": "Indépendant",
     "url_photo": "/data/photos/Q112572505.jpg",
     "source": "dila",
     "score": 0,
     "nb_affaires": 0,
     "affaires": [],
-    "elu_id": "maires_haddad_patrick_05/05/1973"
+    "elu_id": null
   },
   {
     "prenom": "Anne",
@@ -411,13 +454,14 @@
     "poste": "Ministre déléguée auprès du ministre de l’Économie, des Finances et de la Souveraineté industrielle, énergétique et numérique, chargée de l'intelligence artificielle et du numérique",
     "rang": "ministre_delegue",
     "wikidata_id": "Q112651320",
+    "frwiki_title": "Anne Le Hénanff",
     "parti": "Horizons",
     "url_photo": "/data/photos/Q112651320.jpg",
     "source": "dila",
     "score": 0,
     "nb_affaires": 0,
     "affaires": [],
-    "elu_id": "maires_le_henanff_gérard_18/10/1951"
+    "elu_id": null
   },
   {
     "prenom": "Mathieu",
@@ -425,13 +469,14 @@
     "poste": "Ministre délégué auprès de la Ministre de la transition écologique, de la biodiversité et des négociations internationales sur le climat et la nature, chargé de la transition écologique",
     "rang": "ministre_delegue",
     "wikidata_id": "Q112654129",
+    "frwiki_title": "Mathieu Lefèvre",
     "parti": "Indépendant",
     "url_photo": "/data/photos/Q112654129.jpg",
     "source": "dila",
     "score": 0,
     "nb_affaires": 0,
     "affaires": [],
-    "elu_id": "maires_lefèvre_franck_16/04/1973"
+    "elu_id": null
   },
   {
     "prenom": "Sébastien",
@@ -439,13 +484,14 @@
     "poste": "Ministre délégué auprès du ministre de l’Économie, des Finances et de la Souveraineté industrielle, énergétique et numérique, chargé de l’industrie",
     "rang": "ministre_delegue",
     "wikidata_id": "Q63766436",
+    "frwiki_title": "Sébastien Martin",
     "parti": "Indépendant",
     "url_photo": "/data/photos/Q63766436.jpg",
     "source": "dila",
     "score": 0,
     "nb_affaires": 0,
     "affaires": [],
-    "elu_id": "maires_martin_jacques_j_p_23/11/1942"
+    "elu_id": null
   },
   {
     "prenom": "Laurent",
@@ -453,6 +499,7 @@
     "poste": "Ministre délégué auprès du Premier ministre, chargé des relations avec le Parlement",
     "rang": "ministre_delegue",
     "wikidata_id": "Q65595138",
+    "frwiki_title": "Laurent Panifous",
     "parti": "Indépendant",
     "url_photo": "/data/photos/Q65595138.jpg",
     "source": "dila",
@@ -467,6 +514,7 @@
     "poste": "Ministre déléguée auprès de la ministre des Armées et des Anciens combattants, chargée de la mémoire et des anciens combattants",
     "rang": "ministre_delegue",
     "wikidata_id": "Q47312015",
+    "frwiki_title": "Alice Rufo",
     "parti": "Indépendant",
     "url_photo": "/data/photos/Q47312015.jpg",
     "source": "dila",
@@ -481,6 +529,7 @@
     "poste": "Ministre déléguée auprès du ministre de l'Intérieur, chargée de la citoyenneté",
     "rang": "ministre_delegue",
     "wikidata_id": "Q63965965",
+    "frwiki_title": "Marie-Pierre Vedrenne",
     "parti": "Renaissance",
     "url_photo": "/data/photos/Q63965965.jpg",
     "source": "dila",

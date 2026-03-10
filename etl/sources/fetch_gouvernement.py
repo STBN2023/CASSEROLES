@@ -391,6 +391,7 @@ def fetch_gouvernement() -> list[dict]:
         membres.append({
             **m,
             "wikidata_id": qid,
+            "frwiki_title": wd_data.get("frwiki_title", ""),
             "parti": wd_data.get("parti", "Indépendant"),
             "url_photo": url_photo,
             "source": "dila",

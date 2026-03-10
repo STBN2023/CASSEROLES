@@ -104,23 +104,10 @@ function MembreCard({ membre }: { membre: MembreGouvernement }) {
     </div>
   )
 
-  // Lien vers la fiche élu si disponible, sinon Wikidata
-  if (membre.elu_id) {
-    return (
-      <Link href={`/elus/${encodeURIComponent(membre.elu_id)}`} className="no-underline">
-        {cardContent}
-      </Link>
-    )
-  }
   return (
-    <a
-      href={`https://www.wikidata.org/wiki/${membre.wikidata_id}`}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="no-underline"
-    >
+    <Link href={`/gouvernement/${membre.wikidata_id}`} className="no-underline">
       {cardContent}
-    </a>
+    </Link>
   )
 }
 
