@@ -17,7 +17,7 @@ from sources.fetch_assemblee_nationale import fetch_hemicycle_an, build_hemicycl
 from sources.fetch_wikidata import fetch_politiques_condamnes
 from sources.fetch_gouvernement import fetch_gouvernement, set_photos_dir
 from sources.fetch_wikipedia_affaires import fetch_affaires_wikipedia
-from transform import joindre_affaires, enrichir_affaires_wikidata, calculer_stats, calculer_partis, sauvegarder, enrichir_gouvernement
+from transform import joindre_affaires, enrichir_affaires_wikidata, calculer_stats, calculer_partis, construire_personnalites, sauvegarder, enrichir_gouvernement
 
 OUTPUT_DIR = Path(__file__).parent.parent / "public" / "data"
 
@@ -173,10 +173,13 @@ def main():
     nb_gouv_casseroles = sum(1 for m in gouvernement if m["score"] > 0)
     print(f"      → {nb_gouv_casseroles} membre(s) du gouvernement avec affaires")
 
+    personnalites = construire_personnalites(affaires_orphelines)
+    print(f"      → {len(personnalites)} personnalités politiques hors RNE")
+
     stats = calculer_stats(elus, affaires)
     partis_data = calculer_partis(elus, affaires)
     print(f"      → {len(partis_data)} partis avec affaires")
-    sauvegarder(elus, affaires, stats, OUTPUT_DIR, gouvernement=gouvernement, partis=partis_data)
+    sauvegarder(elus, affaires, stats, OUTPUT_DIR, gouvernement=gouvernement, partis=partis_data, personnalites=personnalites)
 
     print("\n✅ ETL terminé avec succès !")
 

@@ -8,7 +8,7 @@ import Link from "next/link"
 export const metadata: Metadata = {
   title: "Gouvernement",
   description:
-    "Composition du gouvernement Bayrou et indicateurs de probité des ministres. Données Wikidata CC0 croisées avec les affaires judiciaires référencées.",
+    "Composition du gouvernement Lecornu et indicateurs de probité des ministres. Données Wikidata CC0 croisées avec les affaires judiciaires référencées.",
 }
 
 export default function GouvernementPage() {

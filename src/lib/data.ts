@@ -1,6 +1,6 @@
 import { readFileSync } from "fs"
 import { join } from "path"
-import type { Elu, Affaire, Stats, MembreGouvernement, PartiDetail } from "./types"
+import type { Elu, Affaire, Stats, MembreGouvernement, PartiDetail, Personnalite } from "./types"
 
 const DATA_DIR = join(process.cwd(), "public", "data")
 
@@ -21,9 +21,18 @@ export function getStats(): Stats {
   return readJSON<Stats>("stats.json")
 }
 
+// Index Map pour lookup O(1)
+let _elusMap: Map<string, Elu> | null = null
+
+function getElusMap(): Map<string, Elu> {
+  if (!_elusMap) {
+    _elusMap = new Map(getElus().map((e) => [e.id, e]))
+  }
+  return _elusMap
+}
+
 export function getElu(id: string): Elu | undefined {
-  const elus = getElus()
-  return elus.find((e) => e.id === id)
+  return getElusMap().get(id)
 }
 
 export function getAffairesForElu(affaireIds: string[]): Affaire[] {
@@ -70,14 +79,45 @@ export function getGouvernement(): MembreGouvernement[] {
   }
 }
 
+let _gouvMap: Map<string, MembreGouvernement> | null = null
+
+function getGouvernementMap(): Map<string, MembreGouvernement> {
+  if (!_gouvMap) {
+    _gouvMap = new Map(getGouvernement().map((m) => [m.wikidata_id, m]))
+  }
+  return _gouvMap
+}
+
 export function getMembreGouvernement(wikidataId: string): MembreGouvernement | undefined {
-  const membres = getGouvernement()
-  return membres.find((m) => m.wikidata_id === wikidataId)
+  return getGouvernementMap().get(wikidataId)
+}
+
+export interface AffaireEluLink {
+  id: string
+  prenom: string
+  nom: string
+  parti: string
+}
+
+export function getAffairesElus(): Record<string, AffaireEluLink[]> {
+  try {
+    return readJSON<Record<string, AffaireEluLink[]>>("affaires-elus.json")
+  } catch {
+    return {}
+  }
 }
 
 export function getPartisDetail(): PartiDetail[] {
   try {
     return readJSON<PartiDetail[]>("partis.json")
+  } catch {
+    return []
+  }
+}
+
+export function getPersonnalites(): Personnalite[] {
+  try {
+    return readJSON<Personnalite[]>("personnalites.json")
   } catch {
     return []
   }

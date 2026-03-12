@@ -49,6 +49,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <img
                   src="/logo-casseroles.png?v=2"
                   alt="Casseroles – Observatoire de la probité des élus"
+                  width={128}
+                  height={128}
                   className="h-32 w-auto"
                   style={{ objectFit: "contain" }}
                 />
@@ -61,6 +63,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <Link href="/gouvernement" className="nav-link">Gouvernement</Link>
                 <Link href="/elus" className="nav-link">Élus</Link>
                 <Link href="/affaires" className="nav-link">Affaires</Link>
+                <Link href="/personnalites" className="nav-link"><span className="hidden sm:inline">Personnalités</span><span className="sm:hidden">Perso.</span></Link>
                 <Link href="/partis" className="nav-link">Partis</Link>
                 <Link href="/methodologie" className="nav-link"><span className="hidden sm:inline">Méthodologie</span><span className="sm:hidden">Méthodo</span></Link>
               </nav>

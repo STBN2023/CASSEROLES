@@ -13,11 +13,12 @@ Stratégie de récupération :
   3. Pour chaque membre : recherche Wikidata par nom → QID → photo Wikipedia.
 """
 
-import requests
 import time
 import re
 import json
 from pathlib import Path
+
+from sources.http_client import get_session
 
 DILA_BASE = (
     "https://api-lannuaire.service-public.fr"
@@ -68,7 +69,7 @@ def normaliser_parti(p: str) -> str:
 
 def _record_by_id(uid: str) -> dict:
     """Récupère un record DILA par son identifiant UUID (champ `id`)."""
-    resp = requests.get(DILA_BASE, params={
+    resp = get_session().get(DILA_BASE, params={
         "limit": 1,
         "where": f'id = "{uid}"',
         "select": "nom,affectation_personne",
@@ -105,7 +106,7 @@ def fetch_membres_dila() -> list[dict]:
     seen = set()
 
     # ── 1. PM + Ministres via la hiérarchie du record Gouvernement ──────────
-    resp = requests.get(DILA_BASE, params={
+    resp = get_session().get(DILA_BASE, params={
         "limit": 1,
         "where": f'itm_identifiant = "{GOUVERNEMENT_UUID}"',
         "select": "hierarchie",
@@ -146,7 +147,7 @@ def fetch_membres_dila() -> list[dict]:
     # ── 2. Ministres délégué(e)s ─────────────────────────────────────────────
     for genre in ["Ministre délégué", "Ministre déléguée"]:
         time.sleep(0.2)
-        resp2 = requests.get(DILA_BASE, params={
+        resp2 = get_session().get(DILA_BASE, params={
             "limit": 50,
             "where": f'nom like "{genre} auprès"',
             "select": "nom,affectation_personne",
@@ -200,7 +201,7 @@ def _wikidata_search(prenom: str, nom: str) -> str:
     """Cherche le QID Wikidata d'un politicien français par son nom."""
     for search_name in [f"{prenom} {nom.capitalize()}", f"{prenom} {nom}"]:
         try:
-            resp = requests.get(WD_API, params={
+            resp = get_session().get(WD_API, params={
                 "action": "wbsearchentities",
                 "search": search_name,
                 "language": "fr",
@@ -233,7 +234,7 @@ def _wikidata_enrich(qid: str) -> dict:
     if not qid:
         return {"frwiki_title": "", "parti": "Indépendant"}
     try:
-        resp = requests.get(WD_API, params={
+        resp = get_session().get(WD_API, params={
             "action": "wbgetentities",
             "ids": qid,
             "props": "sitelinks|claims",
@@ -262,7 +263,7 @@ def _wikidata_enrich(qid: str) -> dict:
 def _wikidata_label(qid: str) -> str:
     """Récupère le label FR d'un QID."""
     try:
-        resp = requests.get(WD_API, params={
+        resp = get_session().get(WD_API, params={
             "action": "wbgetentities",
             "ids": qid,
             "props": "labels",
@@ -298,7 +299,7 @@ def _get_thumbnail_url(frwiki_title: str) -> str:
         return ""
     try:
         encoded = frwiki_title.replace(" ", "_")
-        resp = requests.get(f"{WP_REST}/{encoded}", headers=HEADERS, timeout=10)
+        resp = get_session().get(f"{WP_REST}/{encoded}", headers=HEADERS, timeout=10)
         if resp.status_code == 200:
             thumbnail = resp.json().get("thumbnail", {}).get("source", "")
             if thumbnail:
@@ -336,7 +337,7 @@ def _download_photo(url: str, qid: str) -> str:
 
     try:
         time.sleep(0.5)
-        resp = requests.get(url, headers=img_headers, timeout=20)
+        resp = get_session().get(url, headers=img_headers, timeout=20)
         if resp.status_code == 200:
             ct = resp.headers.get("content-type", "")
             if ct.startswith("image"):

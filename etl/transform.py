@@ -103,6 +103,7 @@ def convertir_wikidata_en_affaires(politiques_wd: list[dict]) -> list[dict]:
                 "ineligibilite_mois": None,
                 "_nom_complet_wd": nom,
                 "_wikidata_id": wikidata_id,
+                "_date_naissance_wd": p.get("date_naissance", ""),
             })
     return affaires
 
@@ -214,10 +215,42 @@ DEPT_REGION = {
 }
 
 
+def _parse_date_naissance(date_str: str) -> str | None:
+    """Normalise une date de naissance en YYYY-MM-DD, quel que soit le format d'entrée."""
+    if not date_str:
+        return None
+    # Format RNE : DD/MM/YYYY
+    if "/" in date_str:
+        parts = date_str.split("/")
+        if len(parts) == 3 and len(parts[2]) == 4:
+            return f"{parts[2]}-{parts[1]}-{parts[0]}"
+    # Format Wikidata : YYYY-MM-DD (déjà bon)
+    if len(date_str) >= 10 and date_str[4] == "-":
+        return date_str[:10]
+    return None
+
+
+def _dates_compatibles(date_wd: str, date_rne: str) -> bool:
+    """
+    Vérifie si deux dates de naissance sont compatibles (même année ± 1 an).
+    Retourne True si l'une des deux est absente (pas de données = pas de rejet).
+    """
+    d1 = _parse_date_naissance(date_wd)
+    d2 = _parse_date_naissance(date_rne)
+    if not d1 or not d2:
+        return True  # pas assez de données pour rejeter
+    try:
+        annee_wd = int(d1[:4])
+        annee_rne = int(d2[:4])
+        return abs(annee_wd - annee_rne) <= 1
+    except (ValueError, IndexError):
+        return True
+
+
 def joindre_affaires(elus: list[dict], affaires: list[dict]) -> list[dict]:
     """
     Tente de relier chaque affaire à un élu du RNE par correspondance nom/prénom.
-    Wikidata : correspondance exacte prénom+nom uniquement (pas de fallback nom seul).
+    Wikidata : correspondance exacte prénom+nom + vérification date de naissance.
     TI France : correspondance exacte prénom+nom, puis fallback nom seul.
     Enrichit aussi les affaires Wikidata sans géographie avec le département/région de l'élu.
     """
@@ -237,23 +270,28 @@ def joindre_affaires(elus: list[dict], affaires: list[dict]) -> list[dict]:
         matched = None
 
         # Cas 1 : affaire Wikidata (nom complet disponible)
-        # Correspondance stricte prénom+nom uniquement pour éviter les faux positifs
-        # (ex: Jean-Marie Le Pen → Loïc PEN, Jacques Chirac → Claude CHIRAC)
-        # Si plusieurs élus ont le même nom complet (homonymes), on ne matche pas
-        # (trop ambigu : ex. 3 maires "Philippe Martin" pour un député "Philippe Martin")
+        # Correspondance stricte prénom+nom + vérification date de naissance
+        # pour éviter les faux positifs (ex: François Fillon PM ≠ François Fillon maire)
         nom_complet_wd = affaire.get("_nom_complet_wd", "")
+        date_naissance_wd = affaire.get("_date_naissance_wd", "")
         if nom_complet_wd:
             key_full = normalise_nom(nom_complet_wd)
             candidates = elu_index_full.get(key_full)
-            if candidates and len(candidates) == 1:
-                matched = candidates
-            elif candidates and len(candidates) > 1:
-                # Homonymes : vérifier si toutes les dates de naissance sont identiques
-                # (= même personne avec mandats multiples → OK pour matcher)
-                dobs = {elus[idx].get("date_naissance", "") for idx in candidates}
-                if len(dobs) == 1:
-                    matched = candidates  # même personne, mandats multiples
-                # Sinon : personnes différentes, trop ambigu → pas de match
+            if candidates:
+                # Filtrer par date de naissance si disponible
+                if date_naissance_wd:
+                    candidates = [
+                        idx for idx in candidates
+                        if _dates_compatibles(date_naissance_wd, elus[idx].get("date_naissance", ""))
+                    ]
+                if len(candidates) == 1:
+                    matched = candidates
+                elif len(candidates) > 1:
+                    # Homonymes restants : vérifier si même personne (mandats multiples)
+                    dobs = {elus[idx].get("date_naissance", "") for idx in candidates}
+                    if len(dobs) == 1:
+                        matched = candidates
+                    # Sinon : personnes différentes, trop ambigu → pas de match
 
         # Cas 2 : affaire TI (champs _nom_condamne / _prenom_condamne)
         if not matched:
@@ -332,10 +370,23 @@ def calculer_stats(elus: list[dict], affaires: list[dict]) -> dict:
     nb_avec_amende = sum(1 for a in affaires if a.get("amende_euros"))
     nb_avec_ineligibilite = sum(1 for a in affaires if a.get("ineligibilite_mois"))
 
+    # Ventilation par source
+    nb_affaires_personnes = sum(1 for a in affaires if a.get("source_label") in ("Wikidata", "Wikipedia"))
+    nb_affaires_geographiques = sum(1 for a in affaires if a.get("source_label") not in ("Wikidata", "Wikipedia"))
+
+    # Affaires effectivement liées à un élu RNE
+    elu_affaire_ids = set()
+    for elu in elus:
+        elu_affaire_ids.update(elu.get("affaires", []))
+    nb_affaires_matchees = len(elu_affaire_ids)
+
     return {
         "nb_elus_total": len(elus),
         "nb_elus_concernes": len(elus_avec_affaires),
         "nb_affaires_total": len(affaires),
+        "nb_affaires_personnes": nb_affaires_personnes,
+        "nb_affaires_geographiques": nb_affaires_geographiques,
+        "nb_affaires_matchees": nb_affaires_matchees,
         "nb_condamnations": nb_condamnations,
         "nb_mises_en_examen": nb_mises_en_examen,
         "nb_enquetes": nb_enquetes,
@@ -498,6 +549,54 @@ def calculer_partis(elus: list[dict], affaires: list[dict]) -> list[dict]:
     return result
 
 
+def construire_personnalites(affaires_orphelines: list[dict]) -> list[dict]:
+    """
+    Construit la liste des personnalités politiques hors RNE
+    à partir des affaires Wikidata/Wikipedia orphelines (non matchées à un élu).
+    Regroupe par personne (wikidata_id ou nom).
+    """
+    personnes: dict[str, dict] = {}
+    for aff in affaires_orphelines:
+        # Seules les affaires avec un nom de personne identifié
+        nom = aff.get("personnes", "") or aff.get("_nom_complet_wd", "")
+        if not nom:
+            continue
+        wikidata_id = aff.get("_wikidata_id", "")
+        key = wikidata_id or normalise_nom(nom)
+        if key not in personnes:
+            personnes[key] = {
+                "id": f"perso_{wikidata_id}" if wikidata_id else f"perso_{normalise_nom(nom).replace(' ', '_')}",
+                "nom_complet": nom,
+                "wikidata_id": wikidata_id,
+                "poste": "",
+                "score": 0,
+                "nb_affaires": 0,
+                "affaires": [],
+                "sources": [],
+            }
+        p = personnes[key]
+        p["affaires"].append(aff["id"])
+        p["nb_affaires"] = len(p["affaires"])
+        # Poste : prendre le premier non-vide
+        if not p["poste"]:
+            entites = aff.get("entites", [])
+            if entites:
+                p["poste"] = entites[0]
+        # Sources
+        for src in aff.get("sources", []):
+            if src and src not in p["sources"]:
+                p["sources"].append(src)
+
+    # Calculer les scores
+    affaires_by_id = {a["id"]: a for a in affaires_orphelines}
+    for p in personnes.values():
+        aff_list = [affaires_by_id[aid] for aid in p["affaires"] if aid in affaires_by_id]
+        p["score"] = calculer_score(aff_list)
+
+    result = sorted(personnes.values(), key=lambda x: (-x["score"], -x["nb_affaires"], x["nom_complet"]))
+    return result
+
+
 def sauvegarder(
     elus: list[dict],
     affaires: list[dict],
@@ -505,6 +604,7 @@ def sauvegarder(
     output_dir: Path,
     gouvernement: list[dict] | None = None,
     partis: list[dict] | None = None,
+    personnalites: list[dict] | None = None,
 ):
     """Écrit les fichiers JSON dans public/data/."""
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -560,6 +660,11 @@ def sauvegarder(
             json.dumps(partis, ensure_ascii=False, indent=2), encoding="utf-8"
         )
 
+    if personnalites is not None:
+        (output_dir / "personnalites.json").write_text(
+            json.dumps(personnalites, ensure_ascii=False, indent=2), encoding="utf-8"
+        )
+
     print(f"\n✓ Fichiers JSON sauvegardés dans {output_dir}")
     print(f"  - elus.json        : {len(elus)} élus")
     print(f"  - affaires.json    : {len(affaires_clean)} affaires")
@@ -568,3 +673,5 @@ def sauvegarder(
         print(f"  - gouvernement.json: {len(gouvernement)} membres")
     if partis is not None:
         print(f"  - partis.json      : {len(partis)} partis avec affaires")
+    if personnalites is not None:
+        print(f"  - personnalites.json: {len(personnalites)} personnalités hors RNE")

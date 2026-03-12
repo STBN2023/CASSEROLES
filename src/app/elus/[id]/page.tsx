@@ -24,9 +24,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const elus = getElus()
   const elu = elus.find((e) => e.id === decodedId)
   if (!elu) return { title: "Élu non trouvé" }
+  const title = `${elu.prenom} ${elu.nom}`
+  const description = `Fiche de probité de ${elu.prenom} ${elu.nom}, ${elu.mandat}. Score : ${elu.score}/3, ${elu.nb_affaires} affaire(s).`
   return {
-    title: `${elu.prenom} ${elu.nom}`,
-    description: `Fiche de probité de ${elu.prenom} ${elu.nom}, ${elu.mandat}. Score : ${elu.score}/3, ${elu.nb_affaires} affaire(s).`,
+    title,
+    description,
+    openGraph: {
+      title: `${title} – Casseroles`,
+      description,
+      type: "profile",
+      locale: "fr_FR",
+    },
+    twitter: {
+      card: "summary",
+      title: `${title} – Casseroles`,
+      description,
+    },
   }
 }
 
@@ -73,7 +86,7 @@ export default async function FicheEluPage({ params }: Props) {
             ) : (
               <div className="w-[72px] h-[96px] rounded-lg bg-gray-100 flex items-center justify-center flex-shrink-0 border border-gray-200">
                 <span className="text-2xl text-gray-300">
-                  {elu.prenom[0]}{elu.nom[0]}
+                  {elu.prenom?.charAt(0)}{elu.nom?.charAt(0)}
                 </span>
               </div>
             )}

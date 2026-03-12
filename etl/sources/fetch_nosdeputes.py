@@ -7,11 +7,12 @@ Cache local : les données sont sauvegardées dans etl/.cache/nosdeputes.json
 afin de survivre aux pannes de l'API (erreurs 500 fréquentes).
 """
 
-import requests
 import json
 import time
 from pathlib import Path
 from typing import Generator
+
+from sources.http_client import get_session
 
 NOSDEPUTES_URL = "https://www.nosdeputes.fr/deputes/json"
 NOSSENATEURS_URL = "https://www.nossenateurs.fr/senateurs/json"
@@ -42,9 +43,7 @@ def fetch_nosdeputes() -> list[dict]:
     """Récupère la liste des députés en mandat avec leurs infos enrichies."""
     print("  → Téléchargement NosDéputés.fr...")
     try:
-        resp = requests.get(
-            NOSDEPUTES_URL, timeout=30, headers={"User-Agent": "Casseroles-ETL/1.0"}
-        )
+        resp = get_session().get(NOSDEPUTES_URL, timeout=30)
         resp.raise_for_status()
         data = resp.json()
         deputes = data.get("deputes", [])

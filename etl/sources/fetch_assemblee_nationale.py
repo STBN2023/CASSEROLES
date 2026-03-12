@@ -16,8 +16,9 @@ Cache local : etl/.cache/hemicycle_an.json
 
 import json
 import re
-import requests
 from html.parser import HTMLParser
+
+from sources.http_client import get_session
 from pathlib import Path
 
 HEMICYCLE_URL = "https://www.assemblee-nationale.fr/dyn/vos-deputes/hemicycle"
@@ -161,10 +162,9 @@ def fetch_hemicycle_an() -> list[dict]:
     """
     print("  → Téléchargement places hémicycle (assemblee-nationale.fr)...")
     try:
-        resp = requests.get(
+        resp = get_session().get(
             HEMICYCLE_URL,
             timeout=30,
-            headers={"User-Agent": "Casseroles-ETL/1.0 (observatoire open-source)"},
         )
         resp.raise_for_status()
         html = resp.text

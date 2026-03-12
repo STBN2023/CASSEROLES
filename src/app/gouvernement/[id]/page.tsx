@@ -23,9 +23,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params
   const membre = getMembreGouvernement(id)
   if (!membre) return { title: "Membre non trouvé" }
+  const title = `${membre.prenom} ${membre.nom} – Gouvernement`
+  const description = `Fiche de ${membre.prenom} ${membre.nom}, ${membre.poste}. Score de probité : ${membre.score}/3, ${membre.nb_affaires} affaire(s).`
   return {
-    title: `${membre.prenom} ${membre.nom} – Gouvernement`,
-    description: `Fiche de ${membre.prenom} ${membre.nom}, ${membre.poste}. Score de probité : ${membre.score}/3, ${membre.nb_affaires} affaire(s).`,
+    title,
+    description,
+    openGraph: {
+      title: `${title} – Casseroles`,
+      description,
+      type: "profile",
+      locale: "fr_FR",
+    },
+    twitter: {
+      card: "summary",
+      title: `${title} – Casseroles`,
+      description,
+    },
   }
 }
 
@@ -66,7 +79,7 @@ export default async function FicheMembreGouvernementPage({ params }: Props) {
             ) : (
               <div className="w-[96px] h-[96px] rounded-full bg-[#e8e8f0] flex items-center justify-center flex-shrink-0 border border-gray-200">
                 <span className="text-2xl font-bold text-[#000091]">
-                  {membre.prenom[0]}{membre.nom[0]}
+                  {membre.prenom?.charAt(0)}{membre.nom?.charAt(0)}
                 </span>
               </div>
             )}

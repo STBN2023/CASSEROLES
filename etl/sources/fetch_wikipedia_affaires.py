@@ -15,16 +15,16 @@ Filtrage anti-faux-positifs en deux étapes :
 Licence des données : CC BY-SA (Wikipédia)
 """
 
-import requests
 import time
 import re
 from html.parser import HTMLParser
+
+from sources.http_client import get_session
 
 WP_API = "https://fr.wikipedia.org/w/api.php"
 WP_BASE = "https://fr.wikipedia.org/wiki/"
 
 HEADERS = {
-    "User-Agent": "Casseroles-ETL/1.0 (observatoire open-source; github.com/casseroles)",
     "Accept": "application/json",
 }
 
@@ -180,7 +180,7 @@ def _strip_html(html: str) -> str:
 def _get_sections(title: str) -> list[dict]:
     """Récupère la table des matières d'un article Wikipedia."""
     try:
-        resp = requests.get(
+        resp = get_session().get(
             WP_API,
             params={
                 "action": "parse",
@@ -201,7 +201,7 @@ def _get_sections(title: str) -> list[dict]:
 def _get_section_text(title: str, section_index: int) -> str:
     """Récupère le texte brut d'une section donnée."""
     try:
-        resp = requests.get(
+        resp = get_session().get(
             WP_API,
             params={
                 "action": "parse",
@@ -310,8 +310,14 @@ def fetch_affaires_wikipedia(personnes: list[dict]) -> list[dict]:
             if not sec_index:
                 continue
 
+            # sec_index peut être "2.1.3" pour les sous-sections
+            try:
+                sec_index_int = int(sec_index)
+            except (ValueError, TypeError):
+                continue
+
             time.sleep(0.3)
-            text = _get_section_text(frwiki_title, int(sec_index))
+            text = _get_section_text(frwiki_title, sec_index_int)
             if not text or len(text) < 50:
                 continue
 

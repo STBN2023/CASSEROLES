@@ -68,10 +68,25 @@ export interface RepartitionParti {
   nb_condamnations: number
 }
 
+export interface Personnalite {
+  id: string
+  nom_complet: string
+  wikidata_id: string
+  poste: string
+  score: Score
+  nb_affaires: number
+  affaires: string[]
+  sources: string[]
+}
+
 export interface Stats {
   nb_elus_total: number
   nb_elus_concernes: number
   nb_affaires_total: number
+  // Ventilation par source
+  nb_affaires_personnes: number
+  nb_affaires_geographiques: number
+  nb_affaires_matchees: number
   // Nombre d'affaires par statut judiciaire
   nb_condamnations: number
   nb_mises_en_examen: number

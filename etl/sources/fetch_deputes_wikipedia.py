@@ -13,22 +13,21 @@ Stratégie :
   3. L'index est construit par nom normalisé pour jointure avec le RNE.
 """
 
-import requests
 import hashlib
 import time
 import re
 import json
 from pathlib import Path
 
+from sources.http_client import get_session
+
 SPARQL_ENDPOINT = "https://query.wikidata.org/sparql"
 
 HEADERS = {
-    "User-Agent": "Casseroles-ETL/1.0 (observatoire open-source; github.com/casseroles)",
     "Accept": "application/sparql-results+json",
 }
 
 IMG_HEADERS = {
-    "User-Agent": "Casseroles-ETL/1.0 (observatoire open-source; github.com/casseroles)",
     "Accept": "image/jpeg,image/png,image/*",
 }
 
@@ -110,7 +109,7 @@ def _download_photo(url: str, qid: str, photos_dir: Path) -> str:
 
     try:
         time.sleep(0.2)
-        resp = requests.get(url, headers=IMG_HEADERS, timeout=15, allow_redirects=True)
+        resp = get_session().get(url, headers=IMG_HEADERS, timeout=15, allow_redirects=True)
         if resp.status_code == 200:
             ct = resp.headers.get("content-type", "")
             if ct.startswith("image"):
@@ -135,7 +134,7 @@ def fetch_deputes_wikipedia(photos_dir: Path | None = None) -> list[dict]:
     """
     print("  → Requête Wikidata : députés actuels (P39 + P18 + P102)...")
     try:
-        resp = requests.get(
+        resp = get_session().get(
             SPARQL_ENDPOINT,
             params={"query": QUERY_DEPUTES, "format": "json"},
             headers=HEADERS,
@@ -207,9 +206,17 @@ def fetch_deputes_wikipedia(photos_dir: Path | None = None) -> list[dict]:
     return result
 
 
-def build_deputes_index(deputes: list[dict]) -> dict[str, dict]:
-    """Index par nom normalisé pour jointure avec le RNE."""
-    index: dict[str, dict] = {}
+def build_deputes_index(deputes: list[dict]) -> dict[str, dict | list[dict]]:
+    """Index par nom normalisé pour jointure avec le RNE.
+
+    Les clés de nom complet pointent directement vers un dict.
+    Les clés de nom de famille seul pointent vers un dict si unique,
+    ou None si collision (homonymes) pour éviter les faux positifs.
+    """
+    index: dict[str, dict | list[dict]] = {}
+    # Tracking des collisions sur les noms de famille
+    _family_keys: dict[str, list[dict]] = {}
+
     for dep in deputes:
         name = dep.get("nom_complet", "")
         if not name:
@@ -219,13 +226,19 @@ def build_deputes_index(deputes: list[dict]) -> dict[str, dict]:
         key_norm = _normalise(name)
         index[key_lower] = dep
         index[key_norm] = dep
-        # Index par nom de famille seul (dernier mot)
-        parts_lower = key_lower.split()
-        parts_norm = key_norm.split()
-        if len(parts_lower) > 1:
-            index[parts_lower[-1]] = dep
-        if len(parts_norm) > 1 and parts_norm[-1] != parts_lower[-1]:
-            index[parts_norm[-1]] = dep
+        # Collecter les noms de famille pour détecter les collisions
+        for parts in (key_lower.split(), key_norm.split()):
+            if len(parts) > 1:
+                family = parts[-1]
+                _family_keys.setdefault(family, []).append(dep)
+
+    # Ajouter les noms de famille uniques (pas d'homonymes)
+    for family, deps in _family_keys.items():
+        if len(deps) == 1:
+            index[family] = deps[0]
+        # Si collision (plusieurs députés avec le même nom de famille),
+        # on n'ajoute pas la clé pour éviter les faux positifs.
+
     return index
 
 

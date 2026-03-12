@@ -13,8 +13,9 @@ Colonnes du CSV :
 import csv
 import io
 import re
-import requests
 import hashlib
+
+from sources.http_client import get_session
 
 from sources.extract_peines import extraire_peines
 
@@ -40,16 +41,21 @@ def fetch_ti() -> list[dict]:
     """Télécharge et parse le CSV des affaires TI France."""
     print("  → Téléchargement Transparency International France (CSV)...")
     try:
-        resp = requests.get(TI_URL, timeout=30, headers={"User-Agent": "Casseroles-ETL/1.0"})
+        resp = get_session().get(TI_URL, timeout=30)
         resp.raise_for_status()
 
         # Détection encodage
+        content = None
         for enc in ("utf-8-sig", "utf-8", "latin-1"):
             try:
                 content = resp.content.decode(enc)
                 break
             except UnicodeDecodeError:
                 continue
+
+        if content is None:
+            print("    ✗ Impossible de décoder le CSV (aucun encodage compatible)")
+            return []
 
         reader = csv.DictReader(io.StringIO(content), delimiter=",")
         affaires = []

@@ -6,6 +6,13 @@ import { FranceMap } from "@/components/dashboard/FranceMap"
 import { Hemicycle } from "@/components/dashboard/Hemicycle"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Tableau de bord",
+  description:
+    "Observatoire de la probité des élus français. Données open-data : affaires judiciaires, condamnations, mises en examen. Sources : RNE, Transparency International France, Wikidata.",
+}
 
 export default async function HomePage() {
   const stats = getStats()
@@ -35,7 +42,7 @@ export default async function HomePage() {
         <Link href="/methodologie" className="underline">méthodologie</Link>.
       </div>
 
-      {/* KPIs – Affaires par statut judiciaire */}
+      {/* KPIs – Vue d'ensemble */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
         <KpiCard
           label="Élus répertoriés"
@@ -44,31 +51,60 @@ export default async function HomePage() {
           href="/elus"
         />
         <KpiCard
-          label="Affaires répertoriées"
+          label="Affaires totales"
           value={stats.nb_affaires_total}
-          sub="TI France + Wikidata"
+          sub={`${stats.nb_affaires_personnes ?? 0} nominatives · ${stats.nb_affaires_geographiques ?? 0} géographiques`}
           href="/affaires"
         />
         <KpiCard
+          label="Personnes identifiées"
+          value={stats.nb_affaires_personnes ?? 0}
+          sub="Wikidata + Wikipedia"
+          href="/personnalites"
+        />
+        <KpiCard
+          label="Liées à un élu RNE"
+          value={stats.nb_affaires_matchees ?? 0}
+          sub={`${stats.nb_elus_concernes} élu${stats.nb_elus_concernes > 1 ? "s" : ""} concerné${stats.nb_elus_concernes > 1 ? "s" : ""}`}
+          color="red"
+          href="/elus?score=3"
+        />
+        <KpiCard
+          label="Géographiques (TI)"
+          value={stats.nb_affaires_geographiques ?? 0}
+          sub="TI France 2016, sans nom"
+          href="/affaires?source=ti"
+        />
+      </div>
+
+      {/* KPIs – Statuts judiciaires (affaires nominatives uniquement) */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        <KpiCard
           label="Condamnations"
           value={stats.nb_condamnations}
-          sub={`${stats.nb_elus_condamnes} élu${stats.nb_elus_condamnes > 1 ? "s" : ""} concerné${stats.nb_elus_condamnes > 1 ? "s" : ""}`}
+          sub={`${stats.nb_elus_condamnes} élu${stats.nb_elus_condamnes > 1 ? "s" : ""} RNE concerné${stats.nb_elus_condamnes > 1 ? "s" : ""}`}
           color="red"
           href="/affaires?statut=condamnation"
         />
         <KpiCard
           label="Mises en examen"
           value={stats.nb_mises_en_examen}
-          sub={`${stats.nb_elus_mis_en_examen} élu${stats.nb_elus_mis_en_examen > 1 ? "s" : ""} concerné${stats.nb_elus_mis_en_examen > 1 ? "s" : ""}`}
+          sub={`${stats.nb_elus_mis_en_examen} élu${stats.nb_elus_mis_en_examen > 1 ? "s" : ""} RNE concerné${stats.nb_elus_mis_en_examen > 1 ? "s" : ""}`}
           color="orange"
           href="/affaires?statut=mise_en_examen"
         />
         <KpiCard
           label="Enquêtes"
           value={stats.nb_enquetes}
-          sub={`${stats.nb_elus_enquetes} élu${stats.nb_elus_enquetes > 1 ? "s" : ""} concerné${stats.nb_elus_enquetes > 1 ? "s" : ""}`}
+          sub={`${stats.nb_elus_enquetes} élu${stats.nb_elus_enquetes > 1 ? "s" : ""} RNE concerné${stats.nb_elus_enquetes > 1 ? "s" : ""}`}
           color="yellow"
           href="/affaires?statut=enquete"
+        />
+        <KpiCard
+          label="Relaxes / Sans suite"
+          value={(stats.nb_relaxes ?? 0) + (stats.nb_classes_sans_suite ?? 0)}
+          sub="Affaires classées"
+          href="/affaires?statut=relaxe"
         />
       </div>
 

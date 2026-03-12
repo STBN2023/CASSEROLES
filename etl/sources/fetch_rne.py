@@ -5,8 +5,9 @@ Source : data.gouv.fr - Licence Ouverte v2.0
 
 import csv
 import io
-import requests
 from typing import Generator
+
+from sources.http_client import get_session
 
 RNE_RESOURCES = {
     "deputes": "https://www.data.gouv.fr/api/1/datasets/r/1ac42ff4-1336-44f8-a221-832039dbc142",
@@ -40,7 +41,7 @@ def fetch_rne_source(name: str, url: str) -> Generator[dict, None, None]:
     """Télécharge et parse un CSV du RNE."""
     print(f"  → Téléchargement {name}...")
     try:
-        resp = requests.get(url, timeout=30, headers={"User-Agent": "Casseroles-ETL/1.0"})
+        resp = get_session().get(url, timeout=30)
         resp.raise_for_status()
         # Détection encodage
         encoding = "utf-8"

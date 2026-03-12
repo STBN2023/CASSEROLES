@@ -39,7 +39,7 @@ function Initiales({ prenom, nom, size }: { prenom: string; nom: string; size: n
 function MembreCard({ membre }: { membre: MembreGouvernement }) {
   const [imgError, setImgError] = useState(false)
   const hasAffaire = membre.score > 0
-  const rang = membre.rang as RangGouvernement
+  const rang = membre.rang
   const { photo: photoSize, textSize } = RANG_CARD_SIZE[rang] ?? RANG_CARD_SIZE.ministre
 
   const cardContent = (
@@ -115,7 +115,7 @@ function MembreCard({ membre }: { membre: MembreGouvernement }) {
 function groupByRang(membres: MembreGouvernement[]) {
   const grouped: Partial<Record<RangGouvernement, MembreGouvernement[]>> = {}
   for (const m of membres) {
-    const r = m.rang as RangGouvernement
+    const r = m.rang
     if (!grouped[r]) grouped[r] = []
     grouped[r]!.push(m)
   }

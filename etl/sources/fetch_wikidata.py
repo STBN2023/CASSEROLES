@@ -5,14 +5,14 @@ Endpoint : https://query.wikidata.org/sparql
 Licence : CC0
 """
 
-import requests
 import time
 import re
 from typing import Generator
 
+from sources.http_client import get_session
+
 SPARQL_ENDPOINT = "https://query.wikidata.org/sparql"
 HEADERS = {
-    "User-Agent": "Casseroles-ETL/1.0 (observatoire open-source; contact: github.com/casseroles)",
     "Accept": "application/sparql-results+json",
 }
 
@@ -110,7 +110,7 @@ def requete_sparql(query: str, label: str) -> list[dict]:
     """Exécute une requête SPARQL sur Wikidata."""
     print(f"  → Requête Wikidata : {label}...")
     try:
-        resp = requests.get(
+        resp = get_session().get(
             SPARQL_ENDPOINT,
             params={"query": query, "format": "json"},
             headers=HEADERS,

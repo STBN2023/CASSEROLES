@@ -107,8 +107,11 @@ export function ElusTable() {
       setTotal(data.total)
       setTotalPages(data.totalPages)
       if (data.partis) setPartis(data.partis)
-    } catch {
-      // silently fail, keep previous state
+    } catch (err) {
+      console.error("Erreur chargement élus:", err)
+      setItems([])
+      setTotal(0)
+      setTotalPages(0)
     } finally {
       setLoading(false)
     }
