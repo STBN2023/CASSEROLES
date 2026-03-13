@@ -33,15 +33,9 @@
     },
     {
       "nom": "La France Insoumise",
-      "nb_elus": 4,
-      "nb_affaires": 4,
-      "nb_condamnations": 4
-    },
-    {
-      "nom": "Parti Socialiste",
-      "nb_elus": 3,
-      "nb_affaires": 3,
-      "nb_condamnations": 3
+      "nb_elus": 6,
+      "nb_affaires": 6,
+      "nb_condamnations": 6
     },
     {
       "nom": "Horizons",
@@ -56,16 +50,16 @@
       "nb_condamnations": 1
     },
     {
-      "nom": "Autre / Non renseigné",
+      "nom": "Parti Socialiste",
       "nb_elus": 2,
       "nb_affaires": 2,
       "nb_condamnations": 2
     },
     {
-      "nom": "Parti Communiste Français",
-      "nb_elus": 1,
-      "nb_affaires": 1,
-      "nb_condamnations": 1
+      "nom": "Autre / Non renseigné",
+      "nb_elus": 2,
+      "nb_affaires": 2,
+      "nb_condamnations": 2
     },
     {
       "nom": "MoDem",
@@ -75,6 +69,12 @@
     },
     {
       "nom": "Non inscrit",
+      "nb_elus": 1,
+      "nb_affaires": 1,
+      "nb_condamnations": 1
+    },
+    {
+      "nom": "UDF",
       "nb_elus": 1,
       "nb_affaires": 1,
       "nb_condamnations": 1

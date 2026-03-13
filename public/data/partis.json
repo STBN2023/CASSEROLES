@@ -1,7 +1,7 @@
 [
   {
     "nom": "Les Républicains",
-    "nb_elus_total": 283,
+    "nb_elus_total": 253,
     "nb_elus_concernes": 8,
     "nb_affaires": 9,
     "nb_condamnations": 9,
@@ -71,7 +71,7 @@
   },
   {
     "nom": "Rassemblement National",
-    "nb_elus_total": 722,
+    "nb_elus_total": 584,
     "nb_elus_concernes": 7,
     "nb_affaires": 8,
     "nb_condamnations": 8,
@@ -134,10 +134,10 @@
   },
   {
     "nom": "La France Insoumise",
-    "nb_elus_total": 193,
-    "nb_elus_concernes": 4,
-    "nb_affaires": 4,
-    "nb_condamnations": 4,
+    "nb_elus_total": 399,
+    "nb_elus_concernes": 6,
+    "nb_affaires": 6,
+    "nb_condamnations": 6,
     "nb_mises_en_examen": 0,
     "nb_enquetes": 0,
     "total_amendes_euros": 0,
@@ -152,9 +152,23 @@
         "nb_affaires": 1
       },
       {
+        "id": "deputes_delogu_sébastien_08/06/1987",
+        "prenom": "Sébastien",
+        "nom": "DELOGU",
+        "score": 3,
+        "nb_affaires": 1
+      },
+      {
         "id": "deputes_arnault_raphaël_08/01/1995",
         "prenom": "Raphaël",
         "nom": "ARNAULT",
+        "score": 3,
+        "nb_affaires": 1
+      },
+      {
+        "id": "deputes_lachaud_bastien_05/08/1980",
+        "prenom": "Bastien",
+        "nom": "LACHAUD",
         "score": 3,
         "nb_affaires": 1
       },
@@ -175,43 +189,8 @@
     ]
   },
   {
-    "nom": "Parti Socialiste",
-    "nb_elus_total": 368,
-    "nb_elus_concernes": 3,
-    "nb_affaires": 3,
-    "nb_condamnations": 3,
-    "nb_mises_en_examen": 0,
-    "nb_enquetes": 0,
-    "total_amendes_euros": 0,
-    "nb_avec_prison": 0,
-    "nb_avec_ineligibilite": 0,
-    "elus_concernes": [
-      {
-        "id": "deputes_lachaud_bastien_05/08/1980",
-        "prenom": "Bastien",
-        "nom": "LACHAUD",
-        "score": 3,
-        "nb_affaires": 1
-      },
-      {
-        "id": "senateurs_iacovelli_xavier_31/03/1981",
-        "prenom": "Xavier",
-        "nom": "IACOVELLI",
-        "score": 3,
-        "nb_affaires": 1
-      },
-      {
-        "id": "maires_bernardini_françois_24/08/1953",
-        "prenom": "François",
-        "nom": "BERNARDINI",
-        "score": 3,
-        "nb_affaires": 1
-      }
-    ]
-  },
-  {
     "nom": "Autre / Non renseigné",
-    "nb_elus_total": 36851,
+    "nb_elus_total": 36770,
     "nb_elus_concernes": 2,
     "nb_affaires": 2,
     "nb_condamnations": 2,
@@ -238,8 +217,36 @@
     ]
   },
   {
+    "nom": "Parti Socialiste",
+    "nb_elus_total": 368,
+    "nb_elus_concernes": 2,
+    "nb_affaires": 2,
+    "nb_condamnations": 2,
+    "nb_mises_en_examen": 0,
+    "nb_enquetes": 0,
+    "total_amendes_euros": 0,
+    "nb_avec_prison": 0,
+    "nb_avec_ineligibilite": 0,
+    "elus_concernes": [
+      {
+        "id": "senateurs_iacovelli_xavier_31/03/1981",
+        "prenom": "Xavier",
+        "nom": "IACOVELLI",
+        "score": 3,
+        "nb_affaires": 1
+      },
+      {
+        "id": "maires_bernardini_françois_24/08/1953",
+        "prenom": "François",
+        "nom": "BERNARDINI",
+        "score": 3,
+        "nb_affaires": 1
+      }
+    ]
+  },
+  {
     "nom": "Renaissance",
-    "nb_elus_total": 301,
+    "nb_elus_total": 302,
     "nb_elus_concernes": 2,
     "nb_affaires": 2,
     "nb_condamnations": 1,
@@ -316,7 +323,7 @@
   },
   {
     "nom": "Non inscrit",
-    "nb_elus_total": 115,
+    "nb_elus_total": 114,
     "nb_elus_concernes": 1,
     "nb_affaires": 1,
     "nb_condamnations": 1,
@@ -330,27 +337,6 @@
         "id": "deputes_pradié_aurélien_14/03/1986",
         "prenom": "Aurélien",
         "nom": "PRADIÉ",
-        "score": 3,
-        "nb_affaires": 1
-      }
-    ]
-  },
-  {
-    "nom": "Parti Communiste Français",
-    "nb_elus_total": 1,
-    "nb_elus_concernes": 1,
-    "nb_affaires": 1,
-    "nb_condamnations": 1,
-    "nb_mises_en_examen": 0,
-    "nb_enquetes": 0,
-    "total_amendes_euros": 0,
-    "nb_avec_prison": 0,
-    "nb_avec_ineligibilite": 0,
-    "elus_concernes": [
-      {
-        "id": "deputes_delogu_sébastien_08/06/1987",
-        "prenom": "Sébastien",
-        "nom": "DELOGU",
         "score": 3,
         "nb_affaires": 1
       }
@@ -400,20 +386,7 @@
   },
   {
     "nom": "Les Écologistes",
-    "nb_elus_total": 159,
-    "nb_elus_concernes": 0,
-    "nb_affaires": 0,
-    "nb_condamnations": 0,
-    "nb_mises_en_examen": 0,
-    "nb_enquetes": 0,
-    "total_amendes_euros": 0,
-    "nb_avec_prison": 0,
-    "nb_avec_ineligibilite": 0,
-    "elus_concernes": []
-  },
-  {
-    "nom": "Union des Droites pour la République",
-    "nb_elus_total": 50,
+    "nb_elus_total": 198,
     "nb_elus_concernes": 0,
     "nb_affaires": 0,
     "nb_condamnations": 0,
@@ -426,6 +399,19 @@
   },
   {
     "nom": "Gauche démocrate et républicaine",
+    "nb_elus_total": 56,
+    "nb_elus_concernes": 0,
+    "nb_affaires": 0,
+    "nb_condamnations": 0,
+    "nb_mises_en_examen": 0,
+    "nb_enquetes": 0,
+    "total_amendes_euros": 0,
+    "nb_avec_prison": 0,
+    "nb_avec_ineligibilite": 0,
+    "elus_concernes": []
+  },
+  {
+    "nom": "Union des Droites pour la République",
     "nb_elus_total": 50,
     "nb_elus_concernes": 0,
     "nb_affaires": 0,
