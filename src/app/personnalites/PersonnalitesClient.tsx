@@ -61,7 +61,7 @@ export function PersonnalitesClient({ personnalites, affaires }: Props) {
           className="sm:w-72"
           aria-label="Rechercher une personnalite"
         />
-        <Select value={scoreFilter} onValueChange={(v) => { setScoreFilter(v); setPage(0) }}>
+        <Select value={scoreFilter} onValueChange={(v) => { if (v) { setScoreFilter(v); setPage(0) } }}>
           <SelectTrigger className="sm:w-48" aria-label="Filtrer par score">
             {scoreFilter === "tous" ? "Tous scores" : `Score ${scoreFilter}`}
           </SelectTrigger>
