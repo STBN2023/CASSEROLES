@@ -99,6 +99,7 @@ export async function GET(request: NextRequest) {
     score: e.score,
     nb_affaires: e.nb_affaires,
     territoire: e.territoire,
+    mandat: e.mandat,
   }))
 
   const response: Record<string, unknown> = {

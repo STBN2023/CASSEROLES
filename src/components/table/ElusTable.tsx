@@ -23,6 +23,7 @@ interface EluRow {
   score: Score
   nb_affaires: number
   territoire: string
+  mandat: string
 }
 
 interface ApiResponse {
@@ -258,8 +259,10 @@ export function ElusTable() {
                         >
                           {elu.prenom} {elu.nom}
                         </Link>
-                        {elu.territoire && (
-                          <p className="text-xs text-gray-400 mt-0.5">{elu.territoire}</p>
+                        {(elu.mandat || elu.territoire) && (
+                          <p className="text-xs text-gray-400 mt-0.5">
+                            {elu.mandat}{elu.mandat && elu.territoire ? " · " : ""}{elu.territoire}
+                          </p>
                         )}
                       </td>
                       <td className="px-4 py-3 hidden md:table-cell">
