@@ -37,7 +37,9 @@
       "WebFetch(domain:commons.wikimedia.org)",
       "WebFetch(domain:fr.wikipedia.org)",
       "WebFetch(domain:en.wikipedia.org)",
-      "Bash(npm run build)"
+      "Bash(npm run build)",
+      "Bash(git add:*)",
+      "Bash(git reset:*)"
     ]
   }
 }
