@@ -1,4 +1,4 @@
-import { getStats, getAffaires, getStatsByRegion, getElus, getHemicycleData } from "@/lib/data"
+import { getStats, getAffaires, getStatsByRegion, getElus, getHemicycleData, getPersonnalites, getGouvernement } from "@/lib/data"
 import { KpiCard } from "@/components/dashboard/KpiCard"
 import { PartisChart } from "@/components/dashboard/PartisChart"
 import { RegionsTable } from "@/components/dashboard/RegionsTable"
@@ -18,8 +18,18 @@ export default async function HomePage() {
   const stats = getStats()
   const affaires = getAffaires()
   const elus = getElus()
+  const personnalites = getPersonnalites()
+  const gouvernement = getGouvernement()
   const regionStats = getStatsByRegion(affaires)
   const hemicycleSeats = getHemicycleData(elus)
+
+  // KPIs centrés sur le paysage politique
+  const nbPersonnalites = personnalites.length
+  const nbElusConcernes = stats.nb_elus_concernes
+  const nbGouvConcernes = gouvernement.filter((m) => (m.score ?? 0) > 0).length
+  const nbGouvTotal = gouvernement.length
+  const totalPersonnes = nbElusConcernes + nbPersonnalites
+  const nbAffairesNominatives = stats.nb_affaires_personnes ?? 0
 
   return (
     <div className="space-y-8">
@@ -42,71 +52,72 @@ export default async function HomePage() {
         <Link href="/methodologie" className="underline">méthodologie</Link>.
       </div>
 
-      {/* KPIs – Vue d'ensemble */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+      {/* KPIs – Paysage politique */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
         <KpiCard
-          label="Élus répertoriés"
-          value={stats.nb_elus_total}
-          sub="RNE, tous niveaux"
-          href="/elus"
-        />
-        <KpiCard
-          label="Affaires totales"
-          value={stats.nb_affaires_total}
-          sub={`${stats.nb_affaires_personnes ?? 0} nominatives · ${stats.nb_affaires_geographiques ?? 0} géographiques`}
-          href="/affaires"
-        />
-        <KpiCard
-          label="Personnes identifiées"
-          value={stats.nb_affaires_personnes ?? 0}
-          sub="Wikidata + Wikipedia"
+          label="Personnes avec affaires"
+          value={totalPersonnes}
+          sub={`${nbElusConcernes} élus en mandat · ${nbPersonnalites} personnalités`}
+          color="red"
           href="/personnalites"
         />
         <KpiCard
-          label="Liées à un élu RNE"
-          value={stats.nb_affaires_matchees ?? 0}
-          sub={`${stats.nb_elus_concernes} élu${stats.nb_elus_concernes > 1 ? "s" : ""} concerné${stats.nb_elus_concernes > 1 ? "s" : ""}`}
-          color="red"
-          href="/elus?score=3"
+          label="Affaires documentées"
+          value={nbAffairesNominatives}
+          sub="Wikidata + Wikipedia"
+          href="/affaires"
         />
-        <KpiCard
-          label="Géographiques (TI)"
-          value={stats.nb_affaires_geographiques ?? 0}
-          sub="TI France 2016, sans nom"
-          href="/affaires?source=ti"
-        />
-      </div>
-
-      {/* KPIs – Statuts judiciaires (affaires nominatives uniquement) */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
         <KpiCard
           label="Condamnations"
           value={stats.nb_condamnations}
-          sub={`${stats.nb_elus_condamnes} élu${stats.nb_elus_condamnes > 1 ? "s" : ""} RNE concerné${stats.nb_elus_condamnes > 1 ? "s" : ""}`}
+          sub="Décisions de justice définitives"
           color="red"
           href="/affaires?statut=condamnation"
         />
         <KpiCard
           label="Mises en examen"
           value={stats.nb_mises_en_examen}
-          sub={`${stats.nb_elus_mis_en_examen} élu${stats.nb_elus_mis_en_examen > 1 ? "s" : ""} RNE concerné${stats.nb_elus_mis_en_examen > 1 ? "s" : ""}`}
+          sub="Procédures en cours"
           color="orange"
           href="/affaires?statut=mise_en_examen"
         />
+      </div>
+
+      {/* KPIs – Détail par catégorie */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
         <KpiCard
-          label="Enquêtes"
-          value={stats.nb_enquetes}
-          sub={`${stats.nb_elus_enquetes} élu${stats.nb_elus_enquetes > 1 ? "s" : ""} RNE concerné${stats.nb_elus_enquetes > 1 ? "s" : ""}`}
-          color="yellow"
-          href="/affaires?statut=enquete"
+          label="Élus en mandat"
+          value={nbElusConcernes}
+          sub={`sur ${stats.nb_elus_total.toLocaleString("fr-FR")} au RNE`}
+          href="/elus?score=3"
         />
         <KpiCard
-          label="Relaxes / Sans suite"
-          value={(stats.nb_relaxes ?? 0) + (stats.nb_classes_sans_suite ?? 0)}
-          sub="Affaires classées"
-          href="/affaires?statut=relaxe"
+          label="Personnalités"
+          value={nbPersonnalites}
+          sub="Hors mandat actuel"
+          href="/personnalites"
+        />
+        <KpiCard
+          label="Gouvernement"
+          value={`${nbGouvConcernes} / ${nbGouvTotal}`}
+          sub={`membre${nbGouvConcernes > 1 ? "s" : ""} concerné${nbGouvConcernes > 1 ? "s" : ""}`}
+          color={nbGouvConcernes > 0 ? "orange" : "green"}
+          href="/gouvernement"
+        />
+        <KpiCard
+          label="Partis concernés"
+          value={stats.repartition_partis.length}
+          sub="Formations politiques"
+          href="/partis"
         />
       </div>
+
+      {/* Note TI France */}
+      <p className="text-xs text-gray-400 italic">
+        + {stats.nb_affaires_geographiques ?? 0} affaires géographiques (Transparency International France, 2016)
+        non liées à des personnes identifiées —{" "}
+        <Link href="/affaires" className="underline hover:text-gray-500">voir toutes les affaires</Link>.
+      </p>
 
       {/* Élus concernés par niveau de mandat */}
       {Object.keys(stats.repartition_niveaux).length > 0 && (
