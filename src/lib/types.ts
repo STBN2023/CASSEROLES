@@ -11,6 +11,7 @@ export interface Mandat {
   type: string
   niveau: Niveau
   territoire?: string
+  code_departement?: string
   debut?: string
   fin?: string
 }
@@ -30,6 +31,7 @@ export interface Elu {
   score: Score
   nb_affaires: number
   affaires: string[]
+  mandats?: Mandat[]
   place_en_hemicycle?: number
   url_photo?: string
   url_source?: string

@@ -329,6 +329,66 @@ def joindre_affaires(elus: list[dict], affaires: list[dict]) -> list[dict]:
     return elus, affaires_orphelines
 
 
+def dedupliquer_elus(elus: list[dict]) -> list[dict]:
+    """
+    Déduplique les élus par personne (prénom + nom + date de naissance).
+    Fusionne les mandats multiples en un tableau `mandats`.
+    Conserve un seul enregistrement par personne physique.
+    """
+    personnes: dict[str, dict] = {}
+    for elu in elus:
+        key = f"{normalise_nom(elu['prenom'])} {normalise_nom(elu['nom'])} {elu.get('date_naissance', '')}"
+        if key not in personnes:
+            # Premier mandat rencontré → base de la fiche personne
+            personnes[key] = dict(elu)
+            personnes[key]["mandats"] = [{
+                "type": elu["mandat"],
+                "territoire": elu["territoire"],
+                "code_departement": elu.get("code_departement", ""),
+                "niveau": elu["niveau"],
+            }]
+        else:
+            p = personnes[key]
+            # Ajouter le mandat
+            p["mandats"].append({
+                "type": elu["mandat"],
+                "territoire": elu["territoire"],
+                "code_departement": elu.get("code_departement", ""),
+                "niveau": elu["niveau"],
+            })
+            # Fusionner les affaires (union des IDs)
+            existing_ids = set(p.get("affaires", []))
+            for aid in elu.get("affaires", []):
+                if aid not in existing_ids:
+                    p["affaires"].append(aid)
+                    existing_ids.add(aid)
+            # Garder le score le plus élevé
+            if elu["score"] > p["score"]:
+                p["score"] = elu["score"]
+            # Garder le niveau le plus haut (national > local)
+            niveau_order = {"europeen": 2, "national": 1, "local": 0}
+            if niveau_order.get(elu["niveau"], 0) > niveau_order.get(p["niveau"], 0):
+                p["niveau"] = elu["niveau"]
+            # Garder la photo si on n'en a pas
+            if not p.get("url_photo") and elu.get("url_photo"):
+                p["url_photo"] = elu["url_photo"]
+            if not p.get("url_source") and elu.get("url_source"):
+                p["url_source"] = elu["url_source"]
+            # Place hémicycle
+            if not p.get("place_en_hemicycle") and elu.get("place_en_hemicycle"):
+                p["place_en_hemicycle"] = elu["place_en_hemicycle"]
+
+    # Recalculer nb_affaires et trier mandats
+    result = []
+    for p in personnes.values():
+        p["nb_affaires"] = len(p.get("affaires", []))
+        # Mandat principal = celui affiché (le plus haut niveau)
+        p["mandat"] = p["mandats"][0]["type"] if p["mandats"] else p.get("mandat", "")
+        p["territoire"] = p["mandats"][0]["territoire"] if p["mandats"] else p.get("territoire", "")
+        result.append(p)
+    return result
+
+
 def calculer_stats(elus: list[dict], affaires: list[dict]) -> dict:
     """Calcule les statistiques globales pour le dashboard."""
     elus_avec_affaires = [e for e in elus if e["nb_affaires"] > 0]

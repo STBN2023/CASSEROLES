@@ -17,7 +17,7 @@ from sources.fetch_assemblee_nationale import fetch_hemicycle_an, build_hemicycl
 from sources.fetch_wikidata import fetch_politiques_condamnes
 from sources.fetch_gouvernement import fetch_gouvernement, set_photos_dir
 from sources.fetch_wikipedia_affaires import fetch_affaires_wikipedia
-from transform import joindre_affaires, enrichir_affaires_wikidata, calculer_stats, calculer_partis, construire_personnalites, sauvegarder, enrichir_gouvernement
+from transform import joindre_affaires, enrichir_affaires_wikidata, calculer_stats, calculer_partis, construire_personnalites, sauvegarder, enrichir_gouvernement, dedupliquer_elus
 
 OUTPUT_DIR = Path(__file__).parent.parent / "public" / "data"
 
@@ -168,6 +168,15 @@ def main():
                 parti_enriched += 1
     if parti_enriched:
         print(f"      → {parti_enriched} élus enrichis avec parti Wikidata")
+
+    # Déduplication : fusionner les mandats multiples par personne
+    nb_avant = len(elus)
+    elus = dedupliquer_elus(elus)
+    nb_fusions = nb_avant - len(elus)
+    if nb_fusions:
+        print(f"      → {nb_fusions} mandats fusionnés ({nb_avant} → {len(elus)} personnes)")
+    elus_concernes_dedup = sum(1 for e in elus if e["nb_affaires"] > 0)
+    print(f"      → {elus_concernes_dedup} personnes concernées par au moins une affaire")
 
     gouvernement = enrichir_gouvernement(membres_gouv, affaires, politiques_wd, elus)
     nb_gouv_casseroles = sum(1 for m in gouvernement if m["score"] > 0)

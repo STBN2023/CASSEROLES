@@ -94,9 +94,21 @@ export default async function FicheEluPage({ params }: Props) {
               <h1 className="text-2xl font-bold text-gray-900">
                 {elu.prenom} {elu.nom}
               </h1>
-              <p className="text-gray-500 mt-1">{elu.mandat}</p>
-              {elu.territoire && (
-                <p className="text-sm text-gray-400">{elu.territoire}</p>
+              {elu.mandats && elu.mandats.length > 1 ? (
+                <ul className="mt-1 space-y-0.5">
+                  {elu.mandats.map((m, i) => (
+                    <li key={i} className="text-sm text-gray-500">
+                      {m.type}{m.territoire ? ` · ${m.territoire}` : ""}
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <>
+                  <p className="text-gray-500 mt-1">{elu.mandat}</p>
+                  {elu.territoire && (
+                    <p className="text-sm text-gray-400">{elu.territoire}</p>
+                  )}
+                </>
               )}
             </div>
           </div>

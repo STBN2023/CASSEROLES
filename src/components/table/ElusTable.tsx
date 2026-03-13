@@ -24,6 +24,7 @@ interface EluRow {
   nb_affaires: number
   territoire: string
   mandat: string
+  nb_mandats: number
 }
 
 interface ApiResponse {
@@ -262,6 +263,9 @@ export function ElusTable() {
                         {(elu.mandat || elu.territoire) && (
                           <p className="text-xs text-gray-400 mt-0.5">
                             {elu.mandat}{elu.mandat && elu.territoire ? " · " : ""}{elu.territoire}
+                            {elu.nb_mandats > 1 && (
+                              <span className="ml-1 text-gray-300">({elu.nb_mandats} mandats)</span>
+                            )}
                           </p>
                         )}
                       </td>
