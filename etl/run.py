@@ -144,6 +144,20 @@ def main():
     affaires, nb_nouvelles = enrichir_affaires_wikidata(affaires, politiques_wd)
     print(f"      → {nb_nouvelles} affaires Wikidata ajoutées ({len(affaires)} total)")
 
+    # Scraping Wikipedia étendu aux personnalités Wikidata (pas seulement gouvernement)
+    # On ne re-scrape pas ceux déjà traités (membres du gouvernement)
+    noms_gouv = {f"{m.get('prenom','')} {m.get('nom','')}".strip().lower() for m in membres_gouv}
+    personnalites_wiki = [
+        p for p in politiques_wd
+        if p.get("frwiki_title") and p["nom_complet"].lower() not in noms_gouv
+    ]
+    nb_avec_wiki = len(personnalites_wiki)
+    if nb_avec_wiki:
+        print(f"\n[5b] Affaires Wikipedia – personnalités Wikidata ({nb_avec_wiki} avec page FR)...")
+        affaires_wiki_perso = fetch_affaires_wikipedia(personnalites_wiki)
+        print(f"      → {len(affaires_wiki_perso)} affaires Wikipedia (personnalités)")
+        affaires.extend(affaires_wiki_perso)
+
     print("\n[6/6] Jointure élus ↔ affaires, scores et sauvegarde...")
     elus, affaires_orphelines = joindre_affaires(elus, affaires)
     elus_concernes = sum(1 for e in elus if e["nb_affaires"] > 0)

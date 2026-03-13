@@ -67,6 +67,12 @@
 - [x] **D2** — **KPIs page d'accueil** — Implémenté : `calculer_stats()` distingue 273 affaires nominatives (Wikidata+Wikipedia), 429 géographiques (TI France), 35 matchées à élus RNE. Dashboard affiche 5 KPIs séparés. ETL relancé : stats actualisées.
 - [x] **D3** — **Personnalités politiques hors RNE** — Implémenté : `construire_personnalites()` (L552-597) + page `/personnalites` + `PersonnalitesClient.tsx`. ETL relancé : 633 personnalités générées (Sarkozy, Carignon, Fillon, etc. avec affaires Wikidata/Wikipedia).
 
+## Améliorations données — Mars 2026
+
+- [x] **D4** — **KPIs centrés paysage politique** — Restructuration des KPIs du dashboard : ligne 1 (personnes avec affaires, affaires documentées, condamnations, mises en examen), ligne 2 (élus en mandat, personnalités, gouvernement, partis). Les 429 affaires géographiques TI France sont signalées en note de bas de page, plus mélangées aux stats nominatives.
+- [x] **D5** — **Déduplication élus multi-mandats** — `dedupliquer_elus()` dans `transform.py` fusionne les entrées RNE d'une même personne (prénom+nom+date_naissance) en un profil unique avec `mandats[]`. Résultat : 41 652 → 39 508 personnes (2 144 mandats fusionnés). La fiche élu et le tableau affichent tous les mandats.
+- [x] **D6** — **19 sièges manquants dans la carte hémicycle AN** — La `_SEAT_GROUP_MAP` avait 19 sièges marqués vacant (`_`) pour des députés actifs (Panot, Delogu, Clouet, Woerth, Lebon, etc.). Causait un fallback Wikidata qui attribuait le parti d'adhésion (ex: PCF) au lieu du groupe parlementaire (ex: LFI). Corrigé : 576/576 sièges avec groupe (vs 557 avant).
+
 ---
 
 ## Journal des corrections
@@ -89,3 +95,6 @@
 | 2026-03-13 | D1 | Vérification date de naissance dans jointure affaires ↔ élus (évite faux positifs homonymes) | `etl/transform.py` (L218-294) |
 | 2026-03-13 | D2 | Distinction stats : 273 affaires nominatives · 429 géographiques · 35 matchées à élus RNE | `src/app/page.tsx`, `etl/transform.py:calculer_stats()` |
 | 2026-03-13 | D3 | Page `/personnalites` + génération 633 personnalités hors RNE (Wikidata/Wikipedia orphelines) | `src/app/personnalites/`, `etl/transform.py:construire_personnalites()` |
+| 2026-03-13 | D4 | KPIs dashboard restructurés : paysage politique (nominatif) vs géographique (TI France en note) | `src/app/page.tsx` |
+| 2026-03-13 | D5 | Déduplication élus par personne : fusion mandats multiples RNE (41 652 → 39 508) | `etl/transform.py`, `etl/run.py`, `src/app/elus/[id]/page.tsx`, `src/components/table/ElusTable.tsx`, `src/app/api/elus/route.ts` |
+| 2026-03-13 | D6 | Correction 19 sièges manquants carte hémicycle AN (576/576 avec groupe) | `etl/sources/fetch_assemblee_nationale.py` |

@@ -1,19 +1,271 @@
 [
   {
+    "id": "perso_Q945181",
+    "nom_complet": "Patrick Balkany",
+    "wikidata_id": "Q945181",
+    "poste": "maire de Levallois-Perret",
+    "score": 3,
+    "nb_affaires": 9,
+    "affaires": [
+      "wd_Q945181_0",
+      "wiki_patrick_balkany_affaires_judiciaires_et_d_part_de_l_assembl_e_nationale",
+      "wiki_patrick_balkany_affaires_judiciaires",
+      "wiki_patrick_balkany_condamnation_pour_prise_ill_gale_d_int_r_ts___levallois_perret_en_1996",
+      "wiki_patrick_balkany_condamnation_pour_injure_et_diffamation_envers_une__lue_en_2003",
+      "wiki_patrick_balkany_relaxe_dans_l_affaire_des_hlm_des_hauts_de_seine",
+      "wiki_patrick_balkany_condamnation_pour_blanchiment_de_fraude_fiscale_et_corruption",
+      "wiki_patrick_balkany_mise_en_examen_pour__span___d_tournement_de_fonds_publics____span_",
+      "wiki_patrick_balkany_mise_en_examen_pour___prise_ill_gale_d_int_r_ts___et___abus_de_biens_sociaux__"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q945181",
+      "https://fr.wikipedia.org/wiki/Patrick_Balkany"
+    ]
+  },
+  {
+    "id": "perso_Q2747180",
+    "nom_complet": "Gaston Flosse",
+    "wikidata_id": "Q2747180",
+    "poste": "sénateur ou sénatrice de la Cinquième République",
+    "score": 3,
+    "nb_affaires": 8,
+    "affaires": [
+      "wd_Q2747180_0",
+      "wiki_gaston_flosse_affaires_judiciaires",
+      "wiki_gaston_flosse_affaire_des_sushis",
+      "wiki_gaston_flosse_affaire_du_sed",
+      "wiki_gaston_flosse_affaire_de_la_vaisselle",
+      "wiki_gaston_flosse_affaire_de_la_citerne_d_erima",
+      "wiki_gaston_flosse_affaire_de_la_dissimulation_de_patrimoine",
+      "wiki_gaston_flosse_affaire_du_faux_bail_du_studio_de_papeete"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q2747180",
+      "https://fr.wikipedia.org/wiki/Gaston_Flosse"
+    ]
+  },
+  {
+    "id": "perso_Q329",
+    "nom_complet": "Nicolas Sarkozy",
+    "wikidata_id": "Q329",
+    "poste": "ministre de l'Intérieur",
+    "score": 3,
+    "nb_affaires": 8,
+    "affaires": [
+      "wd_Q329_0",
+      "wd_Q329_1",
+      "wd_Q329_2",
+      "wiki_nicolas_sarkozy_affaires_judiciaires",
+      "wiki_nicolas_sarkozy_affaire_des_sondages_de_l__lys_e",
+      "wiki_nicolas_sarkozy_affaire_de_la_coupe_du_monde_2022",
+      "wiki_nicolas_sarkozy_affaire_bismuth___condamnation_pour_corruption",
+      "wiki_nicolas_sarkozy_affaire_bygmalion___condamnation_pour_financement_illicite_de_sa_campagne__lectorale"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q329",
+      "https://fr.wikipedia.org/wiki/Nicolas_Sarkozy"
+    ]
+  },
+  {
+    "id": "perso_Q7177",
+    "nom_complet": "Jean-Marie Le Pen",
+    "wikidata_id": "Q7177",
+    "poste": "sénateur de la Communauté",
+    "score": 3,
+    "nb_affaires": 6,
+    "affaires": [
+      "wd_Q7177_0",
+      "wd_Q7177_1",
+      "wiki_jean_marie_le_pen_propos_haineux__n_gationnisme_et_affaires_judiciaires",
+      "wiki_jean_marie_le_pen_condamnation_pour_apologie_de_crime_de_guerre_et_contestation_de_crimes_contre_l_humanit_",
+      "wiki_jean_marie_le_pen_affaire_du___d_tail__",
+      "wiki_jean_marie_le_pen_proc_s_contre_le_mrap_et_patrick_bruel"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q7177",
+      "https://fr.wikipedia.org/wiki/Jean-Marie_Le_Pen"
+    ]
+  },
+  {
     "id": "perso_Q2401871",
     "nom_complet": "Alain Carignon",
     "wikidata_id": "Q2401871",
-    "poste": "député français",
+    "poste": "maire de Grenoble",
     "score": 3,
-    "nb_affaires": 4,
+    "nb_affaires": 5,
     "affaires": [
       "wd_Q2401871_0",
       "wd_Q2401871_1",
       "wd_Q2401871_2",
-      "wd_Q2401871_3"
+      "wd_Q2401871_3",
+      "wiki_alain_carignon_condamnations_judiciaires"
     ],
     "sources": [
-      "https://www.wikidata.org/wiki/Q2401871"
+      "https://www.wikidata.org/wiki/Q2401871",
+      "https://fr.wikipedia.org/wiki/Alain_Carignon"
+    ]
+  },
+  {
+    "id": "perso_Q327009",
+    "nom_complet": "Maurice Papon",
+    "wikidata_id": "Q327009",
+    "poste": "préfet de Constantine",
+    "score": 3,
+    "nb_affaires": 5,
+    "affaires": [
+      "wd_Q327009_0",
+      "wd_Q327009_1",
+      "wiki_maurice_papon_proc_s_de_1997_et_suites",
+      "wiki_maurice_papon_d_roulement_du_proc_s",
+      "wiki_maurice_papon_autour_de_maurice_papon_et_de_son_proc_s"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q327009",
+      "https://fr.wikipedia.org/wiki/Maurice_Papon"
+    ]
+  },
+  {
+    "id": "perso_Q27182",
+    "nom_complet": "Rachida Dati",
+    "wikidata_id": "Q27182",
+    "poste": "ministre de la Culture",
+    "score": 3,
+    "nb_affaires": 5,
+    "affaires": [
+      "wd_Q27182_0",
+      "wiki_rachida_dati_controverses",
+      "wiki_rachida_dati_affaires_judiciaires",
+      "wiki_rachida_dati_proc_s_li____l_affaire_carlos_ghosn",
+      "wiki_rachida_dati_proc_s_en_diffamation"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q27182",
+      "https://fr.wikipedia.org/wiki/Rachida_Dati"
+    ]
+  },
+  {
+    "id": "perso_Q981270",
+    "nom_complet": "Serge Dassault",
+    "wikidata_id": "Q981270",
+    "poste": "maire de Corbeil-Essonnes",
+    "score": 3,
+    "nb_affaires": 5,
+    "affaires": [
+      "wd_Q981270_0",
+      "wiki_serge_dassault_affaires_judiciaires",
+      "wiki_serge_dassault_condamnation_pour_corruption",
+      "wiki_serge_dassault_mise_en_examen_pour_achats_de_votes",
+      "wiki_serge_dassault_affaire_de_blanchiment_d_argent"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q981270",
+      "https://fr.wikipedia.org/wiki/Serge_Dassault"
+    ]
+  },
+  {
+    "id": "perso_Q7732",
+    "nom_complet": "Louis XVI",
+    "wikidata_id": "Q7732",
+    "poste": "roi des Français",
+    "score": 3,
+    "nb_affaires": 4,
+    "affaires": [
+      "wd_Q7732_0",
+      "wiki_louis_xvi_affaire_du_collier_de_la_reine",
+      "wiki_louis_xvi_proc_s_devant_la_convention",
+      "wiki_louis_xvi_sur_ses_proc_s_et_ex_cution"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q7732",
+      "https://fr.wikipedia.org/wiki/Louis_XVI"
+    ]
+  },
+  {
+    "id": "perso_Q2825837",
+    "nom_complet": "Michel Mouillot",
+    "wikidata_id": "Q2825837",
+    "poste": "maire de Cannes",
+    "score": 3,
+    "nb_affaires": 4,
+    "affaires": [
+      "wd_Q2825837_0",
+      "wd_Q2825837_1",
+      "wd_Q2825837_2",
+      "wiki_michel_mouillot_condamnations"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q2825837",
+      "https://fr.wikipedia.org/wiki/Michel_Mouillot"
+    ]
+  },
+  {
+    "id": "perso_Q51552",
+    "nom_complet": "Roman Polanski",
+    "wikidata_id": "Q51552",
+    "poste": "président du jury du festival de Cannes",
+    "score": 3,
+    "nb_affaires": 4,
+    "affaires": [
+      "wd_Q51552_0",
+      "wiki_roman_polanski_poursuites_judiciaires_et_accusations_de_viol",
+      "wiki_roman_polanski_condamnation_pour_rapports_sexuels_ill_gaux_et_cons_quences",
+      "wiki_roman_polanski_pol_mique"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q51552",
+      "https://fr.wikipedia.org/wiki/Roman_Polanski"
+    ]
+  },
+  {
+    "id": "perso_Q29225872",
+    "nom_complet": "Yvan Benedetti",
+    "wikidata_id": "Q29225872",
+    "poste": "conseiller ou conseillère municipale",
+    "score": 3,
+    "nb_affaires": 4,
+    "affaires": [
+      "wd_Q29225872_0",
+      "wd_Q29225872_1",
+      "wd_Q29225872_2",
+      "wiki_yvan_benedetti_affaires_judiciaires"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q29225872",
+      "https://fr.wikipedia.org/wiki/Yvan_Benedetti"
+    ]
+  },
+  {
+    "id": "perso_Q30385935",
+    "nom_complet": "Adrien Quatennens",
+    "wikidata_id": "Q30385935",
+    "poste": "député français",
+    "score": 3,
+    "nb_affaires": 3,
+    "affaires": [
+      "wd_Q30385935_0",
+      "wiki_adrien_quatennens_condamnation_pour_violences_conjugales",
+      "wiki_adrien_quatennens_poursuites_judiciaires_et_condamnation"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q30385935",
+      "https://fr.wikipedia.org/wiki/Adrien_Quatennens"
+    ]
+  },
+  {
+    "id": "perso_Q5079897",
+    "nom_complet": "Charles Kushner",
+    "wikidata_id": "Q5079897",
+    "poste": "ambassadeur des États-Unis en France",
+    "score": 3,
+    "nb_affaires": 3,
+    "affaires": [
+      "wd_Q5079897_0",
+      "wd_Q5079897_1",
+      "wiki_charles_kushner_condamnation_p_nale_et_incarc_ration"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q5079897",
+      "https://fr.wikipedia.org/wiki/Charles_Kushner"
     ]
   },
   {
@@ -33,58 +285,179 @@
     ]
   },
   {
-    "id": "perso_Q2825837",
-    "nom_complet": "Michel Mouillot",
-    "wikidata_id": "Q2825837",
-    "poste": "maire de Cannes",
+    "id": "perso_Q3103572",
+    "nom_complet": "Georges Tron",
+    "wikidata_id": "Q3103572",
+    "poste": "maire de Draveil",
     "score": 3,
     "nb_affaires": 3,
     "affaires": [
-      "wd_Q2825837_0",
-      "wd_Q2825837_1",
-      "wd_Q2825837_2"
+      "wd_Q3103572_0",
+      "wd_Q3103572_1",
+      "wiki_georges_tron_affaire_judiciaire"
     ],
     "sources": [
-      "https://www.wikidata.org/wiki/Q2825837"
+      "https://www.wikidata.org/wiki/Q3103572",
+      "https://fr.wikipedia.org/wiki/Georges_Tron"
     ]
   },
   {
-    "id": "perso_Q329",
-    "nom_complet": "Nicolas Sarkozy",
-    "wikidata_id": "Q329",
-    "poste": "président de la République française",
+    "id": "perso_Q281081",
+    "nom_complet": "Henri Jibrayel",
+    "wikidata_id": "Q281081",
+    "poste": "conseiller général",
     "score": 3,
     "nb_affaires": 3,
     "affaires": [
-      "wd_Q329_0",
-      "wd_Q329_1",
-      "wd_Q329_2"
+      "wd_Q281081_0",
+      "wd_Q281081_1",
+      "wiki_henri_jibrayel_affaires_judiciaires"
     ],
     "sources": [
-      "https://www.wikidata.org/wiki/Q329"
+      "https://www.wikidata.org/wiki/Q281081",
+      "https://fr.wikipedia.org/wiki/Henri_Jibrayel"
     ]
   },
   {
-    "id": "perso_Q29225872",
-    "nom_complet": "Yvan Benedetti",
-    "wikidata_id": "Q29225872",
+    "id": "perso_Q3133201",
+    "nom_complet": "Henry de Lesquen",
+    "wikidata_id": "Q3133201",
+    "poste": "conseiller municipal de Versailles",
+    "score": 3,
+    "nb_affaires": 3,
+    "affaires": [
+      "wd_Q3133201_0",
+      "wiki_henry_de_lesquen_proc_s",
+      "wiki_henry_de_lesquen_pol_miques_et_notori_t__sur_internet"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q3133201",
+      "https://fr.wikipedia.org/wiki/Henry_de_Lesquen"
+    ]
+  },
+  {
+    "id": "perso_Q2105",
+    "nom_complet": "Jacques Chirac",
+    "wikidata_id": "Q2105",
+    "poste": "ministre de l'Agriculture et du Développement rural",
+    "score": 3,
+    "nb_affaires": 3,
+    "affaires": [
+      "wd_Q2105_0",
+      "wiki_jacques_chirac_affaires_judiciaires_et_scandales",
+      "wiki_jacques_chirac_affaire_du_compte_japonais"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q2105",
+      "https://fr.wikipedia.org/wiki/Jacques_Chirac"
+    ]
+  },
+  {
+    "id": "perso_Q30339351",
+    "nom_complet": "Lætitia Avia",
+    "wikidata_id": "Q30339351",
+    "poste": "député français",
+    "score": 3,
+    "nb_affaires": 3,
+    "affaires": [
+      "wd_Q30339351_0",
+      "wiki_l_titia_avia_pol_miques_et_affaires_judiciaires",
+      "wiki_l_titia_avia_accusations_de_racisme__de_sexisme__d_homophobie_et_condamnation_pour_harc_lement_moral"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q30339351",
+      "https://fr.wikipedia.org/wiki/Laetitia_Avia"
+    ]
+  },
+  {
+    "id": "perso_Q3310773",
+    "nom_complet": "Michel Roussin",
+    "wikidata_id": "Q3310773",
+    "poste": "chef de cabinet",
+    "score": 3,
+    "nb_affaires": 3,
+    "affaires": [
+      "wd_Q3310773_0",
+      "wiki_michel_roussin_affaire_des_hlm_de_paris",
+      "wiki_michel_roussin_affaire_des_march_s_publics_d__le_de_france"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q3310773",
+      "https://fr.wikipedia.org/wiki/Michel_Roussin"
+    ]
+  },
+  {
+    "id": "perso_Q27898910",
+    "nom_complet": "Penelope Fillon",
+    "wikidata_id": "Q27898910",
     "poste": "conseiller ou conseillère municipale",
     "score": 3,
     "nb_affaires": 3,
     "affaires": [
-      "wd_Q29225872_0",
-      "wd_Q29225872_1",
-      "wd_Q29225872_2"
+      "wd_Q27898910_0",
+      "wiki_penelope_fillon_condamnation_pour_emplois_fictifs_et_d_tournement_de_fonds_publics",
+      "wiki_penelope_fillon_mise_en_examen__proc_s_et_condamnation"
     ],
     "sources": [
-      "https://www.wikidata.org/wiki/Q29225872"
+      "https://www.wikidata.org/wiki/Q27898910",
+      "https://fr.wikipedia.org/wiki/Penelope_Fillon"
+    ]
+  },
+  {
+    "id": "perso_Q151983",
+    "nom_complet": "Pierre Laval",
+    "wikidata_id": "Q151983",
+    "poste": "ministre du Travail",
+    "score": 3,
+    "nb_affaires": 3,
+    "affaires": [
+      "wd_Q151983_0",
+      "wiki_pierre_laval_t_moin_au_proc_s_de_p_tain",
+      "wiki_pierre_laval_proc_s"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q151983",
+      "https://fr.wikipedia.org/wiki/Pierre_Laval"
+    ]
+  },
+  {
+    "id": "perso_Q1103356",
+    "nom_complet": "Sylvie Andrieux",
+    "wikidata_id": "Q1103356",
+    "poste": "conseiller régional",
+    "score": 3,
+    "nb_affaires": 3,
+    "affaires": [
+      "wd_Q1103356_0",
+      "wiki_sylvie_andrieux_condamnation_pour_d_tournement_de_fonds_publics",
+      "wiki_sylvie_andrieux_affaire_de_la_villa_mari_jo"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q1103356",
+      "https://fr.wikipedia.org/wiki/Sylvie_Andrieux"
+    ]
+  },
+  {
+    "id": "perso_Q2830086",
+    "nom_complet": "Alain Marsaud",
+    "wikidata_id": "Q2830086",
+    "poste": "conseiller général",
+    "score": 3,
+    "nb_affaires": 2,
+    "affaires": [
+      "wd_Q2830086_0",
+      "wiki_alain_marsaud_condamnations"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q2830086",
+      "https://fr.wikipedia.org/wiki/Alain_Marsaud"
     ]
   },
   {
     "id": "perso_Q30517132",
     "nom_complet": "Benoît Simian",
     "wikidata_id": "Q30517132",
-    "poste": "député français",
+    "poste": "maire de Ludon-Médoc",
     "score": 3,
     "nb_affaires": 2,
     "affaires": [
@@ -96,25 +469,42 @@
     ]
   },
   {
-    "id": "perso_Q5079897",
-    "nom_complet": "Charles Kushner",
-    "wikidata_id": "Q5079897",
-    "poste": "ambassadeur des États-Unis en France",
+    "id": "perso_Q2965176",
+    "nom_complet": "Christian Cuvilliez",
+    "wikidata_id": "Q2965176",
+    "poste": "conseiller régional",
     "score": 3,
     "nb_affaires": 2,
     "affaires": [
-      "wd_Q5079897_0",
-      "wd_Q5079897_1"
+      "wd_Q2965176_0",
+      "wiki_christian_cuvilliez_condamnation_pour_emplois_fictifs"
     ],
     "sources": [
-      "https://www.wikidata.org/wiki/Q5079897"
+      "https://www.wikidata.org/wiki/Q2965176",
+      "https://fr.wikipedia.org/wiki/Christian_Cuvilliez"
+    ]
+  },
+  {
+    "id": "perso_Q2977023",
+    "nom_complet": "Claude Biwer",
+    "wikidata_id": "Q2977023",
+    "poste": "maire de Marville",
+    "score": 3,
+    "nb_affaires": 2,
+    "affaires": [
+      "wd_Q2977023_0",
+      "wiki_claude_biwer_condamnations_et_d_faites__lectorales"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q2977023",
+      "https://fr.wikipedia.org/wiki/Claude_Biwer"
     ]
   },
   {
     "id": "perso_Q528581",
     "nom_complet": "Claude Guéant",
     "wikidata_id": "Q528581",
-    "poste": "secrétaire général de la présidence de la République",
+    "poste": "secrétaire général de la préfecture de l'Hérault",
     "score": 3,
     "nb_affaires": 2,
     "affaires": [
@@ -129,7 +519,7 @@
     "id": "perso_Q1097072",
     "nom_complet": "Claude Pradille",
     "wikidata_id": "Q1097072",
-    "poste": "conseiller général",
+    "poste": "maire de Sauve",
     "score": 3,
     "nb_affaires": 2,
     "affaires": [
@@ -138,6 +528,22 @@
     ],
     "sources": [
       "https://www.wikidata.org/wiki/Q1097072"
+    ]
+  },
+  {
+    "id": "perso_Q3014681",
+    "nom_complet": "Daniel Simonpieri",
+    "wikidata_id": "Q3014681",
+    "poste": "maire de Marignane",
+    "score": 3,
+    "nb_affaires": 2,
+    "affaires": [
+      "wd_Q3014681_0",
+      "wiki_daniel_simonpieri_condamnation"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q3014681",
+      "https://fr.wikipedia.org/wiki/Daniel_Simonpieri"
     ]
   },
   {
@@ -160,7 +566,7 @@
     "id": "perso_Q1394083",
     "nom_complet": "François Léotard",
     "wikidata_id": "Q1394083",
-    "poste": "député français",
+    "poste": "maire de Fréjus",
     "score": 3,
     "nb_affaires": 2,
     "affaires": [
@@ -172,18 +578,51 @@
     ]
   },
   {
-    "id": "perso_Q3103572",
-    "nom_complet": "Georges Tron",
-    "wikidata_id": "Q3103572",
-    "poste": "député français",
+    "id": "perso_Q3103532",
+    "nom_complet": "Georges Theil",
+    "wikidata_id": "Q3103532",
+    "poste": "conseiller régional",
     "score": 3,
     "nb_affaires": 2,
     "affaires": [
-      "wd_Q3103572_0",
-      "wd_Q3103572_1"
+      "wd_Q3103532_0",
+      "wiki_georges_theil_affaires_judiciaires"
     ],
     "sources": [
-      "https://www.wikidata.org/wiki/Q3103572"
+      "https://www.wikidata.org/wiki/Q3103532",
+      "https://fr.wikipedia.org/wiki/Georges_Theil"
+    ]
+  },
+  {
+    "id": "perso_Q3105581",
+    "nom_complet": "Gilbert Annette",
+    "wikidata_id": "Q3105581",
+    "poste": "maire de Saint-Denis",
+    "score": 3,
+    "nb_affaires": 2,
+    "affaires": [
+      "wd_Q3105581_0",
+      "wiki_gilbert_annette_affaires_judiciaires"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q3105581",
+      "https://fr.wikipedia.org/wiki/Gilbert_Annette"
+    ]
+  },
+  {
+    "id": "perso_Q16024848",
+    "nom_complet": "Gilbert Azibert",
+    "wikidata_id": "Q16024848",
+    "poste": "directeur de l'Administration pénitentiaire",
+    "score": 3,
+    "nb_affaires": 2,
+    "affaires": [
+      "wd_Q16024848_0",
+      "wiki_gilbert_azibert_proc_s_pour__corruption"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q16024848",
+      "https://fr.wikipedia.org/wiki/Gilbert_Azibert"
     ]
   },
   {
@@ -217,21 +656,6 @@
     ]
   },
   {
-    "id": "perso_Q281081",
-    "nom_complet": "Henri Jibrayel",
-    "wikidata_id": "Q281081",
-    "poste": "député français",
-    "score": 3,
-    "nb_affaires": 2,
-    "affaires": [
-      "wd_Q281081_0",
-      "wd_Q281081_1"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q281081"
-    ]
-  },
-  {
     "id": "perso_Q3142547",
     "nom_complet": "Hugues Géraud",
     "wikidata_id": "Q3142547",
@@ -250,7 +674,7 @@
     "id": "perso_Q5829",
     "nom_complet": "Jean-Luc Mélenchon",
     "wikidata_id": "Q5829",
-    "poste": "député français",
+    "poste": "sénateur ou sénatrice de la Cinquième République",
     "score": 3,
     "nb_affaires": 2,
     "affaires": [
@@ -262,18 +686,51 @@
     ]
   },
   {
-    "id": "perso_Q7177",
-    "nom_complet": "Jean-Marie Le Pen",
-    "wikidata_id": "Q7177",
-    "poste": "député français",
+    "id": "perso_Q3167962",
+    "nom_complet": "Jean-Michel Boucheron",
+    "wikidata_id": "Q3167962",
+    "poste": "maire d'Angoulême",
     "score": 3,
     "nb_affaires": 2,
     "affaires": [
-      "wd_Q7177_0",
-      "wd_Q7177_1"
+      "wd_Q3167962_0",
+      "wiki_jean_michel_boucheron_condamnations_judiciaires"
     ],
     "sources": [
-      "https://www.wikidata.org/wiki/Q7177"
+      "https://www.wikidata.org/wiki/Q3167962",
+      "https://fr.wikipedia.org/wiki/Jean-Michel_Boucheron_(homme_politique,_1946)"
+    ]
+  },
+  {
+    "id": "perso_Q2067897",
+    "nom_complet": "Jean-Paul Huchon",
+    "wikidata_id": "Q2067897",
+    "poste": "maire de Conflans-Sainte-Honorine",
+    "score": 3,
+    "nb_affaires": 2,
+    "affaires": [
+      "wd_Q2067897_0",
+      "wiki_jean_paul_huchon_affaires_judiciaires"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q2067897",
+      "https://fr.wikipedia.org/wiki/Jean-Paul_Huchon"
+    ]
+  },
+  {
+    "id": "perso_Q2191131",
+    "nom_complet": "Jean-Pierre Esteva",
+    "wikidata_id": "Q2191131",
+    "poste": "résident général de France en Tunisie",
+    "score": 3,
+    "nb_affaires": 2,
+    "affaires": [
+      "wd_Q2191131_0",
+      "wiki_jean_pierre_esteva_arrestation_et_proc_s"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q2191131",
+      "https://fr.wikipedia.org/wiki/Jean-Pierre_Esteva"
     ]
   },
   {
@@ -309,6 +766,38 @@
     ]
   },
   {
+    "id": "perso_Q706812",
+    "nom_complet": "Marcel Petiot",
+    "wikidata_id": "Q706812",
+    "poste": "maire de Villeneuve-sur-Yonne",
+    "score": 3,
+    "nb_affaires": 2,
+    "affaires": [
+      "wd_Q706812_0",
+      "wiki_marcel_petiot_proc_s_et_condamnation"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q706812",
+      "https://fr.wikipedia.org/wiki/Marcel_Petiot"
+    ]
+  },
+  {
+    "id": "perso_Q3291630",
+    "nom_complet": "Marie-Christine Arnautu",
+    "wikidata_id": "Q3291630",
+    "poste": "conseiller municipal de Nice",
+    "score": 3,
+    "nb_affaires": 2,
+    "affaires": [
+      "wd_Q3291630_0",
+      "wiki_marie_christine_arnautu_affaire_judiciaire"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q3291630",
+      "https://fr.wikipedia.org/wiki/Marie-Christine_Arnautu"
+    ]
+  },
+  {
     "id": "perso_Q65602705",
     "nom_complet": "Martin Sotton",
     "wikidata_id": "Q65602705",
@@ -324,25 +813,170 @@
     ]
   },
   {
-    "id": "perso_Q327009",
-    "nom_complet": "Maurice Papon",
-    "wikidata_id": "Q327009",
-    "poste": "préfet de police de Paris",
+    "id": "perso_Q44197",
+    "nom_complet": "Maximilien de Robespierre",
+    "wikidata_id": "Q44197",
+    "poste": "député français",
     "score": 3,
     "nb_affaires": 2,
     "affaires": [
-      "wd_Q327009_0",
-      "wd_Q327009_1"
+      "wd_Q44197_0",
+      "wiki_maximilien_de_robespierre_proc_s_de_louis_xvi"
     ],
     "sources": [
-      "https://www.wikidata.org/wiki/Q327009"
+      "https://www.wikidata.org/wiki/Q44197",
+      "https://fr.wikipedia.org/wiki/Maximilien_de_Robespierre"
+    ]
+  },
+  {
+    "id": "perso_Q3309758",
+    "nom_complet": "Michel Gillibert",
+    "wikidata_id": "Q3309758",
+    "poste": "secrétaire d'État aux personnes handicapées",
+    "score": 3,
+    "nb_affaires": 2,
+    "affaires": [
+      "wd_Q3309758_0",
+      "wiki_michel_gillibert_poursuites_judiciaires"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q3309758",
+      "https://fr.wikipedia.org/wiki/Michel_Gillibert"
+    ]
+  },
+  {
+    "id": "perso_Q40756",
+    "nom_complet": "Michel Ney",
+    "wikidata_id": "Q40756",
+    "poste": "pair de France",
+    "score": 3,
+    "nb_affaires": 2,
+    "affaires": [
+      "wd_Q40756_0",
+      "wiki_michel_ney_proc_s_et_ex_cution"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q40756",
+      "https://fr.wikipedia.org/wiki/Michel_Ney"
+    ]
+  },
+  {
+    "id": "perso_Q30334210",
+    "nom_complet": "Mustapha Laabid",
+    "wikidata_id": "Q30334210",
+    "poste": "député français",
+    "score": 3,
+    "nb_affaires": 2,
+    "affaires": [
+      "wd_Q30334210_0",
+      "wiki_mustapha_laabid_affaires_judiciaires"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q30334210",
+      "https://fr.wikipedia.org/wiki/Mustapha_Laabid"
+    ]
+  },
+  {
+    "id": "perso_Q3370480",
+    "nom_complet": "Paul Anselin",
+    "wikidata_id": "Q3370480",
+    "poste": "maire de Ploërmel",
+    "score": 3,
+    "nb_affaires": 2,
+    "affaires": [
+      "wd_Q3370480_0",
+      "wiki_paul_anselin_condamnations"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q3370480",
+      "https://fr.wikipedia.org/wiki/Paul_Anselin"
+    ]
+  },
+  {
+    "id": "perso_Q3379749",
+    "nom_complet": "Philippe Doucet",
+    "wikidata_id": "Q3379749",
+    "poste": "maire d'Argenteuil",
+    "score": 3,
+    "nb_affaires": 2,
+    "affaires": [
+      "wd_Q3379749_0",
+      "wiki_philippe_doucet_affaires_judiciaires"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q3379749",
+      "https://fr.wikipedia.org/wiki/Philippe_Doucet_(homme_politique)"
+    ]
+  },
+  {
+    "id": "perso_Q3380331",
+    "nom_complet": "Philippe Martin",
+    "wikidata_id": "Q3380331",
+    "poste": "préfet des Landes",
+    "score": 3,
+    "nb_affaires": 2,
+    "affaires": [
+      "wd_Q3380331_0",
+      "wiki_philippe_martin_affaires_judiciaires"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q3380331",
+      "https://fr.wikipedia.org/wiki/Philippe_Martin_(homme_politique,_1953)"
+    ]
+  },
+  {
+    "id": "perso_Q3380441",
+    "nom_complet": "Philippe Nachbar",
+    "wikidata_id": "Q3380441",
+    "poste": "sénateur ou sénatrice de la Cinquième République",
+    "score": 3,
+    "nb_affaires": 2,
+    "affaires": [
+      "wd_Q3380441_0",
+      "wiki_philippe_nachbar_condamnation_pour_d_tournement_de_fonds_publics"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q3380441",
+      "https://fr.wikipedia.org/wiki/Philippe_Nachbar"
+    ]
+  },
+  {
+    "id": "perso_Q3386030",
+    "nom_complet": "Pierre Lunel",
+    "wikidata_id": "Q3386030",
+    "poste": "président de l'université Paris-VIII",
+    "score": 3,
+    "nb_affaires": 2,
+    "affaires": [
+      "wd_Q3386030_0",
+      "wiki_pierre_lunel_controverses"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q3386030",
+      "https://fr.wikipedia.org/wiki/Pierre_Lunel"
+    ]
+  },
+  {
+    "id": "perso_Q547525",
+    "nom_complet": "Roland Dumas",
+    "wikidata_id": "Q547525",
+    "poste": "ministre des Affaires étrangères",
+    "score": 3,
+    "nb_affaires": 2,
+    "affaires": [
+      "wd_Q547525_0",
+      "wiki_roland_dumas_affaires_judiciaires"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q547525",
+      "https://fr.wikipedia.org/wiki/Roland_Dumas"
     ]
   },
   {
     "id": "perso_Q54913149",
     "nom_complet": "Serge Morvan",
     "wikidata_id": "Q54913149",
-    "poste": "directeur général des collectivités locales",
+    "poste": "préfet des Yvelines",
     "score": 3,
     "nb_affaires": 2,
     "affaires": [
@@ -354,10 +988,26 @@
     ]
   },
   {
+    "id": "perso_Q3573932",
+    "nom_complet": "Yves Rispat",
+    "wikidata_id": "Q3573932",
+    "poste": "maire de Lupiac",
+    "score": 3,
+    "nb_affaires": 2,
+    "affaires": [
+      "wd_Q3573932_0",
+      "wiki_yves_rispat_condamnation"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q3573932",
+      "https://fr.wikipedia.org/wiki/Yves_Rispat"
+    ]
+  },
+  {
     "id": "perso_Q115773228",
     "nom_complet": "Éloi Sapor",
     "wikidata_id": "Q115773228",
-    "poste": "maire",
+    "poste": "conseiller général",
     "score": 3,
     "nb_affaires": 2,
     "affaires": [
@@ -459,20 +1109,6 @@
     ]
   },
   {
-    "id": "perso_Q30385935",
-    "nom_complet": "Adrien Quatennens",
-    "wikidata_id": "Q30385935",
-    "poste": "député français",
-    "score": 3,
-    "nb_affaires": 1,
-    "affaires": [
-      "wd_Q30385935_0"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q30385935"
-    ]
-  },
-  {
     "id": "perso_Q78498877",
     "nom_complet": "Agnès Cerighelli",
     "wikidata_id": "Q78498877",
@@ -504,7 +1140,7 @@
     "id": "perso_Q215569",
     "nom_complet": "Alain Juppé",
     "wikidata_id": "Q215569",
-    "poste": "Premier ministre français",
+    "poste": "maire de Bordeaux",
     "score": 3,
     "nb_affaires": 1,
     "affaires": [
@@ -512,20 +1148,6 @@
     ],
     "sources": [
       "https://www.wikidata.org/wiki/Q215569"
-    ]
-  },
-  {
-    "id": "perso_Q2830086",
-    "nom_complet": "Alain Marsaud",
-    "wikidata_id": "Q2830086",
-    "poste": "député français",
-    "score": 3,
-    "nb_affaires": 1,
-    "affaires": [
-      "wd_Q2830086_0"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q2830086"
     ]
   },
   {
@@ -546,7 +1168,7 @@
     "id": "perso_Q110962497",
     "nom_complet": "Albert Legrand",
     "wikidata_id": "Q110962497",
-    "poste": "conseiller général du Nord",
+    "poste": "maire de Saint-André-lez-Lille",
     "score": 3,
     "nb_affaires": 1,
     "affaires": [
@@ -602,7 +1224,7 @@
     "id": "perso_Q115929256",
     "nom_complet": "Charles Maignart de Bernières",
     "wikidata_id": "Q115929256",
-    "poste": "maître des requêtes",
+    "poste": "conseiller au parlement de Paris",
     "score": 3,
     "nb_affaires": 1,
     "affaires": [
@@ -610,34 +1232,6 @@
     ],
     "sources": [
       "https://www.wikidata.org/wiki/Q115929256"
-    ]
-  },
-  {
-    "id": "perso_Q2965176",
-    "nom_complet": "Christian Cuvilliez",
-    "wikidata_id": "Q2965176",
-    "poste": "maire",
-    "score": 3,
-    "nb_affaires": 1,
-    "affaires": [
-      "wd_Q2965176_0"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q2965176"
-    ]
-  },
-  {
-    "id": "perso_Q2977023",
-    "nom_complet": "Claude Biwer",
-    "wikidata_id": "Q2977023",
-    "poste": "député de la Meuse",
-    "score": 3,
-    "nb_affaires": 1,
-    "affaires": [
-      "wd_Q2977023_0"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q2977023"
     ]
   },
   {
@@ -652,20 +1246,6 @@
     ],
     "sources": [
       "https://www.wikidata.org/wiki/Q65571238"
-    ]
-  },
-  {
-    "id": "perso_Q3014681",
-    "nom_complet": "Daniel Simonpieri",
-    "wikidata_id": "Q3014681",
-    "poste": "conseiller général",
-    "score": 3,
-    "nb_affaires": 1,
-    "affaires": [
-      "wd_Q3014681_0"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q3014681"
     ]
   },
   {
@@ -792,7 +1372,7 @@
     "id": "perso_Q66019814",
     "nom_complet": "Dominique-Claire Mallemanche",
     "wikidata_id": "Q66019814",
-    "poste": "préfet de la Creuse",
+    "poste": "sous-préfet de l'arrondissement de Grasse",
     "score": 3,
     "nb_affaires": 1,
     "affaires": [
@@ -806,7 +1386,7 @@
     "id": "perso_Q3047469",
     "nom_complet": "Edgar Monteil",
     "wikidata_id": "Q3047469",
-    "poste": "préfet de la Creuse",
+    "poste": "préfet de la Haute-Vienne",
     "score": 3,
     "nb_affaires": 1,
     "affaires": [
@@ -834,7 +1414,7 @@
     "id": "perso_Q101410",
     "nom_complet": "François Fillon",
     "wikidata_id": "Q101410",
-    "poste": "ministère du Travail et de l'Emploi",
+    "poste": "maire de Sablé-sur-Sarthe",
     "score": 3,
     "nb_affaires": 1,
     "affaires": [
@@ -848,7 +1428,7 @@
     "id": "perso_Q3085621",
     "nom_complet": "François Pupponi",
     "wikidata_id": "Q3085621",
-    "poste": "député français",
+    "poste": "maire de Sarcelles",
     "score": 3,
     "nb_affaires": 1,
     "affaires": [
@@ -901,62 +1481,6 @@
     ]
   },
   {
-    "id": "perso_Q2747180",
-    "nom_complet": "Gaston Flosse",
-    "wikidata_id": "Q2747180",
-    "poste": "maire",
-    "score": 3,
-    "nb_affaires": 1,
-    "affaires": [
-      "wd_Q2747180_0"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q2747180"
-    ]
-  },
-  {
-    "id": "perso_Q3103532",
-    "nom_complet": "Georges Theil",
-    "wikidata_id": "Q3103532",
-    "poste": "conseiller régional",
-    "score": 3,
-    "nb_affaires": 1,
-    "affaires": [
-      "wd_Q3103532_0"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q3103532"
-    ]
-  },
-  {
-    "id": "perso_Q3105581",
-    "nom_complet": "Gilbert Annette",
-    "wikidata_id": "Q3105581",
-    "poste": "député français",
-    "score": 3,
-    "nb_affaires": 1,
-    "affaires": [
-      "wd_Q3105581_0"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q3105581"
-    ]
-  },
-  {
-    "id": "perso_Q16024848",
-    "nom_complet": "Gilbert Azibert",
-    "wikidata_id": "Q16024848",
-    "poste": "procureur général",
-    "score": 3,
-    "nb_affaires": 1,
-    "affaires": [
-      "wd_Q16024848_0"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q16024848"
-    ]
-  },
-  {
     "id": "perso_Q3123876",
     "nom_complet": "Gérard Dalongeville",
     "wikidata_id": "Q3123876",
@@ -999,20 +1523,6 @@
     ]
   },
   {
-    "id": "perso_Q3133201",
-    "nom_complet": "Henry de Lesquen",
-    "wikidata_id": "Q3133201",
-    "poste": "conseiller municipal de Versailles",
-    "score": 3,
-    "nb_affaires": 1,
-    "affaires": [
-      "wd_Q3133201_0"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q3133201"
-    ]
-  },
-  {
     "id": "perso_Q42959432",
     "nom_complet": "Hubert Fayard",
     "wikidata_id": "Q42959432",
@@ -1041,24 +1551,10 @@
     ]
   },
   {
-    "id": "perso_Q2105",
-    "nom_complet": "Jacques Chirac",
-    "wikidata_id": "Q2105",
-    "poste": "président de la République française",
-    "score": 3,
-    "nb_affaires": 1,
-    "affaires": [
-      "wd_Q2105_0"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q2105"
-    ]
-  },
-  {
     "id": "perso_Q377790",
     "nom_complet": "Jacques Duclos",
     "wikidata_id": "Q377790",
-    "poste": "député français",
+    "poste": "sénateur ou sénatrice de la Cinquième République",
     "score": 3,
     "nb_affaires": 1,
     "affaires": [
@@ -1072,7 +1568,7 @@
     "id": "perso_Q3159512",
     "nom_complet": "Jacques Masdeu-Arus",
     "wikidata_id": "Q3159512",
-    "poste": "député français",
+    "poste": "maire de Poissy",
     "score": 3,
     "nb_affaires": 1,
     "affaires": [
@@ -1086,7 +1582,7 @@
     "id": "perso_Q3159629",
     "nom_complet": "Jacques Médecin",
     "wikidata_id": "Q3159629",
-    "poste": "président ou présidente de conseil général",
+    "poste": "maire de Nice",
     "score": 3,
     "nb_affaires": 1,
     "affaires": [
@@ -1100,7 +1596,7 @@
     "id": "perso_Q3170360",
     "nom_complet": "Jean Anciant",
     "wikidata_id": "Q3170360",
-    "poste": "député français",
+    "poste": "maire de Creil",
     "score": 3,
     "nb_affaires": 1,
     "affaires": [
@@ -1142,7 +1638,7 @@
     "id": "perso_Q3171566",
     "nom_complet": "Jean Daubigny",
     "wikidata_id": "Q3171566",
-    "poste": "préfet de Paris",
+    "poste": "préfet de la Loire-Atlantique",
     "score": 3,
     "nb_affaires": 1,
     "affaires": [
@@ -1198,7 +1694,7 @@
     "id": "perso_Q3164674",
     "nom_complet": "Jean-Charles Marchiani",
     "wikidata_id": "Q3164674",
-    "poste": "préfet du Var",
+    "poste": "préfet chargé d’une mission de service public relevant du gouvernement",
     "score": 3,
     "nb_affaires": 1,
     "affaires": [
@@ -1251,24 +1747,10 @@
     ]
   },
   {
-    "id": "perso_Q3167962",
-    "nom_complet": "Jean-Michel Boucheron",
-    "wikidata_id": "Q3167962",
-    "poste": "député français",
-    "score": 3,
-    "nb_affaires": 1,
-    "affaires": [
-      "wd_Q3167962_0"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q3167962"
-    ]
-  },
-  {
     "id": "perso_Q3168248",
     "nom_complet": "Jean-Noël Guérini",
     "wikidata_id": "Q3168248",
-    "poste": "maire",
+    "poste": "président du Conseil général des Bouches-du-Rhône",
     "score": 3,
     "nb_affaires": 1,
     "affaires": [
@@ -1276,34 +1758,6 @@
     ],
     "sources": [
       "https://www.wikidata.org/wiki/Q3168248"
-    ]
-  },
-  {
-    "id": "perso_Q2067897",
-    "nom_complet": "Jean-Paul Huchon",
-    "wikidata_id": "Q2067897",
-    "poste": "maire de Conflans-Sainte-Honorine",
-    "score": 3,
-    "nb_affaires": 1,
-    "affaires": [
-      "wd_Q2067897_0"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q2067897"
-    ]
-  },
-  {
-    "id": "perso_Q2191131",
-    "nom_complet": "Jean-Pierre Esteva",
-    "wikidata_id": "Q2191131",
-    "poste": "résident général de France en Tunisie",
-    "score": 3,
-    "nb_affaires": 1,
-    "affaires": [
-      "wd_Q2191131_0"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q2191131"
     ]
   },
   {
@@ -1324,7 +1778,7 @@
     "id": "perso_Q3187409",
     "nom_complet": "Joël Guerriau",
     "wikidata_id": "Q3187409",
-    "poste": "sénateur ou sénatrice de la Cinquième République",
+    "poste": "maire de Saint-Sébastien-sur-Loire",
     "score": 3,
     "nb_affaires": 1,
     "affaires": [
@@ -1366,7 +1820,7 @@
     "id": "perso_Q57751",
     "nom_complet": "Jérôme Cahuzac",
     "wikidata_id": "Q57751",
-    "poste": "député français",
+    "poste": "maire de Villeneuve-sur-Lot",
     "score": 3,
     "nb_affaires": 1,
     "affaires": [
@@ -4032,20 +4486,6 @@
     ]
   },
   {
-    "id": "perso_Q7732",
-    "nom_complet": "Louis XVI",
-    "wikidata_id": "Q7732",
-    "poste": "roi des Français",
-    "score": 3,
-    "nb_affaires": 1,
-    "affaires": [
-      "wd_Q7732_0"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q7732"
-    ]
-  },
-  {
     "id": "perso_Q358144",
     "nom_complet": "Louis de Rohan",
     "wikidata_id": "Q358144",
@@ -4057,20 +4497,6 @@
     ],
     "sources": [
       "https://www.wikidata.org/wiki/Q358144"
-    ]
-  },
-  {
-    "id": "perso_Q30339351",
-    "nom_complet": "Lætitia Avia",
-    "wikidata_id": "Q30339351",
-    "poste": "député français",
-    "score": 3,
-    "nb_affaires": 1,
-    "affaires": [
-      "wd_Q30339351_0"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q30339351"
     ]
   },
   {
@@ -5485,7 +5911,7 @@
     "id": "perso_Q23804023",
     "nom_complet": "Marc Giraud",
     "wikidata_id": "Q23804023",
-    "poste": "président ou présidente de conseil départemental",
+    "poste": "maire de Carqueiranne",
     "score": 3,
     "nb_affaires": 1,
     "affaires": [
@@ -5499,7 +5925,7 @@
     "id": "perso_Q3288141",
     "nom_complet": "Marc Joulaud",
     "wikidata_id": "Q3288141",
-    "poste": "député français",
+    "poste": "maire de Sablé-sur-Sarthe",
     "score": 3,
     "nb_affaires": 1,
     "affaires": [
@@ -5510,38 +5936,10 @@
     ]
   },
   {
-    "id": "perso_Q706812",
-    "nom_complet": "Marcel Petiot",
-    "wikidata_id": "Q706812",
-    "poste": "conseiller général",
-    "score": 3,
-    "nb_affaires": 1,
-    "affaires": [
-      "wd_Q706812_0"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q706812"
-    ]
-  },
-  {
-    "id": "perso_Q3291630",
-    "nom_complet": "Marie-Christine Arnautu",
-    "wikidata_id": "Q3291630",
-    "poste": "conseiller municipal de Nice",
-    "score": 3,
-    "nb_affaires": 1,
-    "affaires": [
-      "wd_Q3291630_0"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q3291630"
-    ]
-  },
-  {
     "id": "perso_Q3298609",
     "nom_complet": "Mathieu-Augustin Cornet",
     "wikidata_id": "Q3298609",
-    "poste": "député du Loiret",
+    "poste": "pair de France",
     "score": 3,
     "nb_affaires": 1,
     "affaires": [
@@ -5555,7 +5953,7 @@
     "id": "perso_Q3300337",
     "nom_complet": "Maurice Arreckx",
     "wikidata_id": "Q3300337",
-    "poste": "député français",
+    "poste": "maire de Toulon",
     "score": 3,
     "nb_affaires": 1,
     "affaires": [
@@ -5594,52 +5992,10 @@
     ]
   },
   {
-    "id": "perso_Q44197",
-    "nom_complet": "Maximilien de Robespierre",
-    "wikidata_id": "Q44197",
-    "poste": "député français",
-    "score": 3,
-    "nb_affaires": 1,
-    "affaires": [
-      "wd_Q44197_0"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q44197"
-    ]
-  },
-  {
-    "id": "perso_Q3309758",
-    "nom_complet": "Michel Gillibert",
-    "wikidata_id": "Q3309758",
-    "poste": "secrétaire d'État aux personnes handicapées",
-    "score": 3,
-    "nb_affaires": 1,
-    "affaires": [
-      "wd_Q3309758_0"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q3309758"
-    ]
-  },
-  {
-    "id": "perso_Q40756",
-    "nom_complet": "Michel Ney",
-    "wikidata_id": "Q40756",
-    "poste": "pair de France",
-    "score": 3,
-    "nb_affaires": 1,
-    "affaires": [
-      "wd_Q40756_0"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q40756"
-    ]
-  },
-  {
     "id": "perso_Q3310469",
     "nom_complet": "Michel Noir",
     "wikidata_id": "Q3310469",
-    "poste": "député français",
+    "poste": "maire de Lyon",
     "score": 3,
     "nb_affaires": 1,
     "affaires": [
@@ -5650,24 +6006,10 @@
     ]
   },
   {
-    "id": "perso_Q3310773",
-    "nom_complet": "Michel Roussin",
-    "wikidata_id": "Q3310773",
-    "poste": "député français",
-    "score": 3,
-    "nb_affaires": 1,
-    "affaires": [
-      "wd_Q3310773_0"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q3310773"
-    ]
-  },
-  {
     "id": "perso_Q58130",
     "nom_complet": "Michèle Alliot-Marie",
     "wikidata_id": "Q58130",
-    "poste": "député français",
+    "poste": "secrétaire d'État chargé de l'Enseignement",
     "score": 3,
     "nb_affaires": 1,
     "affaires": [
@@ -5783,20 +6125,6 @@
     ]
   },
   {
-    "id": "perso_Q30334210",
-    "nom_complet": "Mustapha Laabid",
-    "wikidata_id": "Q30334210",
-    "poste": "député français",
-    "score": 3,
-    "nb_affaires": 1,
-    "affaires": [
-      "wd_Q30334210_0"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q30334210"
-    ]
-  },
-  {
     "id": "perso_Q63766184",
     "nom_complet": "Patrice Gausserand",
     "wikidata_id": "Q63766184",
@@ -5808,34 +6136,6 @@
     ],
     "sources": [
       "https://www.wikidata.org/wiki/Q63766184"
-    ]
-  },
-  {
-    "id": "perso_Q945181",
-    "nom_complet": "Patrick Balkany",
-    "wikidata_id": "Q945181",
-    "poste": "député français",
-    "score": 3,
-    "nb_affaires": 1,
-    "affaires": [
-      "wd_Q945181_0"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q945181"
-    ]
-  },
-  {
-    "id": "perso_Q3370480",
-    "nom_complet": "Paul Anselin",
-    "wikidata_id": "Q3370480",
-    "poste": "conseiller général",
-    "score": 3,
-    "nb_affaires": 1,
-    "affaires": [
-      "wd_Q3370480_0"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q3370480"
     ]
   },
   {
@@ -5853,48 +6153,6 @@
     ]
   },
   {
-    "id": "perso_Q27898910",
-    "nom_complet": "Penelope Fillon",
-    "wikidata_id": "Q27898910",
-    "poste": "conseiller ou conseillère municipale",
-    "score": 3,
-    "nb_affaires": 1,
-    "affaires": [
-      "wd_Q27898910_0"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q27898910"
-    ]
-  },
-  {
-    "id": "perso_Q3379749",
-    "nom_complet": "Philippe Doucet",
-    "wikidata_id": "Q3379749",
-    "poste": "député français",
-    "score": 3,
-    "nb_affaires": 1,
-    "affaires": [
-      "wd_Q3379749_0"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q3379749"
-    ]
-  },
-  {
-    "id": "perso_Q3380331",
-    "nom_complet": "Philippe Martin",
-    "wikidata_id": "Q3380331",
-    "poste": "député français",
-    "score": 3,
-    "nb_affaires": 1,
-    "affaires": [
-      "wd_Q3380331_0"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q3380331"
-    ]
-  },
-  {
     "id": "perso_Q98235341",
     "nom_complet": "Philippe Mathieu",
     "wikidata_id": "Q98235341",
@@ -5909,24 +6167,10 @@
     ]
   },
   {
-    "id": "perso_Q3380441",
-    "nom_complet": "Philippe Nachbar",
-    "wikidata_id": "Q3380441",
-    "poste": "sénateur ou sénatrice de la Cinquième République",
-    "score": 3,
-    "nb_affaires": 1,
-    "affaires": [
-      "wd_Q3380441_0"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q3380441"
-    ]
-  },
-  {
     "id": "perso_Q5721",
     "nom_complet": "Philippe Pétain",
     "wikidata_id": "Q5721",
-    "poste": "ministre d'État",
+    "poste": "vice-président du Conseil",
     "score": 3,
     "nb_affaires": 1,
     "affaires": [
@@ -5948,34 +6192,6 @@
     ],
     "sources": [
       "https://www.wikidata.org/wiki/Q30408131"
-    ]
-  },
-  {
-    "id": "perso_Q151983",
-    "nom_complet": "Pierre Laval",
-    "wikidata_id": "Q151983",
-    "poste": "député français",
-    "score": 3,
-    "nb_affaires": 1,
-    "affaires": [
-      "wd_Q151983_0"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q151983"
-    ]
-  },
-  {
-    "id": "perso_Q3386030",
-    "nom_complet": "Pierre Lunel",
-    "wikidata_id": "Q3386030",
-    "poste": "président de l'université Paris-VIII",
-    "score": 3,
-    "nb_affaires": 1,
-    "affaires": [
-      "wd_Q3386030_0"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q3386030"
     ]
   },
   {
@@ -6010,7 +6226,7 @@
     "id": "perso_Q3396304",
     "nom_complet": "Pons de Verdun",
     "wikidata_id": "Q3396304",
-    "poste": "commissaire du gouvernement",
+    "poste": "avocat général",
     "score": 3,
     "nb_affaires": 1,
     "affaires": [
@@ -6021,24 +6237,10 @@
     ]
   },
   {
-    "id": "perso_Q27182",
-    "nom_complet": "Rachida Dati",
-    "wikidata_id": "Q27182",
-    "poste": "ministre de la Culture",
-    "score": 3,
-    "nb_affaires": 1,
-    "affaires": [
-      "wd_Q27182_0"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q27182"
-    ]
-  },
-  {
     "id": "perso_Q51078349",
     "nom_complet": "Robert Martin",
     "wikidata_id": "Q51078349",
-    "poste": "préfet d'Ille-et-Vilaine",
+    "poste": "sous-préfet de Fougères-Vitré",
     "score": 3,
     "nb_affaires": 1,
     "affaires": [
@@ -6052,7 +6254,7 @@
     "id": "perso_Q160619",
     "nom_complet": "Roger Garaudy",
     "wikidata_id": "Q160619",
-    "poste": "député de la Seine",
+    "poste": "sénateur de la Seine",
     "score": 3,
     "nb_affaires": 1,
     "affaires": [
@@ -6060,34 +6262,6 @@
     ],
     "sources": [
       "https://www.wikidata.org/wiki/Q160619"
-    ]
-  },
-  {
-    "id": "perso_Q547525",
-    "nom_complet": "Roland Dumas",
-    "wikidata_id": "Q547525",
-    "poste": "député français",
-    "score": 3,
-    "nb_affaires": 1,
-    "affaires": [
-      "wd_Q547525_0"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q547525"
-    ]
-  },
-  {
-    "id": "perso_Q51552",
-    "nom_complet": "Roman Polanski",
-    "wikidata_id": "Q51552",
-    "poste": "président du jury du festival de Cannes",
-    "score": 3,
-    "nb_affaires": 1,
-    "affaires": [
-      "wd_Q51552_0"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q51552"
     ]
   },
   {
@@ -6102,20 +6276,6 @@
     ],
     "sources": [
       "https://www.wikidata.org/wiki/Q105426931"
-    ]
-  },
-  {
-    "id": "perso_Q981270",
-    "nom_complet": "Serge Dassault",
-    "wikidata_id": "Q981270",
-    "poste": "conseiller général",
-    "score": 3,
-    "nb_affaires": 1,
-    "affaires": [
-      "wd_Q981270_0"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q981270"
     ]
   },
   {
@@ -6187,20 +6347,6 @@
     ],
     "sources": [
       "https://www.wikidata.org/wiki/Q30337284"
-    ]
-  },
-  {
-    "id": "perso_Q1103356",
-    "nom_complet": "Sylvie Andrieux",
-    "wikidata_id": "Q1103356",
-    "poste": "député français",
-    "score": 3,
-    "nb_affaires": 1,
-    "affaires": [
-      "wd_Q1103356_0"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q1103356"
     ]
   },
   {
@@ -7971,20 +8117,6 @@
     ]
   },
   {
-    "id": "perso_Q3573932",
-    "nom_complet": "Yves Rispat",
-    "wikidata_id": "Q3573932",
-    "poste": "député français",
-    "score": 3,
-    "nb_affaires": 1,
-    "affaires": [
-      "wd_Q3573932_0"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q3573932"
-    ]
-  },
-  {
     "id": "perso_maire_de_plaissan,_vice_presidente_de_la_region_occitanie",
     "nom_complet": "maire de Plaissan, vice-présidente de la région Occitanie",
     "wikidata_id": "",
@@ -8041,6 +8173,22 @@
     ],
     "sources": [
       "https://fr.wikipedia.org/wiki/Catherine_Vautrin"
+    ]
+  },
+  {
+    "id": "perso_Q332722",
+    "nom_complet": "George Leveson-Gower",
+    "wikidata_id": "Q332722",
+    "poste": "ambassadeur du Royaume-Uni en France",
+    "score": 2,
+    "nb_affaires": 2,
+    "affaires": [
+      "wd_Q332722_0",
+      "wiki_george_leveson_gower_le_scandale_des_highland_clearances"
+    ],
+    "sources": [
+      "https://www.wikidata.org/wiki/Q332722",
+      "https://fr.wikipedia.org/wiki/George_Leveson-Gower_(1er_duc_de_Sutherland)"
     ]
   },
   {
@@ -8187,7 +8335,7 @@
     "id": "perso_Q577504",
     "nom_complet": "Charles de Montalembert",
     "wikidata_id": "Q577504",
-    "poste": "pair de France",
+    "poste": "député du Doubs",
     "score": 2,
     "nb_affaires": 1,
     "affaires": [
@@ -8394,20 +8542,6 @@
     ]
   },
   {
-    "id": "perso_Q332722",
-    "nom_complet": "George Leveson-Gower",
-    "wikidata_id": "Q332722",
-    "poste": "ambassadeur du Royaume-Uni en France",
-    "score": 2,
-    "nb_affaires": 1,
-    "affaires": [
-      "wd_Q332722_0"
-    ],
-    "sources": [
-      "https://www.wikidata.org/wiki/Q332722"
-    ]
-  },
-  {
     "id": "perso_Q1275",
     "nom_complet": "Gladwyn Jebb",
     "wikidata_id": "Q1275",
@@ -8495,7 +8629,7 @@
     "id": "perso_Q713664",
     "nom_complet": "Jacques Alexandre Law de Lauriston",
     "wikidata_id": "Q713664",
-    "poste": "grand veneur de France",
+    "poste": "ambassadeur de France en Russie",
     "score": 2,
     "nb_affaires": 1,
     "affaires": [
@@ -8509,7 +8643,7 @@
     "id": "perso_Q3170682",
     "nom_complet": "Jean Belles-mains",
     "wikidata_id": "Q3170682",
-    "poste": "archevêque de Lyon",
+    "poste": "évêque de Poitiers",
     "score": 2,
     "nb_affaires": 1,
     "affaires": [
@@ -8734,7 +8868,7 @@
     "id": "perso_Q523352",
     "nom_complet": "Louis-Lucien Bonaparte",
     "wikidata_id": "Q523352",
-    "poste": "sénateur du Second Empire",
+    "poste": "député de la Corse",
     "score": 2,
     "nb_affaires": 1,
     "affaires": [
@@ -8846,7 +8980,7 @@
     "id": "perso_Q3382777",
     "nom_complet": "Pierre-Alexandre-Laurent Forfait",
     "wikidata_id": "Q3382777",
-    "poste": "ministère de la Marine",
+    "poste": "député de la Seine-Maritime",
     "score": 2,
     "nb_affaires": 1,
     "affaires": [
@@ -9028,7 +9162,7 @@
     "id": "perso_Q548696",
     "nom_complet": "William Henry Waddington",
     "wikidata_id": "Q548696",
-    "poste": "député français",
+    "poste": "ambassadeur de France au Royaume-Uni",
     "score": 2,
     "nb_affaires": 1,
     "affaires": [
@@ -9056,7 +9190,7 @@
     "id": "perso_Q289550",
     "nom_complet": "Étienne Clavière",
     "wikidata_id": "Q289550",
-    "poste": "ministre des Finances",
+    "poste": "député de la Seine",
     "score": 2,
     "nb_affaires": 1,
     "affaires": [

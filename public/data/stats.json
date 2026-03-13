@@ -1,13 +1,13 @@
 {
   "nb_elus_total": 39508,
   "nb_elus_concernes": 33,
-  "nb_affaires_total": 702,
-  "nb_affaires_personnes": 273,
+  "nb_affaires_total": 828,
+  "nb_affaires_personnes": 399,
   "nb_affaires_geographiques": 429,
-  "nb_affaires_matchees": 35,
-  "nb_condamnations": 606,
-  "nb_mises_en_examen": 74,
-  "nb_enquetes": 8,
+  "nb_affaires_matchees": 74,
+  "nb_condamnations": 701,
+  "nb_mises_en_examen": 89,
+  "nb_enquetes": 24,
   "nb_relaxes": 14,
   "nb_classes_sans_suite": 0,
   "nb_elus_condamnes": 32,
@@ -21,39 +21,51 @@
   "repartition_partis": [
     {
       "nom": "Les Républicains",
-      "nb_elus": 8,
-      "nb_affaires": 9,
-      "nb_condamnations": 8
+      "nb_elus": 6,
+      "nb_affaires": 22,
+      "nb_condamnations": 6
     },
     {
       "nom": "Rassemblement National",
       "nb_elus": 7,
-      "nb_affaires": 8,
+      "nb_affaires": 20,
       "nb_condamnations": 7
     },
     {
       "nom": "La France Insoumise",
       "nb_elus": 6,
-      "nb_affaires": 6,
+      "nb_affaires": 11,
       "nb_condamnations": 6
     },
     {
       "nom": "Horizons",
       "nb_elus": 2,
-      "nb_affaires": 2,
+      "nb_affaires": 4,
       "nb_condamnations": 2
     },
     {
       "nom": "Renaissance",
       "nb_elus": 2,
-      "nb_affaires": 2,
+      "nb_affaires": 4,
       "nb_condamnations": 1
     },
     {
       "nom": "Parti Socialiste",
       "nb_elus": 2,
-      "nb_affaires": 2,
+      "nb_affaires": 3,
       "nb_condamnations": 2
+    },
+    {
+      "nom": "MoDem",
+      "nb_elus": 1,
+      "nb_affaires": 2,
+      "nb_condamnations": 1
+    },
+    {
+      "nom": "UDF",
+      "nb_elus": 1,
+      "nb_affaires": 2,
+      "nb_condamnations": 1
     },
     {
       "nom": "Autre / Non renseigné",
@@ -62,19 +74,7 @@
       "nb_condamnations": 2
     },
     {
-      "nom": "MoDem",
-      "nb_elus": 1,
-      "nb_affaires": 1,
-      "nb_condamnations": 1
-    },
-    {
       "nom": "Non inscrit",
-      "nb_elus": 1,
-      "nb_affaires": 1,
-      "nb_condamnations": 1
-    },
-    {
-      "nom": "UDF",
       "nb_elus": 1,
       "nb_affaires": 1,
       "nb_condamnations": 1

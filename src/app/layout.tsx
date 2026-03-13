@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import "./globals.css"
 import Link from "next/link"
+import { getStats } from "@/lib/data"
 
 export const metadata: Metadata = {
   title: {
@@ -101,6 +102,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <p>Usage informatif uniquement.</p>
                 <p>Aucune affirmation ne préjuge de la culpabilité des personnes citées.</p>
               </div>
+            </div>
+            <div className="mt-4 pt-3 text-xs text-center" style={{ color: "#b0b0b0", borderTop: "1px solid #eee" }}>
+              Données mises à jour le {new Date(getStats().derniere_maj + "T00:00:00").toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })}
             </div>
           </div>
         </footer>

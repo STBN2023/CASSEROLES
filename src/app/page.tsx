@@ -235,11 +235,6 @@ export default async function HomePage() {
         </Link>
       </div>
 
-      {/* Source */}
-      <p className="text-xs text-gray-400 text-right">
-        Dernière mise à jour : {stats.derniere_maj} · Sources :{" "}
-        {stats.sources.join(", ")}
-      </p>
     </div>
   )
 }

@@ -1,12 +1,12 @@
 [
   {
     "nom": "Les Républicains",
-    "nb_elus_total": 253,
-    "nb_elus_concernes": 8,
-    "nb_affaires": 9,
-    "nb_condamnations": 9,
-    "nb_mises_en_examen": 0,
-    "nb_enquetes": 0,
+    "nb_elus_total": 251,
+    "nb_elus_concernes": 6,
+    "nb_affaires": 22,
+    "nb_condamnations": 14,
+    "nb_mises_en_examen": 3,
+    "nb_enquetes": 5,
     "total_amendes_euros": 0,
     "nb_avec_prison": 0,
     "nb_avec_ineligibilite": 0,
@@ -16,7 +16,7 @@
         "prenom": "Laurent",
         "nom": "WAUQUIEZ",
         "score": 3,
-        "nb_affaires": 1
+        "nb_affaires": 5
       },
       {
         "id": "senateurs_boyer_valérie_11/06/1962",
@@ -30,7 +30,7 @@
         "prenom": "Alain",
         "nom": "HOUPERT",
         "score": 3,
-        "nb_affaires": 1
+        "nb_affaires": 2
       },
       {
         "id": "conseillers_regionaux_grosdidier_françois_25/02/1961",
@@ -40,32 +40,18 @@
         "nb_affaires": 1
       },
       {
-        "id": "conseillers_regionaux_peyrat_jerome_28/11/1962",
-        "prenom": "Jerome",
-        "nom": "PEYRAT",
-        "score": 3,
-        "nb_affaires": 1
-      },
-      {
         "id": "conseillers_regionaux_hortefeux_brice_11/05/1958",
         "prenom": "Brice",
         "nom": "HORTEFEUX",
         "score": 3,
-        "nb_affaires": 1
-      },
-      {
-        "id": "conseillers_regionaux_perrut_bernard_24/01/1957",
-        "prenom": "Bernard",
-        "nom": "PERRUT",
-        "score": 3,
-        "nb_affaires": 1
+        "nb_affaires": 2
       },
       {
         "id": "maires_ferrand_alain_22/10/1959",
         "prenom": "Alain",
         "nom": "FERRAND",
         "score": 3,
-        "nb_affaires": 2
+        "nb_affaires": 11
       }
     ]
   },
@@ -73,10 +59,10 @@
     "nom": "Rassemblement National",
     "nb_elus_total": 584,
     "nb_elus_concernes": 7,
-    "nb_affaires": 8,
-    "nb_condamnations": 8,
-    "nb_mises_en_examen": 0,
-    "nb_enquetes": 0,
+    "nb_affaires": 20,
+    "nb_condamnations": 17,
+    "nb_mises_en_examen": 1,
+    "nb_enquetes": 2,
     "total_amendes_euros": 0,
     "nb_avec_prison": 0,
     "nb_avec_ineligibilite": 0,
@@ -86,35 +72,35 @@
         "prenom": "Yoann",
         "nom": "GILLET",
         "score": 3,
-        "nb_affaires": 1
+        "nb_affaires": 3
       },
       {
         "id": "deputes_jacobelli_laurent_13/10/1969",
         "prenom": "Laurent",
         "nom": "JACOBELLI",
         "score": 3,
-        "nb_affaires": 1
+        "nb_affaires": 2
       },
       {
         "id": "deputes_marchio_matthieu_08/06/1993",
         "prenom": "Matthieu",
         "nom": "MARCHIO",
         "score": 3,
-        "nb_affaires": 1
+        "nb_affaires": 2
       },
       {
         "id": "deputes_parmentier_caroline_16/12/1965",
         "prenom": "Caroline",
         "nom": "PARMENTIER",
         "score": 3,
-        "nb_affaires": 1
+        "nb_affaires": 2
       },
       {
         "id": "deputes_le_pen_marine_05/08/1968",
         "prenom": "Marine",
         "nom": "LE PEN",
         "score": 3,
-        "nb_affaires": 2
+        "nb_affaires": 8
       },
       {
         "id": "deputes_boccaletti_frédéric_23/11/1973",
@@ -128,7 +114,7 @@
         "prenom": "Julien",
         "nom": "SANCHEZ",
         "score": 3,
-        "nb_affaires": 1
+        "nb_affaires": 2
       }
     ]
   },
@@ -136,9 +122,9 @@
     "nom": "La France Insoumise",
     "nb_elus_total": 399,
     "nb_elus_concernes": 6,
-    "nb_affaires": 6,
-    "nb_condamnations": 6,
-    "nb_mises_en_examen": 0,
+    "nb_affaires": 11,
+    "nb_condamnations": 10,
+    "nb_mises_en_examen": 1,
     "nb_enquetes": 0,
     "total_amendes_euros": 0,
     "nb_avec_prison": 0,
@@ -149,7 +135,7 @@
         "prenom": "Manuel",
         "nom": "BOMPARD",
         "score": 3,
-        "nb_affaires": 1
+        "nb_affaires": 2
       },
       {
         "id": "deputes_delogu_sébastien_08/06/1987",
@@ -170,7 +156,7 @@
         "prenom": "Bastien",
         "nom": "LACHAUD",
         "score": 3,
-        "nb_affaires": 1
+        "nb_affaires": 4
       },
       {
         "id": "deputes_taché_aurélien_26/05/1984",
@@ -183,6 +169,90 @@
         "id": "deputes_ratenon_jean-hugues_25/06/1967",
         "prenom": "Jean-Hugues",
         "nom": "RATENON",
+        "score": 3,
+        "nb_affaires": 2
+      }
+    ]
+  },
+  {
+    "nom": "Renaissance",
+    "nb_elus_total": 302,
+    "nb_elus_concernes": 2,
+    "nb_affaires": 4,
+    "nb_condamnations": 3,
+    "nb_mises_en_examen": 0,
+    "nb_enquetes": 1,
+    "total_amendes_euros": 0,
+    "nb_avec_prison": 0,
+    "nb_avec_ineligibilite": 0,
+    "elus_concernes": [
+      {
+        "id": "deputes_olive_karl_29/03/1969",
+        "prenom": "Karl",
+        "nom": "OLIVE",
+        "score": 3,
+        "nb_affaires": 3
+      },
+      {
+        "id": "conseillers_regionaux_bergé_aurore_13/11/1986",
+        "prenom": "Aurore",
+        "nom": "BERGÉ",
+        "score": 1,
+        "nb_affaires": 1
+      }
+    ]
+  },
+  {
+    "nom": "Horizons",
+    "nb_elus_total": 186,
+    "nb_elus_concernes": 2,
+    "nb_affaires": 4,
+    "nb_condamnations": 4,
+    "nb_mises_en_examen": 0,
+    "nb_enquetes": 0,
+    "total_amendes_euros": 0,
+    "nb_avec_prison": 0,
+    "nb_avec_ineligibilite": 0,
+    "elus_concernes": [
+      {
+        "id": "deputes_marcangeli_laurent_10/12/1980",
+        "prenom": "Laurent",
+        "nom": "MARCANGELI",
+        "score": 3,
+        "nb_affaires": 2
+      },
+      {
+        "id": "maires_vincendet_alexandre_06/10/1983",
+        "prenom": "Alexandre",
+        "nom": "VINCENDET",
+        "score": 3,
+        "nb_affaires": 2
+      }
+    ]
+  },
+  {
+    "nom": "Parti Socialiste",
+    "nb_elus_total": 368,
+    "nb_elus_concernes": 2,
+    "nb_affaires": 3,
+    "nb_condamnations": 3,
+    "nb_mises_en_examen": 0,
+    "nb_enquetes": 0,
+    "total_amendes_euros": 0,
+    "nb_avec_prison": 0,
+    "nb_avec_ineligibilite": 0,
+    "elus_concernes": [
+      {
+        "id": "senateurs_iacovelli_xavier_31/03/1981",
+        "prenom": "Xavier",
+        "nom": "IACOVELLI",
+        "score": 3,
+        "nb_affaires": 2
+      },
+      {
+        "id": "maires_bernardini_françois_24/08/1953",
+        "prenom": "François",
+        "nom": "BERNARDINI",
         "score": 3,
         "nb_affaires": 1
       }
@@ -217,95 +287,11 @@
     ]
   },
   {
-    "nom": "Parti Socialiste",
-    "nb_elus_total": 368,
-    "nb_elus_concernes": 2,
-    "nb_affaires": 2,
-    "nb_condamnations": 2,
-    "nb_mises_en_examen": 0,
-    "nb_enquetes": 0,
-    "total_amendes_euros": 0,
-    "nb_avec_prison": 0,
-    "nb_avec_ineligibilite": 0,
-    "elus_concernes": [
-      {
-        "id": "senateurs_iacovelli_xavier_31/03/1981",
-        "prenom": "Xavier",
-        "nom": "IACOVELLI",
-        "score": 3,
-        "nb_affaires": 1
-      },
-      {
-        "id": "maires_bernardini_françois_24/08/1953",
-        "prenom": "François",
-        "nom": "BERNARDINI",
-        "score": 3,
-        "nb_affaires": 1
-      }
-    ]
-  },
-  {
-    "nom": "Renaissance",
-    "nb_elus_total": 302,
-    "nb_elus_concernes": 2,
-    "nb_affaires": 2,
-    "nb_condamnations": 1,
-    "nb_mises_en_examen": 0,
-    "nb_enquetes": 1,
-    "total_amendes_euros": 0,
-    "nb_avec_prison": 0,
-    "nb_avec_ineligibilite": 0,
-    "elus_concernes": [
-      {
-        "id": "deputes_olive_karl_29/03/1969",
-        "prenom": "Karl",
-        "nom": "OLIVE",
-        "score": 3,
-        "nb_affaires": 1
-      },
-      {
-        "id": "conseillers_regionaux_bergé_aurore_13/11/1986",
-        "prenom": "Aurore",
-        "nom": "BERGÉ",
-        "score": 1,
-        "nb_affaires": 1
-      }
-    ]
-  },
-  {
-    "nom": "Horizons",
-    "nb_elus_total": 186,
-    "nb_elus_concernes": 2,
-    "nb_affaires": 2,
-    "nb_condamnations": 2,
-    "nb_mises_en_examen": 0,
-    "nb_enquetes": 0,
-    "total_amendes_euros": 0,
-    "nb_avec_prison": 0,
-    "nb_avec_ineligibilite": 0,
-    "elus_concernes": [
-      {
-        "id": "deputes_marcangeli_laurent_10/12/1980",
-        "prenom": "Laurent",
-        "nom": "MARCANGELI",
-        "score": 3,
-        "nb_affaires": 1
-      },
-      {
-        "id": "maires_vincendet_alexandre_06/10/1983",
-        "prenom": "Alexandre",
-        "nom": "VINCENDET",
-        "score": 3,
-        "nb_affaires": 1
-      }
-    ]
-  },
-  {
     "nom": "MoDem",
     "nb_elus_total": 224,
     "nb_elus_concernes": 1,
-    "nb_affaires": 1,
-    "nb_condamnations": 1,
+    "nb_affaires": 2,
+    "nb_condamnations": 2,
     "nb_mises_en_examen": 0,
     "nb_enquetes": 0,
     "total_amendes_euros": 0,
@@ -317,7 +303,28 @@
         "prenom": "Sandrine",
         "nom": "JOSSO",
         "score": 3,
-        "nb_affaires": 1
+        "nb_affaires": 2
+      }
+    ]
+  },
+  {
+    "nom": "UDF",
+    "nb_elus_total": 1,
+    "nb_elus_concernes": 1,
+    "nb_affaires": 2,
+    "nb_condamnations": 2,
+    "nb_mises_en_examen": 0,
+    "nb_enquetes": 0,
+    "total_amendes_euros": 0,
+    "nb_avec_prison": 0,
+    "nb_avec_ineligibilite": 0,
+    "elus_concernes": [
+      {
+        "id": "conseillers_regionaux_fanget_michel_03/05/1950",
+        "prenom": "Michel",
+        "nom": "FANGET",
+        "score": 3,
+        "nb_affaires": 2
       }
     ]
   },
@@ -343,7 +350,7 @@
     ]
   },
   {
-    "nom": "UDF",
+    "nom": "RPR",
     "nb_elus_total": 1,
     "nb_elus_concernes": 1,
     "nb_affaires": 1,
@@ -355,9 +362,30 @@
     "nb_avec_ineligibilite": 0,
     "elus_concernes": [
       {
-        "id": "conseillers_regionaux_fanget_michel_03/05/1950",
-        "prenom": "Michel",
-        "nom": "FANGET",
+        "id": "conseillers_regionaux_peyrat_jerome_28/11/1962",
+        "prenom": "Jerome",
+        "nom": "PEYRAT",
+        "score": 3,
+        "nb_affaires": 1
+      }
+    ]
+  },
+  {
+    "nom": "Démocratie libérale",
+    "nb_elus_total": 1,
+    "nb_elus_concernes": 1,
+    "nb_affaires": 1,
+    "nb_condamnations": 1,
+    "nb_mises_en_examen": 0,
+    "nb_enquetes": 0,
+    "total_amendes_euros": 0,
+    "nb_avec_prison": 0,
+    "nb_avec_ineligibilite": 0,
+    "elus_concernes": [
+      {
+        "id": "conseillers_regionaux_perrut_bernard_24/01/1957",
+        "prenom": "Bernard",
+        "nom": "PERRUT",
         "score": 3,
         "nb_affaires": 1
       }

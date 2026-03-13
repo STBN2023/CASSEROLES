@@ -25,6 +25,7 @@ SELECT DISTINCT
   ?infra ?infraLabel
   ?dateCondamnation
   ?parti ?partiLabel
+  ?frwiki
 WHERE {
   # Personnes ayant exercé un mandat politique en France
   ?personne p:P39 ?mandatStmt .
@@ -39,6 +40,10 @@ WHERE {
   OPTIONAL { ?personne wdt:P569 ?dateNaissance }
   OPTIONAL { ?personne wdt:P19 ?lieuNaissance }
   OPTIONAL { ?personne wdt:P102 ?parti }              # parti politique (P102)
+  OPTIONAL {
+    ?frwiki schema:about ?personne .
+    ?frwiki schema:isPartOf <https://fr.wikipedia.org/> .
+  }
 
   SERVICE wikibase:label {
     bd:serviceParam wikibase:language "fr,en" .
@@ -55,6 +60,7 @@ SELECT DISTINCT
   ?posteLabel
   ?accusationLabel
   ?parti ?partiLabel
+  ?frwiki
 WHERE {
   # Mandats politiques en France
   ?personne p:P39 ?mandatStmt .
@@ -66,6 +72,10 @@ WHERE {
 
   OPTIONAL { ?personne wdt:P569 ?dateNaissance }
   OPTIONAL { ?personne wdt:P102 ?parti }              # parti politique (P102)
+  OPTIONAL {
+    ?frwiki schema:about ?personne .
+    ?frwiki schema:isPartOf <https://fr.wikipedia.org/> .
+  }
 
   SERVICE wikibase:label {
     bd:serviceParam wikibase:language "fr,en" .
@@ -159,6 +169,12 @@ def fetch_politiques_condamnes() -> list[dict]:
         if parti_wd and parti_wd.startswith("Q"):
             parti_wd = ""
 
+        # Extraire le titre Wikipedia FR
+        frwiki_url = parse_value(b, "frwiki")
+        frwiki_title = ""
+        if frwiki_url and "/wiki/" in frwiki_url:
+            frwiki_title = frwiki_url.split("/wiki/")[-1].replace("_", " ")
+
         if wd_id not in personnes:
             personnes[wd_id] = {
                 "wikidata_id": wd_id,
@@ -167,6 +183,7 @@ def fetch_politiques_condamnes() -> list[dict]:
                 "lieu_naissance": parse_value(b, "lieuNaissanceLabel"),
                 "poste": parse_value(b, "posteLabel"),
                 "parti_wikidata": parti_wd,
+                "frwiki_title": frwiki_title,
                 "infractions": [],   # list of {"label": str, "date": str}
                 "type": "condamnation",
                 "source": "wikidata",
@@ -175,6 +192,8 @@ def fetch_politiques_condamnes() -> list[dict]:
         # Mettre à jour le parti si pas encore renseigné
         if parti_wd and not personnes[wd_id].get("parti_wikidata"):
             personnes[wd_id]["parti_wikidata"] = parti_wd
+        if frwiki_title and not personnes[wd_id].get("frwiki_title"):
+            personnes[wd_id]["frwiki_title"] = frwiki_title
         if infraction:
             labels_existants = {x["label"] for x in personnes[wd_id]["infractions"]}
             if infraction not in labels_existants:
@@ -202,6 +221,12 @@ def fetch_politiques_condamnes() -> list[dict]:
         if parti_wd and parti_wd.startswith("Q"):
             parti_wd = ""
 
+        # Extraire le titre Wikipedia FR
+        frwiki_url = parse_value(b, "frwiki")
+        frwiki_title = ""
+        if frwiki_url and "/wiki/" in frwiki_url:
+            frwiki_title = frwiki_url.split("/wiki/")[-1].replace("_", " ")
+
         if wd_id not in personnes:
             personnes[wd_id] = {
                 "wikidata_id": wd_id,
@@ -210,6 +235,7 @@ def fetch_politiques_condamnes() -> list[dict]:
                 "lieu_naissance": "",
                 "poste": parse_value(b, "posteLabel"),
                 "parti_wikidata": parti_wd,
+                "frwiki_title": frwiki_title,
                 "infractions": [],   # list of {"label": str, "date": str}
                 "type": "accusation",
                 "source": "wikidata",
@@ -218,6 +244,8 @@ def fetch_politiques_condamnes() -> list[dict]:
         # Mettre à jour le parti si pas encore renseigné
         if parti_wd and not personnes[wd_id].get("parti_wikidata"):
             personnes[wd_id]["parti_wikidata"] = parti_wd
+        if frwiki_title and not personnes[wd_id].get("frwiki_title"):
+            personnes[wd_id]["frwiki_title"] = frwiki_title
         if infraction:
             labels_existants = {x["label"] for x in personnes[wd_id]["infractions"]}
             if infraction not in labels_existants:

@@ -39,7 +39,9 @@
       "WebFetch(domain:en.wikipedia.org)",
       "Bash(npm run build)",
       "Bash(git add:*)",
-      "Bash(git reset:*)"
+      "Bash(git reset:*)",
+      "Bash(git push:*)",
+      "WebSearch"
     ]
   }
 }
