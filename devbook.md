@@ -1,7 +1,7 @@
 # Devbook — Casseroles
 
 > Suivi des bugs, corrections et améliorations du projet.
-> Dernière mise à jour : 2026-03-11
+> Dernière mise à jour : 2026-03-13
 
 ## Légende statuts
 
@@ -63,9 +63,9 @@
 
 ## Bugs données — Faux positifs & KPIs (2026-03-12)
 
-- [ ] **D1** — **Faux positifs jointure nom** — `etl/transform.py:joindre_affaires()` matche par nom complet sans vérifier la date de naissance. Ex : François Fillon PM (né 1954, Q101410) attribué au maire de Roye-Sur-Matz (né 1970). Correction : comparer `_date_naissance_wd` avec `date_naissance` RNE, rejeter si écart > 2 ans.
-- [ ] **D2** — **KPIs page d'accueil trompeurs** — Les chiffres (702 affaires, 606 condamnations) mélangent 3 catégories sans distinction : 429 affaires TI France (géographiques, sans nom de personne), 225 affaires Wikidata orphelines (personnes identifiées mais absentes du RNE), ~48 affaires matchées à des élus RNE. Les KPIs doivent refléter uniquement les affaires liées à des personnes identifiées, ou bien distinguer clairement les catégories.
-- [ ] **D3** — **Personnalités politiques hors RNE absentes** — Les politiques qui ne sont plus élus (ex : Fillon, Sarkozy, Balkany…) n'apparaissent nulle part car le RNE ne contient que les élus en mandat. 225 affaires Wikidata concernent des personnes identifiées mais sans fiche. Solution : créer une page "Personnalités politiques" (ou élargir la page élus) regroupant élus RNE + personnalités Wikidata/Wikipedia avec affaires, pour couvrir l'ensemble du paysage politique.
+- [x] **D1** — **Faux positifs jointure nom** — Implémenté : `_dates_compatibles()` + `_parse_date_naissance()` dans `transform.py` (L218-294). François Fillon PM (né 1954) séparé du maire Fillon (né 1970). ETL relancé : 35 affaires matchées à 43 élus RNE (vs risque de faux positifs avant).
+- [x] **D2** — **KPIs page d'accueil** — Implémenté : `calculer_stats()` distingue 273 affaires nominatives (Wikidata+Wikipedia), 429 géographiques (TI France), 35 matchées à élus RNE. Dashboard affiche 5 KPIs séparés. ETL relancé : stats actualisées.
+- [x] **D3** — **Personnalités politiques hors RNE** — Implémenté : `construire_personnalites()` (L552-597) + page `/personnalites` + `PersonnalitesClient.tsx`. ETL relancé : 633 personnalités générées (Sarkozy, Carignon, Fillon, etc. avec affaires Wikidata/Wikipedia).
 
 ---
 
@@ -86,3 +86,6 @@
 | 2026-03-11 | S2 | Ajout OpenGraph + Twitter Card aux pages dynamiques `elus/[id]` et `gouvernement/[id]` | `src/app/elus/[id]/page.tsx`, `src/app/gouvernement/[id]/page.tsx` |
 | 2026-03-11 | U3 | Ajout `width={128} height={128}` au logo `<img>` pour éviter le CLS | `src/app/layout.tsx` |
 | 2026-03-11 | A3 | Index `Map` pour `getElu()` et `getMembreGouvernement()` — lookup O(1) au lieu de O(n) | `src/lib/data.ts` |
+| 2026-03-13 | D1 | Vérification date de naissance dans jointure affaires ↔ élus (évite faux positifs homonymes) | `etl/transform.py` (L218-294) |
+| 2026-03-13 | D2 | Distinction stats : 273 affaires nominatives · 429 géographiques · 35 matchées à élus RNE | `src/app/page.tsx`, `etl/transform.py:calculer_stats()` |
+| 2026-03-13 | D3 | Page `/personnalites` + génération 633 personnalités hors RNE (Wikidata/Wikipedia orphelines) | `src/app/personnalites/`, `etl/transform.py:construire_personnalites()` |
