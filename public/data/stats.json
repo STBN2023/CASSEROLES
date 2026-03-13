@@ -1,44 +1,41 @@
 {
   "nb_elus_total": 41652,
-  "nb_elus_concernes": 48,
+  "nb_elus_concernes": 43,
   "nb_affaires_total": 702,
+  "nb_affaires_personnes": 273,
+  "nb_affaires_geographiques": 429,
+  "nb_affaires_matchees": 35,
   "nb_condamnations": 606,
   "nb_mises_en_examen": 74,
   "nb_enquetes": 8,
   "nb_relaxes": 14,
   "nb_classes_sans_suite": 0,
-  "nb_elus_condamnes": 47,
+  "nb_elus_condamnes": 42,
   "nb_elus_mis_en_examen": 0,
   "nb_elus_enquetes": 1,
   "repartition_niveaux": {
     "national": 20,
     "europeen": 1,
-    "local": 27
+    "local": 22
   },
   "repartition_partis": [
     {
       "nom": "Les Républicains",
-      "nb_elus": 13,
-      "nb_affaires": 14,
-      "nb_condamnations": 13
-    },
-    {
-      "nom": "Rassemblement National",
       "nb_elus": 11,
       "nb_affaires": 12,
       "nb_condamnations": 11
+    },
+    {
+      "nom": "Rassemblement National",
+      "nb_elus": 10,
+      "nb_affaires": 11,
+      "nb_condamnations": 10
     },
     {
       "nom": "La France Insoumise",
       "nb_elus": 5,
       "nb_affaires": 5,
       "nb_condamnations": 5
-    },
-    {
-      "nom": "Autre / Non renseigné",
-      "nb_elus": 4,
-      "nb_affaires": 4,
-      "nb_condamnations": 4
     },
     {
       "nom": "Renaissance",
@@ -71,6 +68,12 @@
       "nb_condamnations": 2
     },
     {
+      "nom": "Autre / Non renseigné",
+      "nb_elus": 2,
+      "nb_affaires": 2,
+      "nb_condamnations": 2
+    },
+    {
       "nom": "Parti Communiste Français",
       "nb_elus": 1,
       "nb_affaires": 1,
@@ -81,7 +84,7 @@
   "nb_avec_prison": 286,
   "nb_avec_amende": 250,
   "nb_avec_ineligibilite": 53,
-  "derniere_maj": "2026-03-10",
+  "derniere_maj": "2026-03-12",
   "sources": [
     "RNE",
     "Transparency International France",

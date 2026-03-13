@@ -1,10 +1,10 @@
 [
   {
     "nom": "Les Républicains",
-    "nb_elus_total": 328,
-    "nb_elus_concernes": 10,
-    "nb_affaires": 11,
-    "nb_condamnations": 11,
+    "nb_elus_total": 325,
+    "nb_elus_concernes": 8,
+    "nb_affaires": 9,
+    "nb_condamnations": 9,
     "nb_mises_en_examen": 0,
     "nb_enquetes": 0,
     "total_amendes_euros": 0,
@@ -61,20 +61,6 @@
         "nb_affaires": 1
       },
       {
-        "id": "maires_giraud_marc_11/05/1953",
-        "prenom": "Marc",
-        "nom": "GIRAUD",
-        "score": 3,
-        "nb_affaires": 1
-      },
-      {
-        "id": "maires_fillon_françois_02/06/1970",
-        "prenom": "François",
-        "nom": "FILLON",
-        "score": 3,
-        "nb_affaires": 1
-      },
-      {
         "id": "maires_ferrand_alain_22/10/1959",
         "prenom": "Alain",
         "nom": "FERRAND",
@@ -86,9 +72,9 @@
   {
     "nom": "Rassemblement National",
     "nb_elus_total": 789,
-    "nb_elus_concernes": 8,
-    "nb_affaires": 9,
-    "nb_condamnations": 9,
+    "nb_elus_concernes": 7,
+    "nb_affaires": 8,
+    "nb_condamnations": 8,
     "nb_mises_en_examen": 0,
     "nb_enquetes": 0,
     "total_amendes_euros": 0,
@@ -143,61 +129,12 @@
         "nom": "SANCHEZ",
         "score": 3,
         "nb_affaires": 1
-      },
-      {
-        "id": "maires_martin_robert_02/03/1952",
-        "prenom": "Robert",
-        "nom": "MARTIN",
-        "score": 3,
-        "nb_affaires": 1
-      }
-    ]
-  },
-  {
-    "nom": "Autre / Non renseigné",
-    "nb_elus_total": 38690,
-    "nb_elus_concernes": 4,
-    "nb_affaires": 4,
-    "nb_condamnations": 4,
-    "nb_mises_en_examen": 0,
-    "nb_enquetes": 0,
-    "total_amendes_euros": 0,
-    "nb_avec_prison": 0,
-    "nb_avec_ineligibilite": 0,
-    "elus_concernes": [
-      {
-        "id": "maires_mathieu_philippe_22/05/1959",
-        "prenom": "Philippe",
-        "nom": "MATHIEU",
-        "score": 3,
-        "nb_affaires": 1
-      },
-      {
-        "id": "maires_seels_romuald_09/06/1965",
-        "prenom": "Romuald",
-        "nom": "SEELS",
-        "score": 3,
-        "nb_affaires": 1
-      },
-      {
-        "id": "maires_boudjellaba_mohamed_10/06/1969",
-        "prenom": "Mohamed",
-        "nom": "BOUDJELLABA",
-        "score": 3,
-        "nb_affaires": 1
-      },
-      {
-        "id": "maires_cousin_thierry_24/06/1964",
-        "prenom": "Thierry",
-        "nom": "COUSIN",
-        "score": 3,
-        "nb_affaires": 1
       }
     ]
   },
   {
     "nom": "La France Insoumise",
-    "nb_elus_total": 235,
+    "nb_elus_total": 204,
     "nb_elus_concernes": 4,
     "nb_affaires": 4,
     "nb_condamnations": 4,
@@ -239,7 +176,7 @@
   },
   {
     "nom": "Parti Socialiste",
-    "nb_elus_total": 416,
+    "nb_elus_total": 401,
     "nb_elus_concernes": 3,
     "nb_affaires": 3,
     "nb_condamnations": 3,
@@ -273,8 +210,36 @@
     ]
   },
   {
+    "nom": "Autre / Non renseigné",
+    "nb_elus_total": 38755,
+    "nb_elus_concernes": 2,
+    "nb_affaires": 2,
+    "nb_condamnations": 2,
+    "nb_mises_en_examen": 0,
+    "nb_enquetes": 0,
+    "total_amendes_euros": 0,
+    "nb_avec_prison": 0,
+    "nb_avec_ineligibilite": 0,
+    "elus_concernes": [
+      {
+        "id": "maires_seels_romuald_09/06/1965",
+        "prenom": "Romuald",
+        "nom": "SEELS",
+        "score": 3,
+        "nb_affaires": 1
+      },
+      {
+        "id": "maires_boudjellaba_mohamed_10/06/1969",
+        "prenom": "Mohamed",
+        "nom": "BOUDJELLABA",
+        "score": 3,
+        "nb_affaires": 1
+      }
+    ]
+  },
+  {
     "nom": "Renaissance",
-    "nb_elus_total": 327,
+    "nb_elus_total": 322,
     "nb_elus_concernes": 2,
     "nb_affaires": 2,
     "nb_condamnations": 1,
@@ -435,7 +400,7 @@
   },
   {
     "nom": "Les Écologistes",
-    "nb_elus_total": 172,
+    "nb_elus_total": 168,
     "nb_elus_concernes": 0,
     "nb_affaires": 0,
     "nb_condamnations": 0,
@@ -473,33 +438,7 @@
     "elus_concernes": []
   },
   {
-    "nom": "Pour La Réunion",
-    "nb_elus_total": 6,
-    "nb_elus_concernes": 0,
-    "nb_affaires": 0,
-    "nb_condamnations": 0,
-    "nb_mises_en_examen": 0,
-    "nb_enquetes": 0,
-    "total_amendes_euros": 0,
-    "nb_avec_prison": 0,
-    "nb_avec_ineligibilite": 0,
-    "elus_concernes": []
-  },
-  {
     "nom": "Libertés, Indépendants, Outre-mer et Territoires",
-    "nb_elus_total": 2,
-    "nb_elus_concernes": 0,
-    "nb_affaires": 0,
-    "nb_condamnations": 0,
-    "nb_mises_en_examen": 0,
-    "nb_enquetes": 0,
-    "total_amendes_euros": 0,
-    "nb_avec_prison": 0,
-    "nb_avec_ineligibilite": 0,
-    "elus_concernes": []
-  },
-  {
-    "nom": "Vert'libéraux",
     "nb_elus_total": 2,
     "nb_elus_concernes": 0,
     "nb_affaires": 0,

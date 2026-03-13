@@ -36,7 +36,8 @@
       "WebFetch(domain:www2.assemblee-nationale.fr)",
       "WebFetch(domain:commons.wikimedia.org)",
       "WebFetch(domain:fr.wikipedia.org)",
-      "WebFetch(domain:en.wikipedia.org)"
+      "WebFetch(domain:en.wikipedia.org)",
+      "Bash(npm run build)"
     ]
   }
 }
