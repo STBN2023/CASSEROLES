@@ -3,6 +3,7 @@ Jointure élus ↔ affaires, calcul des scores de probité.
 Génère les fichiers JSON finaux dans public/data/.
 """
 
+import hashlib
 import json
 import re
 from pathlib import Path
@@ -625,7 +626,7 @@ def construire_personnalites(affaires_orphelines: list[dict]) -> list[dict]:
         key = wikidata_id or normalise_nom(nom)
         if key not in personnes:
             personnes[key] = {
-                "id": f"perso_{wikidata_id}" if wikidata_id else f"perso_{normalise_nom(nom).replace(' ', '_')}",
+                "id": f"perso_{wikidata_id}" if wikidata_id else f"perso_{hashlib.md5(normalise_nom(nom).encode()).hexdigest()[:12]}",
                 "nom_complet": nom,
                 "wikidata_id": wikidata_id,
                 "poste": "",
