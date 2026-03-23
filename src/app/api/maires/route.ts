@@ -46,10 +46,11 @@ function getElus(): Elu[] {
 
 export async function GET(request: NextRequest) {
   const region = request.nextUrl.searchParams.get("region") ?? ""
+  const casserolesOnly = request.nextUrl.searchParams.get("casseroles") !== "0"
 
   const elus = getElus()
 
-  // Filtrer les maires de la région
+  // Filtrer les maires par région
   const depts = region
     ? Object.entries(DEPT_REGION)
         .filter(([, r]) => r === region)
@@ -59,13 +60,14 @@ export async function GET(request: NextRequest) {
   const maires = elus.filter((e) => {
     if (e.mandat !== "Maire") return false
     if (region && !depts.includes(e.code_departement)) return false
+    if (casserolesOnly && e.score === 0) return false
     return true
   })
 
   // Retourner un sous-ensemble léger, trié par score desc puis nom
   const sorted = [...maires].sort((a, b) => b.score - a.score || a.nom.localeCompare(b.nom))
 
-  const items = sorted.slice(0, 200).map((e) => ({
+  const items = sorted.slice(0, 500).map((e) => ({
     id: e.id,
     nom: e.nom,
     prenom: e.prenom,

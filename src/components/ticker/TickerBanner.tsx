@@ -37,58 +37,28 @@ const REGIONS = [
 
 export default function TickerBanner() {
   const [maires, setMaires] = useState<Maire[]>([])
-  const [region, setRegion] = useState("")
-  const [detectedRegion, setDetectedRegion] = useState("")
+  const [region, setRegion] = useState("") // "" = toutes régions
+  const [casserolesOnly, setCasserolesOnly] = useState(true) // par défaut : casseroles uniquement
   const [showSettings, setShowSettings] = useState(false)
   const [loading, setLoading] = useState(true)
   const tickerRef = useRef<HTMLDivElement>(null)
 
-  // Géolocalisation IP → région
+  // Charger les préférences sauvegardées
   useEffect(() => {
-    const saved = localStorage.getItem("casseroles_region")
-    if (saved) {
-      setRegion(saved)
-      setDetectedRegion(saved)
-      return
-    }
-
-    fetch("https://get.geojs.io/v1/ip/geo.json")
-      .then((r) => r.json())
-      .then((data) => {
-        const r = data.region || ""
-        // Mapper les noms GeoJS vers nos régions
-        const mapping: Record<string, string> = {
-          "Île-de-France": "Île-de-France",
-          "Ile-de-France": "Île-de-France",
-          "Auvergne-Rhône-Alpes": "Auvergne-Rhône-Alpes",
-          "Bourgogne-Franche-Comté": "Bourgogne-Franche-Comté",
-          "Bretagne": "Bretagne",
-          "Centre-Val de Loire": "Centre-Val de Loire",
-          "Corse": "Corse",
-          "Grand Est": "Grand Est",
-          "Hauts-de-France": "Hauts-de-France",
-          "Normandie": "Normandie",
-          "Nouvelle-Aquitaine": "Nouvelle-Aquitaine",
-          "Occitanie": "Occitanie",
-          "Pays de la Loire": "Pays de la Loire",
-          "Provence-Alpes-Côte d'Azur": "Provence-Alpes-Côte d'Azur",
-        }
-        const matched = mapping[r] || REGIONS.find((reg) => r.toLowerCase().includes(reg.toLowerCase().slice(0, 8))) || "Île-de-France"
-        setRegion(matched)
-        setDetectedRegion(matched)
-      })
-      .catch(() => {
-        setRegion("Île-de-France")
-        setDetectedRegion("Île-de-France")
-      })
+    const savedRegion = localStorage.getItem("casseroles_ticker_region") ?? ""
+    const savedMode = localStorage.getItem("casseroles_ticker_mode")
+    setRegion(savedRegion)
+    if (savedMode === "tous") setCasserolesOnly(false)
   }, [])
 
-  // Charger les maires de la région
-  const fetchMaires = useCallback(async (r: string) => {
-    if (!r) return
+  // Charger les maires
+  const fetchMaires = useCallback(async (r: string, casseroles: boolean) => {
     setLoading(true)
     try {
-      const res = await fetch(`/api/maires?region=${encodeURIComponent(r)}`)
+      const params = new URLSearchParams()
+      if (r) params.set("region", r)
+      if (!casseroles) params.set("casseroles", "0")
+      const res = await fetch(`/api/maires?${params}`)
       const data = await res.json()
       setMaires(data.items || [])
     } catch {
@@ -98,24 +68,36 @@ export default function TickerBanner() {
   }, [])
 
   useEffect(() => {
-    if (region) fetchMaires(region)
-  }, [region, fetchMaires])
+    fetchMaires(region, casserolesOnly)
+  }, [region, casserolesOnly, fetchMaires])
 
   const handleRegionChange = (r: string) => {
     setRegion(r)
-    localStorage.setItem("casseroles_region", r)
-    setShowSettings(false)
+    localStorage.setItem("casseroles_ticker_region", r)
+  }
+
+  const handleModeChange = (casseroles: boolean) => {
+    setCasserolesOnly(casseroles)
+    localStorage.setItem("casseroles_ticker_mode", casseroles ? "casseroles" : "tous")
   }
 
   if (loading && maires.length === 0) return null
+
+  const label = casserolesOnly
+    ? `Municipales 2026 — Maires avec casseroles${region ? ` en ${region}` : ""}`
+    : `Municipales 2026 — ${region ? `Maires élus en ${region}` : "Tous les maires"}`
+
+  const labelShort = casserolesOnly
+    ? `Casseroles${region ? ` · ${region}` : ""}`
+    : region || "Tous les maires"
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 bg-[#000091] text-white shadow-lg">
       <div className="flex items-center h-10">
         {/* Label */}
         <div className="flex-shrink-0 px-3 text-xs font-semibold bg-[#000091] border-r border-white/20 h-full flex items-center gap-2">
-          <span className="hidden lg:inline">Municipales 2026 — Maires élus en {region}</span>
-          <span className="hidden sm:inline lg:hidden">Municipales 2026 — {region}</span>
+          <span className="hidden lg:inline">{label}</span>
+          <span className="hidden sm:inline lg:hidden">{labelShort}</span>
           <span className="sm:hidden">Municipales 2026</span>
           <span className="text-[10px] opacity-60 hidden sm:inline">({maires.length})</span>
         </div>
@@ -128,7 +110,6 @@ export default function TickerBanner() {
           >
             {maires.length > 0 ? (
               <>
-                {/* Dupliquer pour boucle infinie */}
                 {[...maires, ...maires].map((m, i) => (
                   <Link
                     key={`${m.id}-${i}`}
@@ -150,7 +131,7 @@ export default function TickerBanner() {
                 ))}
               </>
             ) : (
-              <span className="text-xs opacity-60 px-4">Aucun maire trouvé pour cette région</span>
+              <span className="text-xs opacity-60 px-4">Aucun maire avec casseroles dans cette région</span>
             )}
           </div>
         </div>
@@ -160,35 +141,67 @@ export default function TickerBanner() {
           <button
             onClick={() => setShowSettings(!showSettings)}
             className="h-10 px-3 text-xs hover:bg-white/10 transition-colors flex items-center gap-1 border-l border-white/20"
-            title="Choisir une région"
+            title="Paramètres du bandeau"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
-            <span className="hidden sm:inline">Région</span>
           </button>
 
-          {/* Dropdown régions */}
+          {/* Dropdown paramètres */}
           {showSettings && (
-            <div className="absolute bottom-full right-0 mb-1 bg-white rounded-lg shadow-xl border border-gray-200 w-64 max-h-80 overflow-y-auto">
-              <div className="p-2 border-b border-gray-100">
-                <p className="text-xs font-semibold text-gray-600 px-2 py-1">Choisir une région</p>
+            <div className="absolute bottom-full right-0 mb-1 bg-white rounded-lg shadow-xl border border-gray-200 w-72 max-h-96 overflow-y-auto">
+              {/* Mode d'affichage */}
+              <div className="p-3 border-b border-gray-100">
+                <p className="text-xs font-semibold text-gray-600 mb-2">Affichage</p>
+                <div className="flex gap-1">
+                  <button
+                    onClick={() => handleModeChange(true)}
+                    className={`flex-1 text-xs px-3 py-1.5 rounded transition-colors ${
+                      casserolesOnly
+                        ? "bg-[#000091] text-white"
+                        : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                    }`}
+                  >
+                    Casseroles uniquement
+                  </button>
+                  <button
+                    onClick={() => handleModeChange(false)}
+                    className={`flex-1 text-xs px-3 py-1.5 rounded transition-colors ${
+                      !casserolesOnly
+                        ? "bg-[#000091] text-white"
+                        : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                    }`}
+                  >
+                    Tous les maires
+                  </button>
+                </div>
               </div>
-              {REGIONS.map((r) => (
+
+              {/* Choix région */}
+              <div className="p-2">
+                <p className="text-xs font-semibold text-gray-600 px-2 py-1">Région</p>
                 <button
-                  key={r}
-                  onClick={() => handleRegionChange(r)}
+                  onClick={() => { handleRegionChange(""); setShowSettings(false) }}
                   className={`w-full text-left px-4 py-2 text-sm hover:bg-blue-50 transition-colors ${
-                    r === region ? "bg-blue-50 text-[#000091] font-medium" : "text-gray-700"
+                    !region ? "bg-blue-50 text-[#000091] font-medium" : "text-gray-700"
                   }`}
                 >
-                  {r}
-                  {r === detectedRegion && (
-                    <span className="ml-1 text-[10px] text-gray-400">(détectée)</span>
-                  )}
+                  Toute la France
                 </button>
-              ))}
+                {REGIONS.map((r) => (
+                  <button
+                    key={r}
+                    onClick={() => { handleRegionChange(r); setShowSettings(false) }}
+                    className={`w-full text-left px-4 py-2 text-sm hover:bg-blue-50 transition-colors ${
+                      r === region ? "bg-blue-50 text-[#000091] font-medium" : "text-gray-700"
+                    }`}
+                  >
+                    {r}
+                  </button>
+                ))}
+              </div>
             </div>
           )}
         </div>
