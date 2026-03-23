@@ -30,14 +30,16 @@ export function PersonnalitesClient({ personnalites, affaires }: Props) {
     return map
   }, [affaires])
 
+  const stripAccents = (s: string) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+
   const filtered = useMemo(() => {
     let result = personnalites
     if (search) {
-      const q = search.toLowerCase()
+      const q = stripAccents(search.toLowerCase())
       result = result.filter(
         (p) =>
-          p.nom_complet.toLowerCase().includes(q) ||
-          p.poste.toLowerCase().includes(q)
+          stripAccents(p.nom_complet.toLowerCase()).includes(q) ||
+          stripAccents(p.poste.toLowerCase()).includes(q)
       )
     }
     if (scoreFilter !== "tous") {
