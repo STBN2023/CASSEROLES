@@ -176,4 +176,16 @@
     color: #000091;
     background-color: #f5f5fe;
   }
+
+  /* Ticker défilant */
+  .ticker-scroll {
+    animation: ticker-slide 60s linear infinite;
+  }
+  .ticker-scroll:hover {
+    animation-play-state: paused;
+  }
+  @keyframes ticker-slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
 }

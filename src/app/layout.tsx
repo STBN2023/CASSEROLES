@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import "./globals.css"
 import Link from "next/link"
 import { getStats } from "@/lib/data"
+import TickerBanner from "@/components/ticker/TickerBanner"
 
 export const metadata: Metadata = {
   title: {
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr">
-      <body className="antialiased min-h-screen" style={{ background: "#f5f5fe" }}>
+      <body className="antialiased min-h-screen pb-10" style={{ background: "#f5f5fe" }}>
 
         {/* Lien d'accès rapide – accessibilité */}
         <a
@@ -108,6 +109,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
           </div>
         </footer>
+
+        {/* Bandeau défilant maires */}
+        <TickerBanner />
       </body>
     </html>
   )
