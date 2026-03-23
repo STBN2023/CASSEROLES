@@ -793,8 +793,18 @@ def sauvegarder(
                     "parti": elu["parti"],
                 })
 
+    # Optimiser elus.json : retirer champs inutilisés + mandats redondants (mono-mandat)
+    CHAMPS_A_SUPPRIMER = {"parti_brut", "date_naissance", "sexe"}
+    elus_slim = []
+    for elu in elus:
+        e = {k: v for k, v in elu.items() if k not in CHAMPS_A_SUPPRIMER}
+        # mandats redondant si un seul mandat (info déjà dans les champs racine)
+        if e.get("mandats") and len(e["mandats"]) <= 1:
+            del e["mandats"]
+        elus_slim.append(e)
+
     (output_dir / "elus.json").write_text(
-        json.dumps(elus, ensure_ascii=False, indent=2), encoding="utf-8"
+        json.dumps(elus_slim, ensure_ascii=False), encoding="utf-8"
     )
     (output_dir / "affaires.json").write_text(
         json.dumps(affaires_clean, ensure_ascii=False, indent=2), encoding="utf-8"
