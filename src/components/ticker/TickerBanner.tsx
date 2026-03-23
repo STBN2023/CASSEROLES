@@ -81,6 +81,9 @@ export default function TickerBanner() {
     localStorage.setItem("casseroles_ticker_mode", casseroles ? "casseroles" : "tous")
   }
 
+  // Durée proportionnelle au nombre d'éléments (2s par maire, min 15s, max 800s)
+  const duration = Math.max(15, Math.min(800, maires.length * 2))
+
   if (loading && maires.length === 0) return null
 
   const label = casserolesOnly
@@ -107,6 +110,7 @@ export default function TickerBanner() {
           <div
             ref={tickerRef}
             className="ticker-scroll flex items-center gap-6 h-full whitespace-nowrap absolute"
+            style={{ animationDuration: `${duration}s` }}
           >
             {maires.length > 0 ? (
               <>

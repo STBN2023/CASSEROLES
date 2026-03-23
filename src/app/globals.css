@@ -184,7 +184,8 @@
   100% { transform: translateX(-50%); }
 }
 .ticker-scroll {
-  animation: ticker-slide 800s linear infinite;
+  animation: ticker-slide linear infinite;
+  animation-duration: 60s; /* fallback, overridé par style inline */
 }
 .ticker-scroll:hover {
   animation-play-state: paused;
