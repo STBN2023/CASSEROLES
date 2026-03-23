@@ -133,13 +133,16 @@ export default function TickerBanner() {
                   <Link
                     key={`${m.id}-${i}`}
                     href={`/elus/${encodeURIComponent(m.id)}`}
-                    className="inline-flex items-center gap-1.5 text-xs hover:text-yellow-300 transition-colors no-underline text-white/90"
+                    className={`inline-flex items-center gap-1.5 text-xs hover:text-yellow-300 transition-colors no-underline ${m.score >= 3 ? "text-red-400 font-semibold" : "text-white/90"}`}
                   >
-                    <span className="font-medium">{m.prenom} {m.nom}</span>
+                    {m.score >= 3 && (
+                      <span className="bg-red-500 text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0">C</span>
+                    )}
+                    <span className={m.score >= 3 ? "font-bold" : "font-medium"}>{m.prenom} {m.nom}</span>
                     <span className="opacity-60">·</span>
-                    <span className="opacity-70">{m.territoire}</span>
-                    {m.score > 0 && (
-                      <span className={`text-[10px] ${m.score === 3 ? "text-red-300" : m.score === 2 ? "text-orange-300" : "text-yellow-300"}`}>
+                    <span className={m.score >= 3 ? "opacity-90" : "opacity-70"}>{m.territoire}</span>
+                    {m.score > 0 && m.score < 3 && (
+                      <span className={`text-[10px] ${m.score === 2 ? "text-orange-300" : "text-yellow-300"}`}>
                         {SCORE_DOTS[m.score]}
                       </span>
                     )}
