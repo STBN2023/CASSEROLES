@@ -127,7 +127,7 @@ export default async function FicheEluPage({ params }: Props) {
               rel="noopener noreferrer"
               className="text-xs text-[#000091] underline flex items-center gap-1"
             >
-              Fiche NosDéputés.fr ↗
+              {elu.source === "Personnalité" ? "Fiche Wikidata ↗" : "Fiche NosDéputés.fr ↗"}
             </a>
           )}
         </div>
@@ -237,21 +237,35 @@ export default async function FicheEluPage({ params }: Props) {
       {/* Sources */}
       <div className="text-xs text-gray-400 space-y-1 bg-gray-50 rounded-lg p-4">
         <p className="font-medium text-gray-500">Sources utilisées pour cette fiche</p>
-        <p>
-          Répertoire National des Élus (RNE) ·{" "}
-          <a href="https://www.data.gouv.fr/fr/datasets/repertoire-national-des-elus-1/" className="underline" target="_blank" rel="noopener noreferrer">
-            data.gouv.fr
-          </a>{" "}
-          · Licence Ouverte v2.0
-        </p>
-        {elu.url_source && (
+        {elu.source === "Personnalité" ? (
           <p>
-            NosDéputés.fr ·{" "}
-            <a href={elu.url_source} className="underline" target="_blank" rel="noopener noreferrer">
-              {elu.url_source}
-            </a>{" "}
-            · Licence ODbL
+            Wikidata ·{" "}
+            {elu.url_source && (
+              <a href={elu.url_source} className="underline" target="_blank" rel="noopener noreferrer">
+                {elu.url_source}
+              </a>
+            )}
+            {" "}· Licence CC0
           </p>
+        ) : (
+          <>
+            <p>
+              Répertoire National des Élus (RNE) ·{" "}
+              <a href="https://www.data.gouv.fr/fr/datasets/repertoire-national-des-elus-1/" className="underline" target="_blank" rel="noopener noreferrer">
+                data.gouv.fr
+              </a>{" "}
+              · Licence Ouverte v2.0
+            </p>
+            {elu.url_source && (
+              <p>
+                NosDéputés.fr ·{" "}
+                <a href={elu.url_source} className="underline" target="_blank" rel="noopener noreferrer">
+                  {elu.url_source}
+                </a>{" "}
+                · Licence ODbL
+              </p>
+            )}
+          </>
         )}
         <p className="italic mt-2">
           Aucune information ici ne préjuge de la culpabilité des personnes concernées.

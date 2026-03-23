@@ -657,6 +657,105 @@ def construire_personnalites(affaires_orphelines: list[dict]) -> list[dict]:
     return result
 
 
+def convertir_personnalites_en_elus(personnalites: list[dict], photos_dir: str = "") -> list[dict]:
+    """
+    Convertit les personnalités politiques (hors RNE) en entrées Elu
+    pour qu'elles apparaissent dans la liste unifiée des élus.
+    """
+    # Postes non-politiques à exclure
+    _POSTES_EXCLUS = {
+        "ambassadeur", "police", "gendarmerie", "fonctionnaire",
+        "employé", "entreprise", "dirigeant", "association", "justice",
+        "militaire", "préfet",
+    }
+
+    def _est_politique(poste: str) -> bool:
+        poste_low = poste.lower()
+        return not any(exclu in poste_low for exclu in _POSTES_EXCLUS)
+
+    def _extraire_prenom_nom(nom_complet: str) -> tuple[str, str]:
+        """Extrait prénom et nom depuis un nom complet."""
+        parts = nom_complet.strip().split()
+        if len(parts) >= 2:
+            # Heuristique : le dernier mot (ou les derniers mots en majuscules) = nom
+            # Ex: "Jean-Luc Mélenchon" → ("Jean-Luc", "Mélenchon")
+            # Ex: "Jean-Marie LE PEN" → ("Jean-Marie", "LE PEN")
+            nom_parts = []
+            prenom_parts = []
+            found_nom = False
+            for i, part in enumerate(reversed(parts)):
+                if i == 0 or part.isupper():
+                    nom_parts.insert(0, part)
+                    found_nom = True
+                else:
+                    prenom_parts = parts[:len(parts) - len(nom_parts)]
+                    break
+            if not prenom_parts:
+                # Fallback : premier mot = prénom, reste = nom
+                prenom_parts = [parts[0]]
+                nom_parts = parts[1:]
+            return " ".join(prenom_parts), " ".join(nom_parts)
+        return nom_complet, ""
+
+    def _poste_vers_niveau(poste: str) -> str:
+        poste_low = poste.lower()
+        if any(k in poste_low for k in ("député", "sénateur", "sénatrice", "ministre", "président")):
+            return "national"
+        if any(k in poste_low for k in ("européen", "eurodéputé")):
+            return "europeen"
+        return "local"
+
+    import os
+    result = []
+    for p in personnalites:
+        poste = p.get("poste", "")
+        # Filtrer les non-politiques
+        if poste and not _est_politique(poste):
+            continue
+
+        prenom, nom = _extraire_prenom_nom(p["nom_complet"])
+        wikidata_id = p.get("wikidata_id", "")
+
+        # Photo disponible ?
+        url_photo = ""
+        if photos_dir and wikidata_id:
+            photo_path = os.path.join(photos_dir, f"{wikidata_id}.jpg")
+            if os.path.exists(photo_path):
+                url_photo = f"/data/photos/{wikidata_id}.jpg"
+
+        url_source = ""
+        if wikidata_id:
+            url_source = f"https://www.wikidata.org/wiki/{wikidata_id}"
+
+        result.append({
+            "id": p["id"],
+            "nom": nom.upper() if nom else prenom.upper(),
+            "prenom": prenom if nom else "",
+            "sexe": "",
+            "date_naissance": "",
+            "parti": "",  # sera enrichi dans run.py via wd_parti_index
+            "parti_brut": "",
+            "niveau": _poste_vers_niveau(poste),
+            "mandat": poste or "Personnalité politique",
+            "territoire": "",
+            "code_departement": "",
+            "source": "Personnalité",
+            "affaires": p["affaires"],
+            "score": p["score"],
+            "nb_affaires": p["nb_affaires"],
+            "url_photo": url_photo,
+            "url_source": url_source,
+            "mandats": [{
+                "type": poste or "Personnalité politique",
+                "territoire": "",
+                "code_departement": "",
+                "niveau": _poste_vers_niveau(poste),
+            }],
+        })
+
+    return result
+
+
 def sauvegarder(
     elus: list[dict],
     affaires: list[dict],

@@ -29,6 +29,11 @@ function getPartisData(): string[] {
 type SortKey = "nom" | "parti" | "niveau" | "score" | "nb_affaires"
 const VALID_SORT_KEYS: SortKey[] = ["nom", "parti", "niveau", "score", "nb_affaires"]
 
+/** Supprime les accents pour une recherche insensible aux diacritiques */
+function stripAccents(s: string): string {
+  return s.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+}
+
 export async function GET(request: NextRequest) {
   const params = request.nextUrl.searchParams
 
@@ -48,13 +53,13 @@ export async function GET(request: NextRequest) {
   let result = elus
 
   if (search) {
-    const q = search.toLowerCase()
+    const q = stripAccents(search.toLowerCase())
     result = result.filter(
       (e) =>
-        e.nom.toLowerCase().includes(q) ||
-        e.prenom.toLowerCase().includes(q) ||
-        e.parti.toLowerCase().includes(q) ||
-        e.territoire.toLowerCase().includes(q)
+        stripAccents(e.nom.toLowerCase()).includes(q) ||
+        stripAccents(e.prenom.toLowerCase()).includes(q) ||
+        stripAccents(e.parti.toLowerCase()).includes(q) ||
+        stripAccents(e.territoire.toLowerCase()).includes(q)
     )
   }
 

@@ -17,7 +17,7 @@ from sources.fetch_assemblee_nationale import fetch_hemicycle_an, build_hemicycl
 from sources.fetch_wikidata import fetch_politiques_condamnes
 from sources.fetch_gouvernement import fetch_gouvernement, set_photos_dir
 from sources.fetch_wikipedia_affaires import fetch_affaires_wikipedia
-from transform import joindre_affaires, enrichir_affaires_wikidata, calculer_stats, calculer_partis, construire_personnalites, sauvegarder, enrichir_gouvernement, dedupliquer_elus
+from transform import joindre_affaires, enrichir_affaires_wikidata, calculer_stats, calculer_partis, construire_personnalites, convertir_personnalites_en_elus, sauvegarder, enrichir_gouvernement, dedupliquer_elus
 
 OUTPUT_DIR = Path(__file__).parent.parent / "public" / "data"
 
@@ -198,6 +198,21 @@ def main():
 
     personnalites = construire_personnalites(affaires_orphelines)
     print(f"      → {len(personnalites)} personnalités politiques hors RNE")
+
+    # Convertir les personnalités en format Elu et les fusionner
+    photos_dir = str(OUTPUT_DIR / "photos")
+    perso_as_elus = convertir_personnalites_en_elus(personnalites, photos_dir)
+    # Enrichir le parti des personnalités via Wikidata
+    for elu_p in perso_as_elus:
+        key = normalise_nom(f"{elu_p['prenom']} {elu_p['nom']}")
+        parti_wd = wd_parti_index.get(key)
+        if parti_wd:
+            elu_p["parti"] = normalise_parti(parti_wd)
+            elu_p["parti_brut"] = f"Wikidata: {parti_wd}"
+        elif not elu_p["parti"]:
+            elu_p["parti"] = "Autre / Non renseigné"
+    elus.extend(perso_as_elus)
+    print(f"      → {len(perso_as_elus)} personnalités intégrées aux élus ({len(elus)} total)")
 
     stats = calculer_stats(elus, affaires)
     partis_data = calculer_partis(elus, affaires)
