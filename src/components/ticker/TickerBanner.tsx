@@ -114,9 +114,10 @@ export default function TickerBanner() {
       <div className="flex items-center h-10">
         {/* Label */}
         <div className="flex-shrink-0 px-3 text-xs font-semibold bg-[#000091] border-r border-white/20 h-full flex items-center gap-2">
-          <span className="hidden sm:inline">Maires {region}</span>
-          <span className="sm:hidden">Maires</span>
-          <span className="text-[10px] opacity-60">({maires.length})</span>
+          <span className="hidden lg:inline">Municipales 2026 — Maires élus en {region}</span>
+          <span className="hidden sm:inline lg:hidden">Municipales 2026 — {region}</span>
+          <span className="sm:hidden">Municipales 2026</span>
+          <span className="text-[10px] opacity-60 hidden sm:inline">({maires.length})</span>
         </div>
 
         {/* Ticker défilant */}
