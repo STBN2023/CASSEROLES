@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import "./globals.css"
 import Link from "next/link"
+import { Analytics } from "@vercel/analytics/next"
 import { getStats } from "@/lib/data"
 import TickerBanner from "@/components/ticker/TickerBanner"
 
@@ -112,6 +113,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         {/* Bandeau défilant maires */}
         <TickerBanner />
+        <Analytics />
       </body>
     </html>
   )
